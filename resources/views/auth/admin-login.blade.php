@@ -9,7 +9,7 @@
 	<link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet" />
 	<!-- libreria para alertas -->
 	<link href="{{ asset('css/alertify.css') }}" type="text/css" rel="stylesheet" />
-
+	
 </head>
 <body>
 	
@@ -52,6 +52,7 @@
 	<script src="{{ asset('js/axios.min.js') }}" type="text/javascript"></script>
 	<!-- importar alertas -->
 	<script src="{{ asset('js/alertify.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/sweetalert2.all.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 	
@@ -86,6 +87,16 @@
 				}); 
 			}
 		}
+
+		function mensajeFire(tipo, mensaje){
+				Swal.fire({          
+				type: tipo,
+				title: mensaje,
+				showConfirmButton: false,
+				timer: 1500
+			});
+		}
+            
 
 		function verificar(response){
 			
