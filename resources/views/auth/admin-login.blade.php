@@ -3,7 +3,11 @@
 <head>
 	<title>Acceso</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Alcaldia Municipal de Metapan">
+    <meta name="author" content="Incanatoit.com">
+    <meta name="keyword" content="metapan, alcaldia metapan">
 
 	<!-- comprimido de librerias -->
 	<link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet" />
@@ -52,7 +56,6 @@
 	<script src="{{ asset('js/axios.min.js') }}" type="text/javascript"></script>
 	<!-- importar alertas -->
 	<script src="{{ asset('js/alertify.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('js/sweetalert2.all.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 	
@@ -68,16 +71,18 @@
 			formData.append('password', password);
 
 			var retorno = validaciones(usuario, password);
-
-			if(retorno){
-
+			
+			if(retorno){			
+			
 			// desactivar btnLogin
 			document.getElementById("btnLogin").disabled = true;   
 
 			axios.post('/admin', formData, {  
 				})
 				.then((response) => {	
+					// activar btnLogin
 					document.getElementById("btnLogin").disabled = false; 
+					// verificar respuesta
 					verificar(response);
 				})
 				.catch((error) => {
@@ -88,16 +93,7 @@
 			}
 		}
 
-		function mensajeFire(tipo, mensaje){
-				Swal.fire({          
-				type: tipo,
-				title: mensaje,
-				showConfirmButton: false,
-				timer: 1500
-			});
-		}
-            
-
+		// mensajes para verificar respuesta
 		function verificar(response){
 			
 			if(response.data.success == 0){  
@@ -113,6 +109,7 @@
 			}
 		}
 
+		// validaciones frontend
 		function validaciones(usuario, password){  
             if(usuario === ''){
                 alertify.error("El usuario es requerido...");

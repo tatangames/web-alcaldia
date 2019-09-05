@@ -16,4 +16,12 @@ class DashboardController extends Controller
     {
         return view('backend.index');
     }
+
+    public function getInicio(){
+        return view('backend.paginas.inicio');
+    }
+
+    public function getSlider(){
+        return view('backend.paginas.slider');
+    }
 }

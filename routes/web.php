@@ -21,6 +21,8 @@ Route::post('/admin', 'Auth\LoginController@login');
 // proteger rutas con middleware AccessAdmin.php
 Route::group(['middleware' => 'auth', 'auth.admin'], function () { 
     Route::get('/admin/dashboard', 'DashboardController@index')->name('admin.dashboard');
+    Route::get('/admin/inicio', 'DashboardController@getInicio')->name('admin.inicio');
+    Route::get('/admin/slider', 'DashboardController@getSlider')->name('admin.slider');
 });
 
 
