@@ -26,14 +26,16 @@ Route::group(['middleware' => 'auth', 'auth.admin'], function () {
     Route::get('/admin/listarprograma', 'DashboardController@getPrograma')->name('admin.ListarPrograma');
     Route::get('/admin/listarservicio', 'DashboardController@getServicio')->name('admin.ListarServicio');
     Route::get('/admin/listarnoticia', 'DashboardController@getNoticia')->name('admin.Noticia');*/
-});
 
+});
 Route::get('/admin/dashboard', 'DashboardController@index')->name('admin.dashboard');
 Route::get('/admin/inicio', 'DashboardController@getInicio')->name('admin.inicio');
 Route::get('/admin/slider', 'DashboardController@getSlider')->name('admin.slider');
 Route::get('/admin/listarprograma', 'DashboardController@getPrograma')->name('admin.ListarPrograma');
 Route::get('/admin/listarservicio', 'DashboardController@getServicio')->name('admin.ListarServicio');
 Route::get('/admin/listarnoticia', 'DashboardController@getNoticia')->name('admin.Noticia');
+Route::get('/admin/logout', 'Auth\LoginController@logout');
+
 
 
 

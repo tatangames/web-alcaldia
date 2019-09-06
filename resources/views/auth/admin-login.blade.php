@@ -11,42 +11,26 @@
 	<!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-
 	<!-- comprimido de librerias -->
 	<link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet" />
 	<!-- libreria para alertas -->
 	<link href="{{ asset('css/alertify.css') }}" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{asset('css/styleLogin.css')}}">
-
-
-
 </head>
 
 <body style="background-image: url({{ asset('images/fondo3.jpg') }}  );">
-
-
-	<div class="alert alert-danger alert-dismissible fade show" role="alert" id="notificacion" style="width: 400px;  position: relative; top:10px; left: 70%">
-		<strong>Error</strong>Texto de mensaje
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="document.getElementById(`notificacion`).style.display = 'none'">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
-
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
+
 			<div class="card " style="height: 450px;">
 				<div class="card-header text-center">
 
 					<div class="row text-center d-flex" style="position: relative; top: -70px;">
 						<div class="col-md-12">
-							<img src="{{ asset('images/LOGO_2_-_copia.png') }}" width="100" height="130px" srcset=""
-								style="">
+							<img src="{{ asset('images/LOGO_2_-_copia.png') }}" width="100" height="130px" srcset="">
 						</div>
 					</div>
 					<h3 style="position: relative; top: -10px;">Alcald&iacute;a Municipal</h3>
-
-
 				</div>
 				<div class="card-body" ">
 				<form class=" validate-form">
@@ -55,7 +39,6 @@
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input id="usuario" type="text" class="form-control" required placeholder="Usuario">
-
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -93,22 +76,18 @@
 			formData.append('password', password);
 
 			var retorno = validaciones(usuario, password);
-			
-			if(retorno){			
-			
-			// desactivar btnLogin
-			document.getElementById("btnLogin").disabled = true;   
 
-			axios.post('/admin', formData, {  
-				})
-				.then((response) => {	
-					// activar btnLogin
-					document.getElementById("btnLogin").disabled = false; 
-					// verificar respuesta
-					verificar(response);
+			if (retorno) {
+
+				// desactivar btnLogin
+				document.getElementById("btnLogin").disabled = true;
+
+				axios.post('/admin', formData, {
 				})
 					.then((response) => {
+						// activar btnLogin
 						document.getElementById("btnLogin").disabled = false;
+						// verificar respuesta
 						verificar(response);
 					})
 					.catch((error) => {
@@ -120,13 +99,14 @@
 		}
 
 		// mensajes para verificar respuesta
-		function verificar(response){
-			
-			if(response.data.success == 0){  
+		function verificar(response) {
+
+			if (response.data.success == 0) {
 				alertify.error("Validacion incorrecta...");
 			} else if (response.data.success == 1) {
 				window.location = response.data.message
 			} else if (response.data.success == 2) {
+				alertify.error("Contraseña incorrecta");
 			} else if (response.data.success == 3) {
 				alertify.error("Usuario no encontrado...");
 			} else {
@@ -135,26 +115,22 @@
 		}
 
 		// validaciones frontend
-		function validaciones(usuario, password){  
-            if(usuario === ''){
-                alertify.error("El usuario es requerido...");
-                return false;
-            }
-            else if(password === ''){
-                alertify.error("La contraseña es requerida...");
-                return false;
-            }           
-            else{
-                return true;
-            }
-        } 
+		function validaciones(usuario, password) {			
+			if (usuario === '') {
+				alertify.error("El usuario es requerido...");
+				return false;
+			}
+			else if (password === '') {
+				alertify.error("La contraseña es requerida...");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
 
-	
+
 	</script>
-
-
-
-
 </body>
 
 </html>
