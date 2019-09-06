@@ -4,6 +4,7 @@
 <head>
 	<title>Acceso</title>
 	<meta charset="UTF-8">
+<<<<<<< HEAD
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -12,15 +13,26 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+=======
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Alcaldia Municipal de Metapan">
+    <meta name="author" content="Incanatoit.com">
+    <meta name="keyword" content="metapan, alcaldia metapan">
+>>>>>>> 7406869914c7b257b1de17334462a63ece0050ac
 
 	<!-- comprimido de librerias -->
 	<link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet" />
 	<!-- libreria para alertas -->
 	<link href="{{ asset('css/alertify.css') }}" type="text/css" rel="stylesheet" />
+<<<<<<< HEAD
 	<link rel="stylesheet" href="{{asset('css/styleLogin.css')}}">
 
 
 
+=======
+	
+>>>>>>> 7406869914c7b257b1de17334462a63ece0050ac
 </head>
 
 <body style="background-image: url({{ asset('images/fondo3.jpg') }}  );">
@@ -93,6 +105,7 @@
 			formData.append('password', password);
 
 			var retorno = validaciones(usuario, password);
+<<<<<<< HEAD
 
 			if (retorno) {
 
@@ -100,6 +113,21 @@
 				document.getElementById("btnLogin").disabled = true;
 
 				axios.post('/admin', formData, {
+=======
+			
+			if(retorno){			
+			
+			// desactivar btnLogin
+			document.getElementById("btnLogin").disabled = true;   
+
+			axios.post('/admin', formData, {  
+				})
+				.then((response) => {	
+					// activar btnLogin
+					document.getElementById("btnLogin").disabled = false; 
+					// verificar respuesta
+					verificar(response);
+>>>>>>> 7406869914c7b257b1de17334462a63ece0050ac
 				})
 					.then((response) => {
 						document.getElementById("btnLogin").disabled = false;
@@ -113,9 +141,16 @@
 			}
 		}
 
+<<<<<<< HEAD
 		function verificar(response) {
 
 			if (response.data.success == 0) {
+=======
+		// mensajes para verificar respuesta
+		function verificar(response){
+			
+			if(response.data.success == 0){  
+>>>>>>> 7406869914c7b257b1de17334462a63ece0050ac
 				alertify.error("Validacion incorrecta...");
 			} else if (response.data.success == 1) {
 				window.location = response.data.message
@@ -127,6 +162,7 @@
 			}
 		}
 
+<<<<<<< HEAD
 		function validaciones(usuario, password) {
 			if (usuario === '') {
 				alertify.error("El usuario es requerido...");
@@ -140,6 +176,28 @@
 				return true;
 			}
 		}
+=======
+		// validaciones frontend
+		function validaciones(usuario, password){  
+            if(usuario === ''){
+                alertify.error("El usuario es requerido...");
+                return false;
+            }
+            else if(password === ''){
+                alertify.error("La contraseña es requerida...");
+                return false;
+            }           
+            else{
+                return true;
+            }
+        } 
+
+	
+	</script>
+
+
+
+>>>>>>> 7406869914c7b257b1de17334462a63ece0050ac
 
 
 	</script>
