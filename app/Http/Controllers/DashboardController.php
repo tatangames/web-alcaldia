@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Slider;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -21,8 +22,9 @@ class DashboardController extends Controller
         return view('backend.paginas.inicio');
     }
 
-    public function getSlider(){
-        return view('backend.paginas.ListarSlider');
+    public function getSlider(){        
+        $slider = Slider::all()->sortBy('posicion');
+        return view('backend.paginas.ListarSlider',compact('slider'));
     }
     public function getPrograma(){
         return view('backend.paginas.ListarPrograma');
