@@ -22,7 +22,7 @@ class DashboardController extends Controller
     }
 
     public function getSlider(){
-        return view('backend.paginas.slider');
+        return view('backend.paginas.ListarSlider');
     }
     public function getPrograma(){
         return view('backend.paginas.ListarPrograma');
