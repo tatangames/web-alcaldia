@@ -44,6 +44,34 @@
               </p>
             </a>
           </li>
+          
+          <li class="nav-item">
+            <a href="{{ url('/admin/listarprograma') }}" target="frameprincipal" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Programas Municipales
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/admin/listarservicio') }}" target="frameprincipal" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Servicios Municipales
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/admin/listarnoticia') }}" target="frameprincipal" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Noticias
+                
+              </p>
+            </a>
+          </li>
 
          
         </ul>
