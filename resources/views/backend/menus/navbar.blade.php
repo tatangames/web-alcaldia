@@ -15,6 +15,16 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+    <!-- Messages Dropdown Menu -->
+    <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">Cuenta
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">Editar Usuario </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{ url('/admin/logout')  }}" class="dropdown-item">Cerrar Sesión</a>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
             class="fas fa-th-large"></i></a>
