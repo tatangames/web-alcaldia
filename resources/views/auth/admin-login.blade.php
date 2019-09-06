@@ -1,64 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<title>Acceso</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 
 	<!-- comprimido de librerias -->
 	<link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet" />
 	<!-- libreria para alertas -->
 	<link href="{{ asset('css/alertify.css') }}" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="{{asset('css/styleLogin.css')}}">
+
+
 
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url({{ asset('images/bg-01.jpg') }}  );">
-			<div class="wrap-login100">
 
-				<form class="login100-form validate-form">
-				<!-- token de seguridad para ataques tipo csrf -->
-				@csrf
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
-					</span>
+<body style="background-image: url({{ asset('images/fondo3.jpg') }}  );">
 
-					<span class="login100-form-title p-b-34 p-t-27">
-						Sitio Web
-					</span>
 
-					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="text" id="usuario" name="usurio" placeholder="Usuario">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+	<div class="alert alert-danger alert-dismissible fade show" role="alert" id="notificacion" style="width: 400px;  position: relative; top:10px; left: 70%">
+		<strong>Error</strong>Texto de mensaje
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="document.getElementById(`notificacion`).style.display = 'none'">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+	<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card " style="height: 450px;">
+				<div class="card-header text-center">
+
+					<div class="row text-center d-flex" style="position: relative; top: -70px;">
+						<div class="col-md-12">
+							<img src="{{ asset('images/LOGO_2_-_copia.png') }}" width="100" height="130px" srcset=""
+								style="">
+						</div>
 					</div>
+					<h3 style="position: relative; top: -10px;">Alcald&iacute;a Municipal</h3>
 
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="password" id="password" name="password" placeholder="Contraseña">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
 
-					<div class="container-login100-form-btn">
-						<button id="btnLogin" onclick="login()" type="button" class="login100-form-btn">
-							Iniciar Sesión
-						</button>
+				</div>
+				<div class="card-body" ">
+				<form class=" validate-form">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input id="usuario" type="text" class="form-control" required placeholder="Usuario">
+
 					</div>
-				</form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input id="password" type="password" class="form-control" required placeholder="Contraseña">
+					</div>
+					<br><br>
+					<div class="form-group text-center">
+						<input type="button" value="Entrar" id="btnLogin" onclick="login()" class="btn  login_btn">
+					</div>
+					</form>
+				</div>
+
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- importar axios -->
 	<script src="{{ asset('js/axios.min.js') }}" type="text/javascript"></script>
 	<!-- importar alertas -->
 	<script src="{{ asset('js/alertify.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
-	
-		function login(){
 
-			var usuario = document.getElementById('usuario').value; 
-			var password = document.getElementById('password').value; 
+		function login() {
+
+			var usuario = document.getElementById('usuario').value;
+			var password = document.getElementById('password').value;
 
 
 			let me = this;
@@ -68,60 +94,55 @@
 
 			var retorno = validaciones(usuario, password);
 
-			if(retorno){
+			if (retorno) {
 
-			// desactivar btnLogin
-			document.getElementById("btnLogin").disabled = true;   
+				// desactivar btnLogin
+				document.getElementById("btnLogin").disabled = true;
 
-			axios.post('/admin', formData, {  
+				axios.post('/admin', formData, {
 				})
-				.then((response) => {	
-					document.getElementById("btnLogin").disabled = false; 
-					verificar(response);
-				})
-				.catch((error) => {
-					// activar btnLogin
-					document.getElementById("btnLogin").disabled = false;   
-					alertify.error("Error...");          
-				}); 
+					.then((response) => {
+						document.getElementById("btnLogin").disabled = false;
+						verificar(response);
+					})
+					.catch((error) => {
+						// activar btnLogin
+						document.getElementById("btnLogin").disabled = false;
+						alertify.error("Error...");
+					});
 			}
 		}
 
-		function verificar(response){
-			
-			if(response.data.success == 0){  
+		function verificar(response) {
+
+			if (response.data.success == 0) {
 				alertify.error("Validacion incorrecta...");
-			}else if(response.data.success == 1){
+			} else if (response.data.success == 1) {
 				window.location = response.data.message
-			}else if(response.data.success == 2){
-				alertify.error("Contraseña incorrecta...");
-			}else if(response.data.success == 3){
+			} else if (response.data.success == 2) {
+			} else if (response.data.success == 3) {
 				alertify.error("Usuario no encontrado...");
-			}else {
+			} else {
 				alertify.error("Error");
 			}
 		}
 
-		function validaciones(usuario, password){  
-            if(usuario === ''){
-                alertify.error("El usuario es requerido...");
-                return false;
-            }
-            else if(password === ''){
-                alertify.error("La contraseña es requerida...");
-                return false;
-            }           
-            else{
-                return true;
-            }
-        } 
+		function validaciones(usuario, password) {
+			if (usuario === '') {
+				alertify.error("El usuario es requerido...");
+				return false;
+			}
+			else if (password === '') {
+				alertify.error("La contraseña es requerida...");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
 
-	
+
 	</script>
-
-
-
-
-
 </body>
+
 </html>
