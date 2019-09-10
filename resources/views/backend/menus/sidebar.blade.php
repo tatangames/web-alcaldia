@@ -33,7 +33,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('/admin/slider') }}" target="frameprincipal" class="nav-link">
+            <a href="{{ url('/admin/listarslider') }}" target="frameprincipal" class="nav-link">
               <i class="nav-icon fas fa-images"></i>
               <p>
                 Slider
