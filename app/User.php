@@ -29,18 +29,4 @@ class User extends Authenticatable
     ];
 
 
-    // relacion muchos a muchos
-    public function roles(){
-        return $this->belongsToMany('App\Role');
-    }
-
-    // si tiene muchos roles
-    public function hasAnyRoles($roles){
-        return null !== $this->roles()->whereIn('usuario', $roles)->first();
-    }
-
-    // si tiene solo un rol
-    public function hasAnyRole($role){
-        return null !== $this->roles()->where('usuario', $role)->first();
-    }
 }
