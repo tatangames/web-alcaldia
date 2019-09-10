@@ -51,28 +51,9 @@ Route::get('admin/tablas/programa', 'ProgramasController@getProgramaTabla');
 Route::get('admin/logout', 'Auth\LoginController@logout');
 
 
+Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUsuario');
+Route::post('/admin/actualizar-usuario','UserController@update');
 
 
-//Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-
-// solo accedera a esta ruta los no autenticados
-//Route::get('/', 'Auth\LoginController@showLoginForm')->middleware('guest')->name('inicio');
-
-//Route::post('login', 'Auth\LoginController@login')->name('login');
-//Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 
-///Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-
-/* 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/admin', function(){
-    return 'eres un administrador';
-})->middleware(['auth', 'auth.admin']);*/

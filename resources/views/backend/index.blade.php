@@ -10,28 +10,33 @@
 	<!-- libreria estilos adminlte3 -->
     <link href="{{ asset('css/backend/adminlte3/adminlte.min.css') }}" type="text/css" rel="stylesheet" />  
     <!-- Google Font: Source Sans Pro -->
+<<<<<<< HEAD
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">	
 	
 	
+=======
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />  
+
+>>>>>>> 0c4b7129c81c4cf90d96904ec27e4ce90abb12f8
 </head>
 <body class="hold-transition sidebar-mini">
     
-<div class="wrapper">
+<div class="wrapper" >
    @include("backend.menus.navbar")
    @include("backend.menus.sidebar")
 		
-   <div class="content-wrapper">  
+   <div class="content-wrapper" style=" background-color: #fff;">  
       <!-- pantalla inicial que carga -->
-      <iframe style="width: 100%; resize: initial; overflow: hidden; min-height:88vh" frameborder="0"  scrolling="" id="frameprincipal" src="{{ url('/admin/inicio') }}" name="frameprincipal"> 
-    </iframe>
-  </div> 
-
-
+      <iframe style="width: 100%; resize: initial; overflow: hidden; min-height: 83vh" frameborder="0"  scrolling="" id="frameprincipal" src="{{ url('/admin/inicio') }}" name="frameprincipal"> 
+      </iframe>
+   </div>
 
    @include("backend.menus.footer")
   
 </div>
-	
+
+
 	<!-- libreria jquery -->
 	<script src="{{ asset('plugins/jquery/jquery.min.js') }}" type="text/javascript"></script>
 	<!-- libreria bootstrap4 -->

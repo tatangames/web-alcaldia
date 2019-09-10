@@ -20,7 +20,7 @@
         <a class="nav-link" data-toggle="dropdown" href="#">Cuenta
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">Editar Usuario </a>
+          <a href="{{ url('/admin/editarusuario') }}" target="frameprincipal"  class="dropdown-item">Editar Usuario </a>
           <div class="dropdown-divider"></div>
           <a href="{{ url('/admin/logout')  }}" class="dropdown-item">Cerrar Sesión</a>
         </div>
