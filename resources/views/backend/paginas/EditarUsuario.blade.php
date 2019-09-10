@@ -85,7 +85,7 @@
          <!-- /.card-body -->
          <div class="card-footer">
                   <button type="button" class="btn btn-info float-right" onclick="actualizarUsuario();">Actualizar</button>
-                  <button type="button" class="btn btn-default">Cancelar</button>
+                  <button type="button" onclick="location.href='{{ url('/admin/inicio') }}'" class="btn btn-default">Cancelar</button>
                 </div>
                 <!-- /.card-footer -->
          </div>
