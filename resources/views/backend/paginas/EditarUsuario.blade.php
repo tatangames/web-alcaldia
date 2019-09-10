@@ -50,12 +50,12 @@
                 <!-- /.form-group -->
               
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password:</label>
+                    <label for="exampleInputPassword1">Contraseña:</label>
                     <input type="password" name="password2" id="password2" class="form-control"  value="">
                   </div>
                 <!-- /.form-group -->    
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password 2:</label>
+                    <label for="exampleInputPassword1">Repetir Contraseña:</label>
                     <input type="password" name="password" id="password" class="form-control"  value="">
                   </div>
                 <!-- /.form-group -->  
