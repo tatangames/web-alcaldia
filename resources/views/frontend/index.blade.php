@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +12,18 @@
 
 	<link href='images/LOGO_2_-_copia.png' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-    
-    
-    <link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
-    <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-   
-    
-   
+	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
+	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
 
-    
+
+
+
+
 </head>
+
 <body>
 
 
@@ -33,9 +35,7 @@
 				<div class="container-fluid ">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html"><img src="images/LOGO_2_-_copia.png" alt=""
-										srcset="" width="60px" height="80px;"
-										style="position: relative; top:-25px;"></a></div>
+							<div id="colorlib-logo"><a href="index.html"><img src="images/LOGO_2_-_copia.png" alt="" srcset="" width="60px" height="80px;" style="position: relative; top:-25px;"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -72,7 +72,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-				@foreach($slider as $dato)
+					@foreach($slider as $dato)
 					<li style="background-image: url('storage/slider/{{ $dato->fotografia }}');">
 						<div class="overlay"></div>
 						<div class="container-fluid">
@@ -86,7 +86,7 @@
 							</div>
 						</div>
 					</li>
-				@endforeach 
+					@endforeach
 				</ul>
 			</div>
 		</aside>
@@ -177,9 +177,8 @@
 			</div>
 		</div>
 		<!--End Programas Municipales-->
-
-		<!--Servicios municipales-->
-		<div id="colorlib-blog">
+			<!--Servicios municipales-->
+			<div id="colorlib-blog">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
@@ -188,58 +187,75 @@
 					</div>
 				</div>
 				<div class="blog-flex">
-					<div class="f-entry-img">
-						<div class="col-md-12 animate-box">
+					<div class="row">
+						<div class="col-md-6 animate-box">
 
 							<a href="blog.html" class="blog-post">
 								<span class="img" style="background-image: url(images/Slider/a1.jpg);"></span>
 								<div class="desc">
 									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
+									<span class="date"> a alcaldia de metapan santa ana, el salvador Centro America
+										Descripcion corta de ejemplo para el servicio proporcionado po</span>
 									</span>
 
 								</div>
 							</a>
 						</div>
-						<div class="col-md-12 animate-box">
+						<div class="col-md-6 animate-box">
 							<a href="blog.html" class="blog-post">
 								<span class="img" style="background-image: url(images/Slider/a5.jpg);"></span>
 								<div class="desc">
 									<h3>Nombre del servicio</h3>
 									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
+										la alcaldia de metapan santa ana, el salvador Centro America
 
-								</div>
-							</a>
-						</div>
-						<div class="col-md-12 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a4.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
+									</span>
 
 								</div>
 							</a>
 						</div>
 
 					</div>
-					<div class="f-entry-img">
-						<div class="col-md-12 animate-box">
+					<div class="row">
+						<div class="col-md-6 animate-box">
 
 							<a href="blog.html" class="blog-post">
 								<span class="img" style="background-image: url(images/Slider/a8.jpg);"></span>
 								<div class="desc">
 									<h3>Nombre del servicio</h3>
 									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
+										la alcaldia demetapan santa ana, el salvador Centro America</span>
 
 								</div>
 							</a>
 						</div>
-						<div class="col-md-12 animate-box">
+						<div class="col-md-6 animate-box">
+							<a href="blog.html" class="blog-post">
+								<span class="img" style="background-image: url(images/Slider/a2.jpg);"></span>
+								<div class="desc">
+									<h3>Nombre del servicio</h3>
+									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
+										la alcaldia demetapan santa ana, el salvador Centro America Descripcion corta de ejemplo para el servicio proporcionado por
+										la alcaldia demetapan santa ana, el salvador Centro America</span>
+
+								</div>
+							</a>
+						</div>					
+					</div>
+					<div class="row">
+						<div class="col-md-6 animate-box">
+
+							<a href="blog.html" class="blog-post">
+								<span class="img" style="background-image: url(images/Slider/a8.jpg);"></span>
+								<div class="desc">
+									<h3>Nombre del servicio</h3>
+									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
+										la alcaldia de  metapan santa ana, el salvador Centro America</span>
+
+								</div>
+							</a>
+						</div>
+						<div class="col-md-6 animate-box">
 							<a href="blog.html" class="blog-post">
 								<span class="img" style="background-image: url(images/Slider/a2.jpg);"></span>
 								<div class="desc">
@@ -250,20 +266,11 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-md-12 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a3.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
 					</div>
 
 				</div>
+
+
 			</div>
 		</div>
 		<!--End Servicios municipales-->
@@ -280,24 +287,21 @@
 			</div>
 			<div class="tour-wrap">
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a1.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a1.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 					<span class="desc">
 						<h2>Titulo</h2>
 						<span class="city">Fecha</span>
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a2.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a2.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 					<span class="desc">
 						<h2>Titulo</h2>
 						<span class="city">Fecha</span>
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a3.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a3.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 
 					<span class="desc">
 						<h2>Titulo</h2>
@@ -305,8 +309,7 @@
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a4.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a4.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 
 					<span class="desc">
 						<h2>Titulo </h2>
@@ -314,8 +317,7 @@
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a9.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a9.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 
 					<span class="desc">
 						<h2>Titulo </h2>
@@ -323,8 +325,7 @@
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a7.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a7.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 
 					<span class="desc">
 						<h2>Titulo </h2>
@@ -332,8 +333,7 @@
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a8.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a8.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 
 					<span class="desc">
 						<h2>Titulo</h2>
@@ -341,8 +341,7 @@
 					</span>
 				</a>
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a5.jpg);" data-toggle="modal"
-						data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url(images/Slider/a5.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 
 					<span class="desc">
 						<h2>Titulo</h2>
@@ -367,8 +366,7 @@
 						<div class="owl-carousel">
 							<div class="item">
 								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img"
-										style="background-image: url(images/Slider/a1.jpg);"></a>
+									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a1.jpg);"></a>
 									<!--Espacio para la categoria de la noticia si hubiera-->
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
@@ -381,8 +379,7 @@
 							</div>
 							<div class="item">
 								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img"
-										style="background-image: url(images/Slider/a8.jpg);"></a>
+									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a8.jpg);"></a>
 									<!--Espacio para la categoria de la noticia si hubiera-->
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
@@ -395,8 +392,7 @@
 							</div>
 							<div class="item">
 								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img"
-										style="background-image: url(images/Slider/a2.jpg);"></a>
+									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a2.jpg);"></a>
 									<!--Espacio para la categoria de la noticia si hubiera-->
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
@@ -419,9 +415,7 @@
 		<div class="container">
 			<div class="row-fluid animate-box">
 				<div class="col-md-12">
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.6524445684045!2d-89.45010788517732!3d14.33160978997424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6255b2d672ac0d%3A0x48fa2f8ae122a71d!2sAlcald%C3%ADa%20Municipal%20de%20Metap%C3%A1n!5e0!3m2!1ses!2ssv!4v1566837634061!5m2!1ses!2ssv"
-						width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.6524445684045!2d-89.45010788517732!3d14.33160978997424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6255b2d672ac0d%3A0x48fa2f8ae122a71d!2sAlcald%C3%ADa%20Municipal%20de%20Metap%C3%A1n!5e0!3m2!1ses!2ssv!4v1566837634061!5m2!1ses!2ssv" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 				</div>
 
 			</div>
@@ -443,8 +437,7 @@
 				</div>
 				<!--Pie de pagina -->
 				<div class="modal-footer justify-content-center">
-					<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4"
-						data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
 			<!--Fin Contenido-->
@@ -453,8 +446,7 @@
 	<!--Fin cuadro modal-->
 
 	<!--Imagen del footer-->
-	<div id="colorlib-subscribe" style="background-image: url(images/Slider/a5.jpg);"
-		data-stellar-background-ratio="0.5">
+	<div id="colorlib-subscribe" style="background-image: url(images/Slider/a5.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -485,8 +477,7 @@
 						<ul class="colorlib-social-icons">
 							<li><a href="https://www.facebook.com/AlcaldiadeMetapan/"><i class="icon-facebook"></i></a>
 							</li>
-							<i><a href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><i
-										class="icon-youtube"></i></a></i>
+							<i><a href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><i class="icon-youtube"></i></a></i>
 						</ul>
 					</p>
 				</div>
@@ -505,7 +496,9 @@
 					<p>
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;
-						<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados |
+						<script>
+							document.write(new Date().getFullYear());
+						</script> Todos los derechos reservados |
 						Alclad&iacute;a Municipal de Metap&aacute;n, Santa Ana, El Salvador.
 					</p>
 				</div>
@@ -515,18 +508,15 @@
 	</div>
 	<!--Icono subir-->
 	<div class="gototop js-top">
-		<a  class="js-gotop"><i class="icon-arrow-up2"></i></a>
+		<a class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>
 	<!--Fin icono sunbir-->
 
-    <script src="{{ asset('js/frontend.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/frontend.js') }}" type="text/javascript"></script>
 
 
 	<!--Metodo cuadro modal-->
-    <script type="text/javascript">
-    
-    
-
+	<script type="text/javascript">
 		function getPath(img) {
 			atributo = img.style.backgroundImage;
 			document.getElementById("imgModal").setAttribute("src", atributo.substr(5, atributo.length - 7))
@@ -535,7 +525,7 @@
 
 
 
-	
+
 
 </body>
 
