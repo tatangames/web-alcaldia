@@ -64,6 +64,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/programa'),
         ],
+        'servicio' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/servicio'),
+        ],
 
         'noticia' => [
             'driver' => 'local',

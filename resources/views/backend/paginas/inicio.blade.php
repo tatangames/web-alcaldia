@@ -63,7 +63,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+              <h3>{{ $conteoServicio }}</h3>
 
                 <p>Servicios Municipales</p>
               </div>

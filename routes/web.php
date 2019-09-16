@@ -57,7 +57,10 @@ Route::post('admin/agregar-noticia', 'NoticiaController@nuevaNoticia');
 // SERVICIO
 Route::get('admin/listarservicio', 'ServiciosController@index');
 Route::get('admin/tablas/servicio', 'ServiciosController@getServicioTabla'); 
-
+Route::post('admin/agregar-servicio', 'ServiciosController@nuevoServicio');
+Route::post('admin/informacion-servicio', 'ServiciosController@infoServicio');
+Route::post('admin/editar-servicio', 'ServiciosController@editarServicio');
+Route::post('admin/eliminar-servicio', 'ServiciosController@eliminarServicio');
 
 Route::get('admin/logout', 'Auth\LoginController@logout');
 
