@@ -163,7 +163,7 @@ class SliderController extends Controller
                     // quitar espacios vacios
                     $nombre = str_replace(' ', '_', $union);
                     
-                    // guardar imagen en disco, solo podra ser accedida por aplicacion, no por navegador
+                    // guardar imagen en disco
                     $extension = '.'.$request->imagen->getClientOriginalExtension();
                     $nombreFoto = $nombre.$extension;
                     $avatar = $request->file('imagen'); 
@@ -172,21 +172,17 @@ class SliderController extends Controller
                     if($upload){
                         $imagenOld = $slider->fotografia; //nombre de imagen a borrar
                         
-                        if(Slider::where('idslider', '=', $request->idslider)->update(['nombreslider' => $request->descripcion, 
-                        'posicion' => $request->posicion, 'fotografia' => $nombreFoto])){
+                        Slider::where('idslider', '=', $request->idslider)->update(['nombreslider' => $request->descripcion, 
+                        'posicion' => $request->posicion, 'fotografia' => $nombreFoto]);
                             
-                            if(Storage::disk('slider')->exists($imagenOld)){
-                                Storage::disk('slider')->delete($imagenOld);                                
-                            }
+                        if(Storage::disk('slider')->exists($imagenOld)){
+                            Storage::disk('slider')->delete($imagenOld);                                
+                        }
 
-                            return [
-                            'success' => 1 // datos guardados correctamente
-                            ];
-                        }else{
-                            return [
-                            'success' => 2 // error al guardar los datos
-                            ];
-                        }       
+                        return [
+                        'success' => 1 // datos guardados correctamente
+                        ];                       
+                          
                     }else{
                         return [
                             'success' => 3 // imagen no se subio
@@ -194,16 +190,12 @@ class SliderController extends Controller
                     }
                 }else{ // guardar solo datos
                 
-                    if(Slider::where('idslider', '=', $request->idslider)->update(['nombreslider' => $request->descripcion, 
-                                                                                   'posicion' => $request->posicion])){
-                        return [
-                            'success' => 1 // datos guardados correctamente
-                        ];
-                    }else{
-                        return [
-                            'success' => 2 // error al guardar los datos
-                        ];
-                    }
+                Slider::where('idslider', '=', $request->idslider)->update(['nombreslider' => $request->descripcion, 
+                                                                                   'posicion' => $request->posicion]);
+                return [
+                   'success' => 1 // datos guardados correctamente
+                ];
+                    
                 }
             }else{
                 return [
@@ -266,7 +258,7 @@ class SliderController extends Controller
                 }
                 
                 $slider = new Slider();
-                $slider->nombreSlider = $request->descripcion;
+                $slider->nombreslider = $request->descripcion;
                 $slider->estado = '1';
                 $slider->posicion = $posicion;
                 $slider->fotografia = $nombreFoto;

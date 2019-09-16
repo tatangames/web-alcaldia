@@ -19,8 +19,7 @@
                   <td>{{ $dato->nombreslider }}</td>
                   <td>{{ $dato->posicion }}</td>                
                   <td><center><img alt="Slider" src="{{ url('storage/slider/'.$dato->fotografia) }}" width="150px" height="150px" /></center></td> 
-            
-                  
+                              
                   <td>
                     <button type="button" class="btn btn-info btn-xs" onclick="abrirModalEditar({{ $dato->idslider }})">
                     <i class="fas fa-pencil-alt" title="Editar"></i>&nbsp; Editar

@@ -20,6 +20,8 @@ class DashboardController extends Controller
 
     public function getInicio(){
         return view('backend.paginas.inicio');
+
+
     }
 
   

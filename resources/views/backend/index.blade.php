@@ -10,15 +10,9 @@
 	<!-- libreria estilos adminlte3 -->
     <link href="{{ asset('css/backend/adminlte3/adminlte.min.css') }}" type="text/css" rel="stylesheet" />  
     <!-- Google Font: Source Sans Pro -->
-<<<<<<< HEAD
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">	
 	
 	
-=======
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	<link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />  
-
->>>>>>> 0c4b7129c81c4cf90d96904ec27e4ce90abb12f8
 </head>
 <body class="hold-transition sidebar-mini">
     
@@ -35,7 +29,6 @@
    @include("backend.menus.footer")
   
 </div>
-
 
 	<!-- libreria jquery -->
 	<script src="{{ asset('plugins/jquery/jquery.min.js') }}" type="text/javascript"></script>

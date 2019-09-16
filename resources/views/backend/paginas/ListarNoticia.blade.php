@@ -1,121 +1,440 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<title>Acceso</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- libreria fuentes adminlte3 -->
-	<link href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}" type="text/css" rel="stylesheet" />
-	<!-- libreria estilos adminlte3 -->
-    <link href="{{ asset('css/backend/adminlte3/adminlte.min.css') }}" type="text/css" rel="stylesheet" />  
-    <!-- Google Font: Source Sans Pro -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	
-	<link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />  
-	
-</head>
-  <body class="hold-transition sidebar-mini">
-    
+@extends('backend.menus.indexSuperior')
  
+@section('content-admin-css')
+    <!-- data table -->
+    <link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" /> 
+    <!-- mensaje toast -->
+    <link href="{{ asset('plugins/toastr/toastr.min.css') }}" type="text/css" rel="stylesheet" />
 
-   <!-- Content Wrapper. Contains page content -->
- 
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Noticias</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+@stop
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  SLIDERRRR
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
+<section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2"> 
+        <div class="col-sm-3">
+          <h1>Lista de Noticias</h1>
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
+          <i class="fas fa-pencil-alt"></i>
+            Nueva Noticia
+        </button>
+      </div>
     </div>
-    <!-- /.content -->
+  </section>
+
+   
+    <!-- seccion tabla -->
+    <div id="tablaDatatable"></div>  
  
-  <!-- /.content-wrapper -->
+    <!-- modal agregar nueva noticia -->
+    <div class="modal fade" id="modalAgregar">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Nueva Noticia</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formulario">
+              <div class="card-body">
+                <div class="row">  
+                  <div class="col-md-6"> 
+                    <!-- nombre programa -->
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre noticia">
+                    </div>
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border"  style="margin-top:10px">
+                          <h3 class="box-title">Descripción Corta</h3>
+                        </div>
+                        <!-- editor 1 -->
+                      <textarea id="editor1" name="editor1"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Logo</label>
+                      <!-- imagen -->
+                      <input type="file" class="form-control" id="logo" name="logo[]" multiple accept="image/jpeg, image/jpg" />
+                    </div>
+
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border" style="margin-top:10px">
+                          <h3 class="box-title">Descripción Larga</h3>
+                        </div>
+                        <!-- editor 2-->
+                      <textarea id="editor2" name="editor2"></textarea>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarNoticia()">Guardar</button>
+          </div>
+          
+        </div>        
+      </div>      
+    </div>
 
 
-	
-	<!-- libreria jquery -->
-	<script src="{{ asset('plugins/jquery/jquery.min.js') }}" type="text/javascript"></script>
-	<!-- libreria bootstrap4 -->
-	<script src="{{ asset('plugins/bootstrap/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
-	<!-- libreria adminlte3 -->
-	<script src="{{ asset('js/backend/adminlte3/adminlte.min.js') }}" type="text/javascript"></script>
+	 <!-- modal editar programa -->
+   <div class="modal fade" id="modalEditar">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Editar Programa</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formularioU">
+              <div class="card-body">
+                <div class="row">  
+                  <div class="col-md-6"> 
+                    <!-- nombre programa -->
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="hidden" id="idU"/> <!-- id del programa-->      
+                      <input type="text" class="form-control" id="nombreU" name="nombreU" placeholder="Nombre programa">
+                    </div>
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border"  style="margin-top:10px">
+                          <h3 class="box-title">Descripción Corta</h3>
+                        </div>
+                        <!-- editor 3 -->
+                      <textarea id="editor3" name="editor3"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Logo</label>
+                      <!-- imagen -->
+                      <input type="file" class="form-control" id="logoU" name="logoU" accept="image/x-png" />
+                    </div>
 
-	@yield('content-admin-js')
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border" style="margin-top:10px">
+                          <h3 class="box-title">Descripción Larga</h3>
+                        </div>
+                        <!-- editor 4-->
+                      <textarea id="editor4" name="editor4"></textarea>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btnGuardarU" onclick="editarPrograma()">Guardar</button>
+          </div>          
+        </div>        
+      </div>      
+    </div>
 
-</body>
-</html>
+  <!-- modal eliminar -->
+ 
+  <div class="modal fade" id="modalEliminar">
+      <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Eliminar Slider</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+                  <div class="modal-body">
+                    <input type="hidden" id="idD"/> <!-- id del slider para borrarlo-->                           
+                  </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>             
+              <button class="btn btn-danger" id="btnBorrar" type="button" onclick="borrarPrograma()">Borrar</button>
+          </div>
+        </div>      
+      </div>        
+  </div>
 
+  @extends('backend.menus.indexInferior')
+
+  @section('content-admin-js')	
+
+  <!-- data table -->
+  <script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('js/axios.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/loading/loadingOverlay.js') }}" type="text/javascript"></script>
+
+  <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+
+  <script>
+        CKEDITOR.replace('editor1'); //descripcion corta
+        CKEDITOR.replace('editor2'); //descripcion larga
+      //  CKEDITOR.replace('editor3'); //descripcion corta
+      //  CKEDITOR.replace('editor4'); //descripcion larga
+    </script>
+
+ <!-- incluir tabla --> 
+  <script type="text/javascript">	
+    $(document).ready(function(){    
+      var ruta = "{{ URL::to('admin/tablas/noticia') }}";   
+      $('#tablaDatatable').load(ruta);
+    });
+ </script>
+
+
+  <script>
+
+  function abrirModalAgregar(){
+      document.getElementById("formulario").reset();
+      CKEDITOR.instances['editor1'].setData('');
+      CKEDITOR.instances['editor2'].setData('');              
+      $('#modalAgregar').modal('show'); 
+    }
+
+      // guardar nuevo slider
+  function guardarNoticia(){
+
+      var nombre = document.getElementById('nombre').value;
+      var editor1 = CKEDITOR.instances.editor1.getData();  
+      var editor2 = CKEDITOR.instances.editor2.getData();
+      var imagen = document.getElementById('logo'); 
+
+      var retorno = validaciones(nombre, editor1, editor2, imagen);
+
+      if(retorno){ 
+
+        var spinHandle = loadingOverlay().activate(); // activar loading
+        document.getElementById("btnGuardar").disabled = true;
+              
+        let formData = new FormData();
+        formData.append('nombre', nombre);
+        formData.append('descorta', editor1);
+        formData.append('deslarga', editor2);
+        //formData.append('imagen', imagen.files[0]);
+
+        var files = imagen.files;
+        for (var i = 0; i < files.length; i++){
+            var file = files[i];
+
+            // permitir cualquier tipo de imagen, pero backend valida
+            if (!file.type.match('image/jpeg|image/png|image/jpeg')){
+              continue;
+            }
+
+            // Add the file to the request.
+            formData.append('imagen[]', file, file.name);
+        }
+
+
+
+
+        axios.post('/admin/agregar-noticia', formData, {  
+          })
+          .then((response) => {	
+            loadingOverlay().cancel(spinHandle); // cerrar loading            
+            document.getElementById("btnGuardar").disabled = false; //habilitar boton          
+           
+            //mensajeResponse(response);
+            console.log(response);
+          })
+          .catch((error) => {
+            document.getElementById("btnGuardar").disabled = false;     
+            loadingOverlay().cancel(spinHandle); // cerrar loading   
+            toastr.error('Error', 'Datos incorrectos!');               
+        }); 
+      } 
+  }
+
+  // mensaje cuando guardamos slider
+  function mensajeResponse(valor){
+    if(valor.data.success == 1){
+      toastr.success('Guardado', 'Se ha creado nuevo Programa!')
+      $('#modalAgregar').modal('hide');             
+      var ruta = "{{ URL::to('admin/tablas/programa') }}";   
+      $('#tablaDatatable').load(ruta);
+    }else if(valor.data.success == 2){
+      toastr.error('Error', 'Datos no guardados!');
+    }else if(valor.data.success == 3){
+      toastr.error('Error', 'No se guardo la imagen!');
+    }else{
+      // error en validacion en servidor
+      toastr.error('Error', 'Datos incorrectos!');
+    }
+  }
+    
+    // validar antes de agregar programa
+  function validaciones(nombre, editor1, editor2, imgFile){            
+      if(imgFile.files && imgFile.files[0]){
+        
+      }else{
+          toastr.error('Error', 'Agregar una imagen!');
+          return false;
+      }
+      
+      if(nombre === ''){
+          toastr.error('Error', 'Agregar nombre de programa!');
+          return false;
+      }
+      else if(editor1 === ''){
+          toastr.error('Error', 'Agregar descripción corta!');
+          return false;
+      }
+      else if(editor2 === ''){
+          toastr.error('Error', 'Agregar descripción larga!');
+          return false;
+      }
+      else{
+          return true;
+      }
+  } 
+
+
+  // abre el modal para editar el programa
+  function abrirModalEditar(id){
+    document.getElementById("formularioU").reset();   
+    spinHandle = loadingOverlay().activate();
+    axios.post('/admin/informacion-programa',{
+      'id': id  
+        })
+        .then((response) => {	
+          loadingOverlay().cancel(spinHandle); // cerrar loading
+          if(response.data.success = 1){
+         
+            $('#modalEditar').modal('show');
+            $('#idU').val(response.data.programa.idprograma);
+            $('#nombreU').val(response.data.programa.nombreprograma);    
+            CKEDITOR.instances['editor3'].setData(response.data.programa.descorta);
+            CKEDITOR.instances['editor4'].setData(response.data.programa.deslarga);
+          }else{ 
+            toastr.error('Error', 'Programa no encontrado'); 
+          }
+        })
+        .catch((error) => {
+          loadingOverlay().cancel(spinHandle); // cerrar loading
+          toastr.error('Error');    
+    });
+  }
+
+  // editar programa
+  function editarPrograma(){
+            
+      var id = document.getElementById('idU').value;
+      var nombre = document.getElementById('nombreU').value;
+      var editor3 = CKEDITOR.instances.editor3.getData();  
+      var editor4 = CKEDITOR.instances.editor4.getData();
+      var imagen = document.getElementById('logoU'); 
+      
+      // validacion
+      var retorno = validacionesEditar(nombre, editor3, editor4);
+    
+      if(retorno){
+          var spinHandle = loadingOverlay().activate(); // activar loading
+          document.getElementById("btnGuardarU").disabled = true;
+          
+          var formData = new FormData();
+          formData.append('idprograma', id);
+          formData.append('nombre', nombre);
+          formData.append('descorta', editor3);
+          formData.append('deslarga', editor4);
+          formData.append('imagen', imagen.files[0]);
+  
+          axios.post('/admin/editar-programa', formData, {        
+          })
+          .then((response) => {	
+
+            document.getElementById("btnGuardarU").disabled = false;
+            loadingOverlay().cancel(spinHandle); // cerrar loading
+            mostrarMensajeEditar(response);
+           
+          })
+          .catch((error) => {
+            document.getElementById("btnGuardarU").disabled = false;  
+            loadingOverlay().cancel(spinHandle); // cerrar loading
+            toastr.error('Error');             
+        }); 
+      }            
+  }
+        
+  // mensajes segun el servidor
+  function mostrarMensajeEditar(valor) {          
+      if (valor.data.success == 1) { 
+          $('#modalEditar').modal('hide');             
+          var ruta = "{{ URL::to('admin/tablas/programa') }}";   
+          $('#tablaDatatable').load(ruta);   
+          toastr.success('Guardado', 'Programa actualizado');    
+      } else if (valor.data.success == 2) { 
+          toastr.error('Error', 'No se pudo cargar la imagen'); 
+      } else if (valor.data.success == 3) { 
+          toastr.error('Error', 'Programa no encontrado'); 
+      } else {
+          toastr.error('Error'); 
+      }
+  }
+        
+  // validar antes de agregar
+  function validacionesEditar(nombre, editor3, editor4){
+      
+      if(nombre === ''){
+          toastr.error('Error', 'Agregar nombre de programa'); 
+          return false;
+      }
+      else if(editor3 === ''){
+          toastr.error('Error', 'Agregar descripción corta'); 
+          return false;
+      }
+      else if(editor4 === ''){
+          toastr.error('Error', 'Agregar descripción larga'); 
+          return false;
+      }
+      else{
+          return true;
+      }
+  } 
+
+  // abre el modal para eliminar slider
+  function abrirModalEliminar(id){     
+    $('#modalEliminar').modal('show');
+    $('#idD').val(id);    
+  }
+
+  // enviar peticion para borrar el slider
+  function borrarPrograma(){
+    id = document.getElementById("idD").value;
+    spinHandle = loadingOverlay().activate(); // mostrar loading
+
+    axios.post('/admin/eliminar-programa',{
+      'id': id  
+        })
+        .then((response) => {	
+          loadingOverlay().cancel(spinHandle); // cerrar loading
+
+          if(response.data.success == 1){
+            toastr.success('Programa Eliminado!')
+            $('#modalEliminar').modal('hide');   
+            var ruta = "{{ URL::to('admin/tablas/programa') }}";   
+            $('#tablaDatatable').load(ruta);
+          }else{
+            toastr.error('Error', 'No se pudo eliminar el Programa');  
+          }           
+        })
+        .catch((error) => {
+          loadingOverlay().cancel(spinHandle); // cerrar loading   
+          toastr.error('Error');               
+    });
+  }
+
+
+
+  </script>
+
+
+
+@stop
