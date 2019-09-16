@@ -48,7 +48,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $conteoPrograma }}</h3>
 
                 <p>Porgramas Municipales</p>
               </div>

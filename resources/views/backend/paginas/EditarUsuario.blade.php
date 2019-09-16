@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
         <form class="form-horizontal" id="form1">
-        <div class="card card-default">
+        <div class="card card-info">
           <div class="card-header">
             <h3 class="card-title">Formulario de datos de Usuario</h3>
 

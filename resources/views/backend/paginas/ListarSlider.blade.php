@@ -10,22 +10,51 @@
 
 @stop
 
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-2">
-          <h1>Lista de Slider</h1>
-        </div>
-        <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <h1>Listar Slider</h1>
+          </div>
+          <div class="col-sm-2">
+          <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
           <i class="fas fa-pencil-alt"></i>
             Nuevo Slider
         </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
    
   <!-- seccion frame -->
-  <div id="tablaDatatable"></div>
+  <section class="content">
+      <div class="container-fluid">
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Tabla de Slider</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+			    <div id="tablaDatatable"></div>
+			  </div>
+			  <!-- /.col-md-6 -->
+			</div>
+			<!-- /.row -->
+		  </div>
+		  <!-- /.card-body -->
+		</div>
+		<!-- /.card -->
+	  </div>
+	  <!-- /.container-fluid -->
+	</section>
+	<!-- /.section -->
 
   <!-- modal agregar nuevo slider -->
   <div class="modal fade" id="modalAgregar">
