@@ -5,6 +5,9 @@
     <link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" /> 
     <!-- mensaje toast -->
     <link href="{{ asset('plugins/toastr/toastr.min.css') }}" type="text/css" rel="stylesheet" />
+
+    
+
 @stop
 
 <section class="content-header">
@@ -199,7 +202,6 @@
 
         var spinHandle = loadingOverlay().activate();
 
-        let me = this;
         document.getElementById("btnGuardar").disabled = true;
               
         let formData = new FormData();
@@ -216,6 +218,7 @@
             mensajeResponse(response);
           })
           .catch((error) => {
+            document.getElementById("btnGuardar").disabled = false;  
             loadingOverlay().cancel(spinHandle); // cerrar loading   
             toastr.error('Error', 'Datos incorrectos!');               
           }); 
@@ -229,8 +232,6 @@
         $('#modalAgregar').modal('hide');             
         var ruta = "{{ URL::to('admin/tablas/slider') }}";   
         $('#tablaDatatable').load(ruta);
-      }else if(valor.data.success == 2){
-        toastr.error('Error', 'Datos no guardados!');
       }else if(valor.data.success == 3){
         toastr.error('Error', 'No se guardo la imagen!');
       }else{
@@ -301,10 +302,10 @@
             mensajesEditar(response);
           })
           .catch((error) => {
+            document.getElementById("btnGuardarU").disabled = false;  
             loadingOverlay().cancel(spinHandle); // cerrar loading
-            toastr.error('Error');  
-            console.log(error);  
-      }); 
+            toastr.error('Error');             
+       }); 
       }
     }
 
@@ -315,8 +316,6 @@
         $('#modalEditar').modal('hide');             
         var ruta = "{{ URL::to('admin/tablas/slider') }}";   
         $('#tablaDatatable').load(ruta);
-      }else if(valor.data.success == 2){
-        toastr.error('Error', 'Datos no guardados!');
       }else if(valor.data.success == 3){
         toastr.error('Error', 'No se guardo la imagen!');
       }else if(valor.data.success == 4){

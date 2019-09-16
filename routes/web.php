@@ -20,11 +20,7 @@ Route::post('admin', 'Auth\LoginController@login');
 
 // proteger rutas con middleware AccessAdmin.php
 Route::group(['middleware' => 'auth', 'auth.admin'], function () { 
-    /*Route::get('/admin/dashboard', 'DashboardController@index')->name('admin.dashboard');
-    Route::get('/admin/inicio', 'DashboardController@getInicio')->name('admin.inicio');
-    Route::get('/admin/slider', 'DashboardController@getSlider')->name('admin.slider');
-    Route::get('/admin/listarservicio', 'DashboardController@getServicio')->name('admin.ListarServicio');
-    Route::get('/admin/listarnoticia', 'DashboardController@getNoticia')->name('admin.Noticia');*/
+ 
 
 });
 Route::get('admin/dashboard', 'DashboardController@index')->name('admin.dashboard');
@@ -32,7 +28,6 @@ Route::get('admin/inicio', 'DashboardController@getInicio')->name('admin.inicio'
 
 
 Route::get('admin/listarservicio', 'DashboardController@getServicio')->name('admin.ListarServicio');
-Route::get('admin/listarnoticia', 'DashboardController@getNoticia')->name('admin.Noticia');
 
 // SLIDER
 
@@ -46,6 +41,18 @@ Route::post('admin/eliminar-slider', 'SliderController@eliminarSlider');
 // PROGRAMA
 Route::get('admin/listarprograma', 'ProgramasController@index');
 Route::get('admin/tablas/programa', 'ProgramasController@getProgramaTabla'); 
+Route::post('admin/agregar-programa', 'ProgramasController@nuevoPrograma');
+Route::post('admin/informacion-programa', 'ProgramasController@infoPrograma');
+Route::post('admin/editar-programa', 'ProgramasController@editarPrograma');
+Route::post('admin/eliminar-programa', 'ProgramasController@eliminarPrograma');
+
+
+// NOTICIA
+Route::get('admin/listarnoticia', 'NoticiaController@index');
+Route::get('admin/tablas/noticia', 'NoticiaController@getNoticiaTabla'); 
+Route::post('admin/agregar-noticia', 'NoticiaController@nuevaNoticia');
+
+
 
 // SERVICIO
 Route::get('admin/listarservicio', 'ServiciosController@index');
