@@ -6,9 +6,6 @@
     <!-- mensaje toast -->
     <link href="{{ asset('plugins/toastr/toastr.min.css') }}" type="text/css" rel="stylesheet" />
 
-
-
-
 @stop
 
   <section class="content-header">
@@ -44,17 +41,146 @@
               <div class="col-md-12">
 			    <div id="tablaDatatable"></div>
 			  </div>
-			  <!-- /.col-md-6 -->
 			</div>
-			<!-- /.row -->
 		  </div>
-		  <!-- /.card-body -->
 		</div>
-		<!-- /.card -->
 	  </div>
-	  <!-- /.container-fluid -->
-	</section>
-	<!-- /.section -->
+  </section>
+     
+    <!-- modal agregar nueva noticia -->
+    <div class="modal fade" id="modalAgregar">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Nueva Noticia</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formulario">
+              <div class="card-body">
+                <div class="row">  
+                  <div class="col-md-6"> 
+                    <!-- nombre programa -->
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre noticia">
+                    </div>
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border"  style="margin-top:10px">
+                          <h3 class="box-title">Descripción Corta</h3>
+                        </div>
+                        <!-- editor 1 -->
+                      <textarea id="editor1" name="editor1"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Logo</label>
+                      <!-- imagen -->
+                      <input type="file" class="form-control" id="logo" name="logo[]" multiple accept="image/jpeg, image/jpg" />
+                    </div>
+
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border" style="margin-top:10px">
+                          <h3 class="box-title">Descripción Larga</h3>
+                        </div>
+                        <!-- editor 2-->
+                      <textarea id="editor2" name="editor2"></textarea>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarNoticia()">Guardar</button>
+          </div>
+          
+        </div>        
+      </div>      
+    </div>
+
+
+	 <!-- modal editar programa -->
+   <div class="modal fade" id="modalEditar">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Editar Programa</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formularioU">
+              <div class="card-body">
+                <div class="row">  
+                  <div class="col-md-6"> 
+                    <!-- nombre programa -->
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="hidden" id="idU"/> <!-- id del programa-->      
+                      <input type="text" class="form-control" id="nombreU" name="nombreU" placeholder="Nombre programa">
+                    </div>
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border"  style="margin-top:10px">
+                          <h3 class="box-title">Descripción Corta</h3>
+                        </div>
+                        <!-- editor 3 -->
+                      <textarea id="editor3" name="editor3"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Logo</label>
+                      <!-- imagen -->
+                      <input type="file" class="form-control" id="logoU" name="logoU" accept="image/x-png" />
+                    </div>
+
+                    <div class="box box-info">                                            
+                        <div class="box-header with-border" style="margin-top:10px">
+                          <h3 class="box-title">Descripción Larga</h3>
+                        </div>
+                        <!-- editor 4-->
+                      <textarea id="editor4" name="editor4"></textarea>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btnGuardarU" onclick="editarPrograma()">Guardar</button>
+          </div>          
+        </div>        
+      </div>      
+    </div>
+
+  <!-- modal eliminar -->
+ 
+  <div class="modal fade" id="modalEliminar">
+      <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Eliminar Slider</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+                  <div class="modal-body">
+                    <input type="hidden" id="idD"/> <!-- id del slider para borrarlo-->                           
+                  </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>             
+              <button class="btn btn-danger" id="btnBorrar" type="button" onclick="borrarPrograma()">Borrar</button>
+          </div>
+        </div>      
+      </div>        
+  </div>
 	
 @extends('backend.menus.indexInferior')
 
