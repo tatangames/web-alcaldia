@@ -1,122 +1,76 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<title>Acceso</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- libreria fuentes adminlte3 -->
-	<link href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}" type="text/css" rel="stylesheet" />
-	<!-- libreria estilos adminlte3 -->
-    <link href="{{ asset('css/backend/adminlte3/adminlte.min.css') }}" type="text/css" rel="stylesheet" />  
-    <!-- Google Font: Source Sans Pro -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	
-	<link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" />  
-	
-</head>
-  <body class="hold-transition sidebar-mini">
-    
+@extends('backend.menus.indexSuperior')
  
+@section('content-admin-css')
+    <!-- data table -->
+    <link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" /> 
+    <!-- mensaje toast -->
+    <link href="{{ asset('plugins/toastr/toastr.min.css') }}" type="text/css" rel="stylesheet" />
+@stop
 
-   <!-- Content Wrapper. Contains page content -->
- 
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
+  <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Servicios Municipales</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  SLIDERRRR
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
+          <div class="col-sm-3">
+            <h1>Lista de Servicios</h1>
           </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+          <div class="col-sm-2">
+          <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
+          <i class="fas fa-pencil-alt"></i>
+          Nuevo Servicio
+        </button>
           </div>
-          <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
- 
-  <!-- /.content-wrapper -->
+      </div>
+    </section>
+    <!-- seccion frame -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Servicios Municipales</h3>
 
-
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+			    <div id="tablaDatatable"></div>
+			  </div>
+			  <!-- /.col-md-6 -->
+			</div>
+			<!-- /.row -->
+		  </div>
+		  <!-- /.card-body -->
+		</div>
+		<!-- /.card -->
+	  </div>
+	  <!-- /.container-fluid -->
+	</section>
+	<!-- /.section -->
 	
-	<!-- libreria jquery -->
-	<script src="{{ asset('plugins/jquery/jquery.min.js') }}" type="text/javascript"></script>
-	<!-- libreria bootstrap4 -->
-	<script src="{{ asset('plugins/bootstrap/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
-	<!-- libreria adminlte3 -->
-  <script src="{{ asset('js/backend/adminlte3/adminlte.min.js') }}" type="text/javascript"></script>
+@extends('backend.menus.indexInferior')
+
+@section('content-admin-js')	
+
+  <!-- data table -->
+  <script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('js/axios.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/loading/loadingOverlay.js') }}" type="text/javascript"></script>
+  
+ <!-- incluir tabla --> 
+  <script type="text/javascript">	
+    $(document).ready(function(){
+    
+      var ruta = "{{ URL::to('admin/tablas/servicio') }}";   
+      $('#tablaDatatable').load(ruta);
+    });
+ </script>
 
 
-	@yield('content-admin-js')
-
-</body>
-</html>
-
+@stop

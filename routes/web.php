@@ -54,6 +54,10 @@ Route::post('admin/agregar-noticia', 'NoticiaController@nuevaNoticia');
 
 
 
+// SERVICIO
+Route::get('admin/listarservicio', 'ServiciosController@index');
+Route::get('admin/tablas/servicio', 'ServiciosController@getServicioTabla'); 
+
 
 Route::get('admin/logout', 'Auth\LoginController@logout');
 

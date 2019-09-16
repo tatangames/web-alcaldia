@@ -11,158 +11,52 @@
 
 @stop
 
-<section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2"> 
-        <div class="col-sm-3">
-          <h1>Lista de Programas</h1>
-        </div>
-        <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
+  <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-3">
+            <h1>Lista de Programas</h1>
+          </div>
+          <div class="col-sm-2">
+          <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
           <i class="fas fa-pencil-alt"></i>
-            Nuevo Programa
+          Nuevo Programa
         </button>
-      </div>
-    </div>
-  </section>
-   
-    <!-- seccion tabla -->
-    <div id="tablaDatatable"></div>  
- 
-    <!-- modal agregar nuevo programa -->
-    <div class="modal fade" id="modalAgregar">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Nuevo Programa</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
-          <div class="modal-body">
-            <form id="formulario">
-              <div class="card-body">
-                <div class="row">  
-                  <div class="col-md-6"> 
-                    <!-- nombre programa -->
-                    <div class="form-group">
-                      <label>Nombre</label>
-                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre programa">
-                    </div>
-                    <div class="box box-info">                                            
-                        <div class="box-header with-border"  style="margin-top:10px">
-                          <h3 class="box-title">Descripción Corta</h3>
-                        </div>
-                        <!-- editor 1 -->
-                      <textarea id="editor1" name="editor1"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Logo</label>
-                      <!-- imagen -->
-                      <input type="file" class="form-control" id="logo" name="logo" accept="image/x-png" />
-                    </div>
-
-                    <div class="box box-info">                                            
-                        <div class="box-header with-border" style="margin-top:10px">
-                          <h3 class="box-title">Descripción Larga</h3>
-                        </div>
-                        <!-- editor 2-->
-                      <textarea id="editor2" name="editor2"></textarea>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarPrograma()">Guardar</button>
-          </div>
-          
-        </div>        
-      </div>      
-    </div>
-
-
-	 <!-- modal editar programa -->
-   <div class="modal fade" id="modalEditar">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Editar Programa</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="formularioU">
-              <div class="card-body">
-                <div class="row">  
-                  <div class="col-md-6"> 
-                    <!-- nombre programa -->
-                    <div class="form-group">
-                      <label>Nombre</label>
-                      <input type="hidden" id="idU"/> <!-- id del programa-->      
-                      <input type="text" class="form-control" id="nombreU" name="nombreU" placeholder="Nombre programa">
-                    </div>
-                    <div class="box box-info">                                            
-                        <div class="box-header with-border"  style="margin-top:10px">
-                          <h3 class="box-title">Descripción Corta</h3>
-                        </div>
-                        <!-- editor 3 -->
-                      <textarea id="editor3" name="editor3"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Logo</label>
-                      <!-- imagen -->
-                      <input type="file" class="form-control" id="logoU" name="logoU" accept="image/x-png" />
-                    </div>
-
-                    <div class="box box-info">                                            
-                        <div class="box-header with-border" style="margin-top:10px">
-                          <h3 class="box-title">Descripción Larga</h3>
-                        </div>
-                        <!-- editor 4-->
-                      <textarea id="editor4" name="editor4"></textarea>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="btnGuardarU" onclick="editarPrograma()">Guardar</button>
-          </div>          
-        </div>        
-      </div>      
-    </div>
-
-    <!-- modal eliminar -->
-  <div class="modal fade" id="modalEliminar">
-    <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Eliminar Slider</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-                <div class="modal-body">
-                  <input type="hidden" id="idD"/> <!-- id del slider para borrarlo-->                           
-                </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>             
-            <button class="btn btn-danger" id="btnBorrar" type="button" onclick="borrarPrograma()">Borrar</button>
         </div>
-      </div>      
-    </div>        
-  </div>
+      </div>
+    </section>
+    <!-- seccion frame -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Programas Municipales</h3>
 
-  @extends('backend.menus.indexInferior')
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+			    <div id="tablaDatatable"></div>
+			  </div>
+			  <!-- /.col-md-6 -->
+			</div>
+			<!-- /.row -->
+		  </div>
+		  <!-- /.card-body -->
+		</div>
+		<!-- /.card -->
+	  </div>
+	  <!-- /.container-fluid -->
+	</section>
+	<!-- /.section -->
+	
+@extends('backend.menus.indexInferior')
 
   @section('content-admin-js')	
 

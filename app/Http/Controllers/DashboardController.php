@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Slider;
 use App\Programa;
+use App\Servicio;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -22,6 +23,7 @@ class DashboardController extends Controller
     public function getInicio(){
         $conteoSlider = Slider::count();
         $conteoPrograma = Programa::count();
-        return view('backend.paginas.inicio',compact(['conteoSlider','conteoPrograma']));
+        $conteoServicio = Servicio::count();
+        return view('backend.paginas.inicio',compact(['conteoSlider','conteoPrograma','conteoServicio']));
     }
 }
