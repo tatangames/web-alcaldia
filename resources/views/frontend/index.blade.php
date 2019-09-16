@@ -13,7 +13,7 @@
 	<link href='images/LOGO_2_-_copia.png' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
-	<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="{{asset('icomoon/iconmoon.ttf')}}">
 	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
@@ -59,7 +59,7 @@
 									</ul>
 								</li>
 								<li><a href="galeria.html">Galer&iacute;a</a></li>
-								<li><a href="contacto.html">Contacto</a></li>
+								<li><a onclick=" location.hash = #colorlib-footer;">Contacto</a></li>
 								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
 										transparencia</a></li>
 							</ul>
