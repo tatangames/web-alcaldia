@@ -30,7 +30,6 @@
   
 </div>
 
-
 	<!-- libreria jquery -->
 	<script src="{{ asset('plugins/jquery/jquery.min.js') }}" type="text/javascript"></script>
 	<!-- libreria bootstrap4 -->
