@@ -47,6 +47,10 @@ Route::post('admin/eliminar-slider', 'SliderController@eliminarSlider');
 Route::get('admin/listarprograma', 'ProgramasController@index');
 Route::get('admin/tablas/programa', 'ProgramasController@getProgramaTabla'); 
 
+// SERVICIO
+Route::get('admin/listarservicio', 'ServiciosController@index');
+Route::get('admin/tablas/servicio', 'ServiciosController@getServicioTabla'); 
+
 
 Route::get('admin/logout', 'Auth\LoginController@logout');
 
