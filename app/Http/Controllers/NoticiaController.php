@@ -61,9 +61,9 @@ class NoticiaController extends Controller
             }        
 
             
-            $imagen = $request->file('imagen');
+            $imagenarr = $request->file('imagen');
 
-            foreach($imagen as $img){
+            foreach($imagenarr as $img){
 
                 // generar nombre para la imagen
                 $cadena = Str::random(15);
@@ -71,22 +71,15 @@ class NoticiaController extends Controller
                 $union = $cadena.$tiempo;       
                 $nombre = str_replace(' ', '_', $union);
 
-                // guardar imagen en disco
-                $extension = '.'.$request->imagen->getClientOriginalExtension();
-                $nombreFoto = $nombre;
-                //$avatar = $request->file('imagen'); 
-                //$upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar)); 
-        
-               
+                //$fieldFile = $request->file($fieldName);
+               // $fieldFile = $img;
 
-                    //$image       = $request->file('image');
-                    $filename    = $img->getClientOriginalName();
-                
-                    $image_resize = Image::make($img->getRealPath());              
-                    $image_resize->resize(300, 300);
-                    //$image_resize->save(public_path('images/' .$filename));
-                    //$image_resize->Storage::disk('programa')->put($nombr, \File::get($avatar));
-                              //    save(public_path('images/' .$filename));
+                $mime= $img->getClientOriginalExtension();
+                $imageName = time().".".$mime;
+
+                $image = Image::make($img)->resize(350, 350);
+
+                Storage::disk('programa')->put($imageName, (string) $image->encode());
                
 
             }
