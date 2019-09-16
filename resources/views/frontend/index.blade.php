@@ -118,61 +118,29 @@
 					<div class="col-md-12 tex-center ">
 						<br><br>
 						<center>
-							<h1>Promamas municipales</h1>
+							<h1>Programas Municipales</h1>
 						</center>
-
 					</div>
 				</div>
-				<div class="row no-gutters">
-					<div class="col-md-3 animate-box text-center aside-stretch">
+				
+				<div class="row no-gutters" >
+					@foreach($programa as $dato2)
+					@if ($loop->first)
+        			<div class="col-md-3 animate-box text-center aside-stretch">	
+    				@else
+					<div class="col-md-3 animate-box text-center ">
+					@endif
 						<div class="services">
 							<a href="programa.html">
 								<span class="icon">
-									<i class="flaticon-around"></i>
+								<img src="storage/programa/{{ $dato2->logo }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
-								<h3>Programa 1</h3>
+								<h3>{{ $dato2->nombreprograma }}</h3>
 							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
-						</div>
-
-					</div>
-					<div class="col-md-3 animate-box text-center">
-						<div class="services">
-							<a href="programa.html">
-								<span class="icon">
-									<i class="flaticon-boat"></i>
-								</span>
-								<h3>Programa 2</h3>
-							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
+							{!! $dato2->descorta  !!} 
 						</div>
 					</div>
-					<div class="col-md-3 animate-box text-center">
-						<div class="services">
-							<a href="programa.html">
-								<span class="icon">
-									<i class="flaticon-car"></i>
-								</span>
-								<h3>Programa 3</h3>
-							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box text-center">
-						<div class="services">
-							<a href="programa.html">
-								<span class="icon">
-									<i class="flaticon-postcard"></i>
-								</span>
-								<h3>programa 4</h3>
-							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
@@ -188,86 +156,28 @@
 				</div>
 				<div class="blog-flex">
 					<div class="row">
+					@foreach($servicio as $dato3)
 						<div class="col-md-6 animate-box">
 
 							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a1.jpg);"></span>
+								<span class="img" style="background-image: url('storage/servicio/{{ $dato3->logo }}');"></span>
 								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> a alcaldia de metapan santa ana, el salvador Centro America
-										Descripcion corta de ejemplo para el servicio proporcionado po</span>
-									</span>
+									<h3>{{ $dato3->nombreservicio }}</h3>
+									<span>{!! $dato3->descorta  !!}</span>
 
 								</div>
 							</a>
 						</div>
-						<div class="col-md-6 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a5.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America
-
-									</span>
-
+							@if ($loop->iteration == 2)
+							    </div>
+								<div class="row">	
+    						@elseif($loop->iteration == 4)
 								</div>
-							</a>
-						</div>
+								<div class="row">	
+							@endif
+					@endforeach					
 
 					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box">
-
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a8.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia demetapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
-						<div class="col-md-6 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a2.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia demetapan santa ana, el salvador Centro America Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia demetapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>					
-					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box">
-
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a8.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de  metapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
-						<div class="col-md-6 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a2.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
-					</div>
-
 				</div>
 
 
