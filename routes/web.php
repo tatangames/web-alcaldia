@@ -51,6 +51,12 @@ Route::post('admin/eliminar-programa', 'ProgramasController@eliminarPrograma');
 Route::get('admin/listarnoticia', 'NoticiaController@index');
 Route::get('admin/tablas/noticia', 'NoticiaController@getNoticiaTabla'); 
 Route::post('admin/agregar-noticia', 'NoticiaController@nuevaNoticia');
+Route::post('admin/informacion-noticia', 'NoticiaController@infoNoticia');
+Route::post('admin/editar-noticia', 'NoticiaController@editarNoticia');
+Route::post('admin/eliminar-noticia', 'NoticiaController@eliminarNoticia');
+
+// FOTOGRAFIA
+Route::get('admin/tablas/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
 
 
 
