@@ -40,19 +40,25 @@
             <div class="row">
               <div class="col-md-12">
 			    <div id="tablaDatatable"></div>
-			  </div>
+          </div>
+			  <!-- /.col-md-6 -->
 			</div>
+			<!-- /.row -->
 		  </div>
+		  <!-- /.card-body -->
 		</div>
+		<!-- /.card -->
 	  </div>
-  </section>
+	  <!-- /.container-fluid -->
+	</section>
+	<!-- /.section -->
      
-    <!-- modal agregar nueva noticia -->
+    <!-- modal agregar nuevo programa-->
     <div class="modal fade" id="modalAgregar">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Nueva Noticia</h4>
+            <h4 class="modal-title">Nuevo Programa</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -65,7 +71,7 @@
                     <!-- nombre programa -->
                     <div class="form-group">
                       <label>Nombre</label>
-                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre noticia">
+                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Programa Municipal">
                     </div>
                     <div class="box box-info">                                            
                         <div class="box-header with-border"  style="margin-top:10px">
@@ -79,7 +85,7 @@
                     <div class="form-group">
                       <label>Logo</label>
                       <!-- imagen -->
-                      <input type="file" class="form-control" id="logo" name="logo[]" multiple accept="image/jpeg, image/jpg" />
+                      <input type="file" class="form-control" id="logo" name="logo" accept="image/x-png" />
                     </div>
 
                     <div class="box box-info">                                            
@@ -96,7 +102,7 @@
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarNoticia()">Guardar</button>
+            <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarPrograma()">Guardar</button>
           </div>
           
         </div>        
@@ -172,7 +178,7 @@
               </button>
             </div>
                   <div class="modal-body">
-                    <input type="hidden" id="idD"/> <!-- id del slider para borrarlo-->                           
+                    <input type="hidden" id="idD"/> <!-- id del programa para borrarlo-->                           
                   </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>             

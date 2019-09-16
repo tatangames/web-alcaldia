@@ -13,7 +13,7 @@
 	<link href='images/LOGO_2_-_copia.png' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
-	<link href="{{ asset('css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="{{asset('icomoon/iconmoon.ttf')}}">
 	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
@@ -59,7 +59,7 @@
 									</ul>
 								</li>
 								<li><a href="galeria.html">Galer&iacute;a</a></li>
-								<li><a href="contacto.html">Contacto</a></li>
+								<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
 								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
 										transparencia</a></li>
 							</ul>
@@ -475,9 +475,10 @@
 					<p></p>
 					<p>
 						<ul class="colorlib-social-icons">
-							<li><a href="https://www.facebook.com/AlcaldiadeMetapan/"><i class="icon-facebook"></i></a>
-							</li>
-							<i><a href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><i class="icon-youtube"></i></a></i>
+							<li><a href="https://www.facebook.com/AlcaldiadeMetapan/"><i class="icon-facebook"></i></a></li>				
+							<li><a href="https://twitter.com/Alcaldia_Met"><i class="icon-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/alcaldiademetapan/"><i class="icon-instagram"></i></a></li>
+							<li><a href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><i class="icon-youtube"></i></a></li>
 						</ul>
 					</p>
 				</div>
@@ -486,8 +487,8 @@
 					<ul class="colorlib-footer-links">
 						<li>Avenida Benjam&iacute;n Estrada Valiente<br> 1ra. Calle Poniente, Barrio San
 							Pedro,<br>Metap&aacute;n, Santa Ana</li>
-						<li><a href="tel://24027615">2402-7615</a></li>
-						<li><a href="tel://24027601">2402-7601</a></li>
+						<li><i class="icon-phone"></i><a href="tel://24027615">  2402-7615</a></li>
+						<li><i class="icon-phone"></i><a href="tel://24027601">  2402-7601</a></li>
 					</ul>
 				</div>
 			</div>
@@ -522,11 +523,14 @@
 			document.getElementById("imgModal").setAttribute("src", atributo.substr(5, atributo.length - 7))
 		}
 	</script>
-
-
-
-
-
+	<script>
+  		$(document).ready(function(){
+   			$(".ancla").click(function(evento){
+      		evento.preventDefault();
+      		var codigo = "#" + $(this).data("ancla");
+      		$("html,body").animate({scrollTop: $(codigo).offset().top}, 300);
+    		});
+  		});
+</script>
 </body>
-
 </html>

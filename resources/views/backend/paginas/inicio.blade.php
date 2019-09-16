@@ -50,7 +50,7 @@
               <div class="inner">
                 <h3>{{ $conteoPrograma }}</h3>
 
-                <p>Porgramas Municipales</p>
+                <p>Programas Municipales</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-paper"></i>
@@ -63,7 +63,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+              <h3>{{ $conteoServicio }}</h3>
 
                 <p>Servicios Municipales</p>
               </div>
