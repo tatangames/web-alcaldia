@@ -18,14 +18,23 @@ class FrontendController extends Controller
         $slider = Slider::all()->sortBy('posicion');
         $programa = Programa::all()->sortByDesc('idprograma')->take(4);
         $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
-        // $noticia = Noticia::all()->sortByDesc('fecha')->take(3);
         $fotografia = Fotografia::all()->sortByDesc('idfotografia')->take(8);
-        $noticia = DB::table('noticia')
-            ->join('fotografia', 'noticia.idnoticia', '=', 'fotografia.noticia_id')
-            ->select('noticia.*', 'fotografia.*')
-            ->groupBy('noticia.idnoticia')
-            ->get()->sortByDesc('noticia.fecha');
-            
+
+        foreach($fotografia  as $secciones){  
+            $noticia = Noticia::where('idnoticia', $secciones->noticia_id)->select('nombrenoticia', 'fecha')->first();        
+            $secciones->nombre = $noticia->nombrenoticia; 
+            $secciones->fecha = $noticia->fecha; 
+        } 
+        
+        $noticia = DB::table('noticia')        
+        ->select('noticia.*')       
+        ->get()->take(5);
+
+        foreach($noticia  as $secciones){  
+            $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();        
+            $secciones->nombrefotografia = $foto; 
+        }         
+       
         return view('frontend.index',compact(['slider','programa','servicio','noticia','fotografia']));
     }
 

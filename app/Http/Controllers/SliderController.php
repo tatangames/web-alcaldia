@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Fotografia;
+use App\Noticia;
 use App\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
