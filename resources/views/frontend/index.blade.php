@@ -10,17 +10,13 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
-	<link href='images/LOGO_2_-_copia.png' rel='shortcut icon' type='image/png'>
+	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{asset('icomoon/iconmoon.ttf')}}">
 	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-
-
-
-
 
 </head>
 
@@ -39,16 +35,14 @@
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li class="active"><a href="index.html">Inicio</a></li>
+								<li class="active"><a href="/">Inicio</a></li>
 								<li><a href="noticias.html">Noticias</a></li>
 								<li class="has-dropdown">
-									<a href="servicios.html">Servicios</a>
+									<a href="/servicios">Servicios</a>
 									<ul class="dropdown">
-										<li><a href="servicio.html">Servicio 1</a></li>
-										<li><a href="servicio.html">Servicio 2</a></li>
-										<li><a href="servicio.html">Servicio 3</a></li>
-										<li><a href="servicio.html">Servicio 4</a></li>
-										<li><a href="servicio.html">Servicio 5</a></li>
+									@foreach($servicio as $dato3)
+										<li><a href="/servicio/{{$dato3->nombreservicio}}">{{$dato3->nombreservicio}}</a></li>
+									@endforeach	
 									</ul>
 								</li>
 								<li class="has-dropdown">
@@ -131,7 +125,7 @@
 					<div class="col-md-3 animate-box text-center ">
 					@endif
 						<div class="services">
-							<a href="programa.html">
+							<a href="/programa/{{$dato2->nombreprograma}}">
 								<span class="icon">
 								<img src="storage/programa/{{ $dato2->logo }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
@@ -159,7 +153,7 @@
 					@foreach($servicio as $dato3)
 						<div class="col-md-6 animate-box">
 
-							<a href="blog.html" class="blog-post">
+							<a href="/servicio/{{ $dato3->nombreservicio }}" class="blog-post">
 								<span class="img" style="background-image: url('storage/servicio/{{ $dato3->logo }}');"></span>
 								<div class="desc">
 									<h3>{{ $dato3->nombreservicio }}</h3>

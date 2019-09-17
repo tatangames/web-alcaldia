@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Slider;
+
 use App\Programa;
 use App\Servicio;
+use App\Slider;
 use App\Noticia;
 use App\Fotografia;
 use Illuminate\Support\Facades\DB;
@@ -31,4 +32,6 @@ class FrontendController extends Controller
        
         return view('frontend.index',compact(['slider','programa','servicio','noticia','fotografia']));
     }
+
+
 }

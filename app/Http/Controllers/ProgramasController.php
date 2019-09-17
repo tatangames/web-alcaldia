@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Programa;
+use App\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -276,5 +277,12 @@ class ProgramasController extends Controller
             }
         }
     }
+
+    public function getProgramaByname($nombre){        
+        $programa =  DB::table('programas')->where('nombreprograma', $nombre)->first();
+        $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
+        return view('frontend.paginas.programa',compact(['programa','servicio']));
+    }
+
 
 }
