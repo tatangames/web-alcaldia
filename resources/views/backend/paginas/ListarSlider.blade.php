@@ -222,6 +222,8 @@
             loadingOverlay().cancel(spinHandle); // cerrar loading   
             toastr.error('Error', 'Datos incorrectos!');               
           }); 
+      }else{
+        console.log('eeee');
       }
     }
 
@@ -243,11 +245,19 @@
     // validacion si agregamos una imagen al agregar slider
     function validacion(imagen){
       if(imagen.files && imagen.files[0]){
-        return true;   
+        
       }else{
         toastr.error('Error', 'Agregar una imagen!');
         return false;
       }
+
+      if (!imagen.files[0].type.match('image/jpeg|image/jpeg')){      
+        toastr.error('Error', 'Formato de imagen permitido: .jpg, .jpeg');
+        return false;       
+      }        
+
+      return true;
+
     }
 
     // abre el modal para editar el slider
@@ -282,7 +292,7 @@
       posicion = document.getElementById("posicionU").value;
       idslider = document.getElementById("idU").value;
      
-      retorno = validacionU(posicion);
+      retorno = validacionU(posicion, imagen);
 
       if(retorno){
         document.getElementById("btnGuardarU").disabled = true;
@@ -327,16 +337,28 @@
     }
 
     // validacion para cuando se actualiza el slider
-    function validacionU(pos){
+    function validacionU(pos, imagen){
       if(pos.length == 0){
         toastr.error('Error', 'Posicion es requerida'); 
         return false;
       }else if(pos == 0){
         toastr.error('Error', 'Posicion no debe ser 0'); 
         return false;
-      }else{
-        return true;
       }
+
+      // verificar si mando imagen
+      if(imagen.files && imagen.files[0]){
+        
+        if (!imagen.files[0].type.match('image/jpeg|image/jpeg')){      
+          toastr.error('Error', 'Formato de imagen permitido: .jpg, .jpeg');
+          return false;       
+        }        
+
+      }else{
+        
+      }
+
+      return true;
     }
 
     // abre el modal para eliminar slider
