@@ -7,30 +7,20 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>             
                 <tr>
-                  <th style="width: 25%">Nombre</th>
-                  <th style="width: 25%">Fecha</th>                   
+                  <th style="width: 25%">Fotografia</th>                               
                   <th style="width: 15%">Opciones</th>            
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($noticia as $dato)
+                @foreach($fotografia as $dato)
                 <tr>
-                  <td>{{ $dato->nombrenoticia }}</td>
-                  <td>{{ $dato->fecha }}</td> 
-                  <td>
-                    <button type="button" class="btn btn-success btn-xs" onclick="abrirTablaFotografia({{ $dato->idnoticia }})">
-                    <i class="fas fa-camera" title="Editar"></i>&nbsp; Fotos
-                    </button>
-                    
-                    <button type="button" class="btn btn-info btn-xs" onclick="abrirModalEditar({{ $dato->idnoticia }})">
-                    <i class="fas fa-pencil-alt" title="Editar"></i>&nbsp; Editar
-                    </button>
+                    <td><center><img alt="Noticia" src="{{ url('storage/noticia/'.$dato->nombrefotografia) }}" width="150px" height="150px" /></center></td>                 
+                    <td>
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="abrirModalEliminar({{ $dato->idnoticia }})">
+                    <button type="button" class="btn btn-danger btn-xs" onclick="abrirModalEliminarFoto({{ $dato->idfotografia }})">
                     <i class="fas fa-trash-alt" title="Eliminar"></i>&nbsp; Eliminar
                     </button>
-
-                  </td>                    
+                    </td>                    
                 </tr>
                 @endforeach            
                 </tbody>            

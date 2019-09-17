@@ -200,20 +200,7 @@ class NoticiaController extends Controller
                 ];
             } 
 
-            if(Noticia::where('idnoticia', $request->id)->first()){
-                
-                // borrar informacion en tabla fotografia
-
-                /*$hayFilas = $borrador->getFilasFotografia($id);
-                if($hayFilas > 0){
-                    $ruta = $borrador->getNombreFotoRuta($id);
-                    // eliminar cada foto
-                    foreach($ruta as $datos){      
-                        if(file_exists($datos['foto'])){
-                            unlink($datos['foto']); 
-                        }  
-                    }    
-                }*/
+            if(Noticia::where('idnoticia', $request->id)->first()){              
 
                 // borrar imagen
                 $ruta = Fotografia::where('noticia_id', $request->id)->get();

@@ -105,6 +105,7 @@
                     <!-- editar noticia -->
                     <div class="form-group">
                       <label>Nombre</label>
+                      <input type="hidden" id="idU" name="idU">
                       <input type="text" class="form-control" id="nombreU" name="nombreU" placeholder="Nombre noticia">
                     </div>
                     <div class="box box-info">                                            
@@ -134,7 +135,7 @@
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="btnGuardar" onclick="editarNoticia()">Guardar</button>
+            <button type="button" class="btn btn-primary" id="btnGuardarU" onclick="editarNoticia()">Guardar</button>
           </div>          
         </div>        
       </div>      
@@ -156,6 +157,29 @@
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>             
               <button class="btn btn-danger" id="btnBorrar" type="button" onclick="borrarNoticia()">Borrar</button>
+          </div>
+        </div>      
+      </div>        
+  </div>
+
+
+   <!-- modal eliminar fotografia-->
+ 
+   <div class="modal fade" id="modalEliminarFoto">
+      <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Eliminar Fotografia</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+                  <div class="modal-body">
+                    <input type="hidden" id="idDF"/> <!-- id de la noticia para borrarlo-->                           
+                  </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>             
+              <button class="btn btn-danger" id="btnBorrar" type="button" onclick="borrarFotografia()">Borrar</button>
           </div>
         </div>      
       </div>        
@@ -189,14 +213,11 @@
     });
  </script>
 
-
   <script>
 
+  // abrir ventana para modificar fotografia
   function abrirTablaFotografia(id){
-    var ruta = "{{ URL::to('admin/tablas/fotografia/') }}";  
-   
-    console.log(ruta);
-   
+    window.location.href="{{ url('/admin/fotografia') }}/"+id;
   }
 
   function abrirModalAgregar(){
@@ -317,7 +338,7 @@
     spinHandle = loadingOverlay().activate();
     axios.post('/admin/informacion-noticia',{
       'id': id  
-        })
+        }) 
         .then((response) => {	
           loadingOverlay().cancel(spinHandle); // cerrar loading
           if(response.data.success = 1){
@@ -432,7 +453,6 @@
         })
         .then((response) => {	
 
-        console.log(response);
 
           loadingOverlay().cancel(spinHandle); // cerrar loading
 
@@ -451,6 +471,40 @@
     });
   }
 
+  // eliminar una foto de la noticia
+  function abrirModalEliminarFoto(id){
+    $('#modalEliminarFoto').modal('show');
+    $('#idDF').val(id);  
+  }
+
+  function borrarFotografia(){
+    id = document.getElementById("idDF").value;
+    spinHandle = loadingOverlay().activate(); // mostrar loading
+
+    axios.post('/admin/eliminar-fotografia',{
+      'id': id  
+        })
+        .then((response) => {	
+
+
+          loadingOverlay().cancel(spinHandle); // cerrar loading
+
+          if(response.data.success == 1){
+            toastr.success('Fotografia Eliminada!')
+
+
+            /*$('#modalEliminar').modal('hide');   
+            var ruta = "{{ URL::to('admin/tablas/noticia') }}";   
+            $('#tablaDatatable').load(ruta);*/
+          }else{
+            toastr.error('Error', 'No se pudo eliminar la fotografia');  
+          }         
+        })
+        .catch((error) => {
+          loadingOverlay().cancel(spinHandle); // cerrar loading   
+          toastr.error('Error');               
+    });
+  }
 
 
   </script>

@@ -218,7 +218,7 @@
 						@foreach($noticia as $dato5)
 							<div class="item">
 								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a1.jpg);"></a>
+									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
 									<!--Espacio para la categoria de la noticia si hubiera-->
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
