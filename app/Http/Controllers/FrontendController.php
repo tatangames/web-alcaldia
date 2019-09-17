@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Programa;
+use App\Servicio;
 use App\Slider;
 
 use Illuminate\Http\Request;

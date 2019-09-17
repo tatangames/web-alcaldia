@@ -124,55 +124,21 @@
 					</div>
 				</div>
 				<div class="row no-gutters">
-					<div class="col-md-3 animate-box text-center aside-stretch">
+				@foreach($programa as $dato)
+					<div class="col-md-3 animate-box text-center ">
 						<div class="services">
 							<a href="programa.html">
 								<span class="icon">
-									<i class="flaticon-around"></i>
+								<img alt="Slider" src="{{ url('storage/programa/'.$dato->logo) }}" width="150px" height="150px" />
 								</span>
-								<h3>Programa 1</h3>
+								<h3>{{ $dato->nombreprograma }}</h3>
 							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
+							 {{ print $dato->descorta}} 
 						</div>
 
 					</div>
-					<div class="col-md-3 animate-box text-center">
-						<div class="services">
-							<a href="programa.html">
-								<span class="icon">
-									<i class="flaticon-boat"></i>
-								</span>
-								<h3>Programa 2</h3>
-							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box text-center">
-						<div class="services">
-							<a href="programa.html">
-								<span class="icon">
-									<i class="flaticon-car"></i>
-								</span>
-								<h3>Programa 3</h3>
-							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box text-center">
-						<div class="services">
-							<a href="programa.html">
-								<span class="icon">
-									<i class="flaticon-postcard"></i>
-								</span>
-								<h3>programa 4</h3>
-							</a>
-							<p>Texto de descripcion para el programa en la pagina web de la alcaldia municipal de
-								metapan</p>
-						</div>
-					</div>
+					@endforeach	
+
 				</div>
 			</div>
 		</div>
