@@ -213,9 +213,7 @@
           .then((response) => {	
             loadingOverlay().cancel(spinHandle);            
             document.getElementById("btnGuardar").disabled = false;             
-           
-           console.log(response);
-            mensajeResponse(response);
+           mensajeResponse(response);
           })
           .catch((error) => {
             document.getElementById("btnGuardar").disabled = false;  
