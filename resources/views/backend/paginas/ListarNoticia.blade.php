@@ -7,25 +7,52 @@
     <link href="{{ asset('plugins/toastr/toastr.min.css') }}" type="text/css" rel="stylesheet" />
 
 @stop
-
 <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2"> 
-        <div class="col-sm-3">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-3">
           <h1>Lista de Noticias</h1>
-        </div>
-        <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
+          </div>
+          <div class="col-sm-2">
+          <button type="button" onclick="abrirModalAgregar()" class="btn btn-info btn-sm">
           <i class="fas fa-pencil-alt"></i>
             Nueva Noticia
         </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <!-- seccion frame -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Noticias</h3>
 
-   
-    <!-- seccion tabla -->
-    <div id="tablaDatatable"></div>  
- 
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+            </div>
+          </div>
+
+     <!-- /.card-header -->
+     <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+			    <div id="tablaDatatable"></div>
+          </div>
+			  <!-- /.col-md-6 -->
+			</div>
+			<!-- /.row -->
+		  </div>
+		  <!-- /.card-body -->
+		</div>
+		<!-- /.card -->
+	  </div>
+	  <!-- /.container-fluid -->
+	</section>
+	<!-- /.section -->
+
     <!-- modal agregar nueva noticia -->
     <div class="modal fade" id="modalAgregar">
         <div class="modal-dialog modal-xl">

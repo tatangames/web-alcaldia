@@ -214,8 +214,7 @@
             loadingOverlay().cancel(spinHandle); // cerrar loading
             //habilitar boton
             document.getElementById("btnGuardar").disabled = false;             
-           
-            mensajeResponse(response);
+           mensajeResponse(response);
           })
           .catch((error) => {
             document.getElementById("btnGuardar").disabled = false;  
