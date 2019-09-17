@@ -513,7 +513,6 @@
         })
         .then((response) => {	
 
-
           loadingOverlay().cancel(spinHandle); // cerrar loading
 
           if(response.data.success == 1){

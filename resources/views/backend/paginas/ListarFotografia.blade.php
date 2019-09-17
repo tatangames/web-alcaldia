@@ -177,10 +177,10 @@
           })
           .then((response) => {	
             loadingOverlay().cancel(spinHandle); // cerrar loading            
-            document.getElementById("btnGuardar").disabled = false; //habilitar boton          
-            
-            if(response.data.success == 1){
+            document.getElementById("btnGuardar").disabled = false; //habilitar boton  
              
+            if(response.data.success == 1){
+              toastr.success('Guardado', 'Las imagenes ha sido guardadas');
               var ruta = "{{ url('/admin/tabla/fotografia') }}/"+idf; // esta variable global viene mas arriba
               $('#tablaDatatable').load(ruta);
               $('#modalAgregar').modal('hide');
@@ -188,24 +188,40 @@
               toastr.error('Error', 'No se pudo agregar la imagen!');  
             }
 
-
           })
           .catch((error) => {
             document.getElementById("btnGuardar").disabled = false;     
             loadingOverlay().cancel(spinHandle); // cerrar loading   
             toastr.error('Error', 'Datos incorrectos!');               
         }); 
-      } 
+
+      }else{
+        toastr.error('Error', 'Unico formato valido para imagen es: .jpg, .jpeg');
+      }
   }
     
     // validar antes de agregar foto
-  function validaciones(imgFile){            
-      if(imgFile.files && imgFile.files[0]){
-        return true;
+  function validaciones(imagen){  
+
+      if(imagen.files && imagen.files[0]){
+        
       }else{
         toastr.error('Error', 'Agregar una imagen!');
         return false;
       }
+
+      var files = imagen.files;
+      for (var i = 0; i < files.length; i++){
+          var file = files[i];
+
+          if (!file.type.match('image/jpeg|image/jpeg')){
+            console.log('alguna imagen formato invalido');
+            return false;
+            break;
+          }  
+      } 
+
+      return true;
   } 
 
   // eliminar una foto
@@ -223,7 +239,6 @@
       'id': id  
         })
         .then((response) => {	
-
 
           loadingOverlay().cancel(spinHandle); // cerrar loading
           document.getElementById("btnBorrar").disabled = false;

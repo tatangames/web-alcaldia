@@ -52,7 +52,7 @@
 										<li><a href="historia.html">Historia</a></li>
 									</ul>
 								</li>
-								<li><a href="galeria.html">Galer&iacute;a</a></li>
+								<li><a href="/galeria">Galer&iacute;a</a></li>
 								<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
 								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
 										transparencia</a></li>

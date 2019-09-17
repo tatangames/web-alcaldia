@@ -61,6 +61,7 @@ Route::get('admin/fotografia/{id}', 'FotografiaController@getFotografiaVista');
 Route::get('admin/tabla/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
 Route::post('admin/agregar-fotografia', 'FotografiaController@nuevaFotografia');
 Route::post('admin/eliminar-fotografia', 'FotografiaController@eliminarFotografia');
+Route::get('/galeria','FotografiaController@getAll');
 
 
 
