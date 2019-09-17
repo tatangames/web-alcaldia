@@ -18,8 +18,15 @@ class FrontendController extends Controller
         $slider = Slider::all()->sortBy('posicion');
         $programa = Programa::all()->sortByDesc('idprograma')->take(4);
         $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
-        // $noticia = Noticia::all()->sortByDesc('fecha')->take(3);
+
+
         $fotografia = Fotografia::all()->sortByDesc('idfotografia')->take(8);
+
+        foreach($fotografia  as $secciones){  
+            $noticia = Noticia::where('idnoticia', $secciones->noticia_id)->select('nombrenoticia', 'fecha')->first();        
+            $secciones->nombre = $noticia->nombrenoticia; 
+            $secciones->fecha = $noticia->fecha; 
+        } 
         
         $noticia = DB::table('noticia')        
         ->select('noticia.*')       

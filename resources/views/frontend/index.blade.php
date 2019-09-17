@@ -194,8 +194,8 @@
 				<a class="tour-entry animate-box">
 					<div class="tour-img" style="background-image: url('storage/noticia/{{ $dato4->nombrefotografia }}');" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
+						<h2>{{ $dato4->nombre }}</h2>
+						<span class="city">{{ $dato4->fecha }}</span>
 					</span>
 				</a>
 			@endforeach	
