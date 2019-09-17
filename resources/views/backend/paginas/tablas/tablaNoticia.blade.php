@@ -15,10 +15,10 @@
                 <tbody>
                 @foreach($noticia as $dato)
                 <tr>
-                  <td>{{ $dato->nombrenoticia }}</td>
+                  <td>{{ $dato->nombrenoticia }}</td> 
                   <td>{{ $dato->fecha }}</td> 
                   <td>
-                    <button type="button" class="btn btn-success btn-xs" onclick="abrirModalFoto({{ $dato->idnoticia }})">
+                    <button type="button" class="btn btn-success btn-xs" onclick="abrirTablaFotografia({{ $dato->idnoticia }})">
                     <i class="fas fa-camera" title="Editar"></i>&nbsp; Fotos
                     </button>
                     
