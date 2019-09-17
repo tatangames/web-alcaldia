@@ -196,68 +196,15 @@
 				</div>
 			</div>
 			<div class="tour-wrap">
+			@foreach($fotografia as $dato4)
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a1.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url('storage/noticia/{{ $dato4->nombrefotografia }}');" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 					<span class="desc">
 						<h2>Titulo</h2>
 						<span class="city">Fecha</span>
 					</span>
 				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a2.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a3.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a4.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo </h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a9.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo </h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a7.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo </h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a8.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a5.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
+			@endforeach	
 			</div>
 		</div>
 		<!--End Fotografías recientes-->
@@ -274,6 +221,7 @@
 				<div class="row">
 					<div class="col-md-12 animate-box">
 						<div class="owl-carousel">
+						@foreach($noticia as $dato5)
 							<div class="item">
 								<div class="hotel-entry">
 									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a1.jpg);"></a>
@@ -281,38 +229,13 @@
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
 									<div class="desc">
-										<h3><a href="noticiaSelect.html">Titulo Noticia</a></h3>
-										<span class="place">Fecha de publicacion</span>
-										<p>Descripcion corta de noticia</p>
+										<h3><a href="noticiaSelect.html">{{ $dato5->nombrenoticia }}</a></h3>
+										<span class="place">{{ $dato5->fecha }}</span>
+										<p>{!! $dato5->descorta !!}</p>
 									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a8.jpg);"></a>
-									<!--Espacio para la categoria de la noticia si hubiera-->
-									<!--<p class="price"><span></span><small> </small></p>-->
-									</a>
-									<div class="desc">
-										<h3><a href="noticiaSelect.html">Titulo Noticia</a></h3>
-										<span class="place">Fecha de publicacion</span>
-										<p>Descripcion corta de noticia</p>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a2.jpg);"></a>
-									<!--Espacio para la categoria de la noticia si hubiera-->
-									<!--<p class="price"><span></span><small> </small></p>-->
-									</a>
-									<div class="desc">
-										<h3><a href="noticiaSelect.html">Titulo Noticia</a></h3>
-										<span class="place">Fecha de publicacion</span>
-										<p>Descripcion corta de noticia</p>
-									</div>
-								</div>
-							</div>
+						@endforeach		
 						</div>
 					</div>
 				</div>
