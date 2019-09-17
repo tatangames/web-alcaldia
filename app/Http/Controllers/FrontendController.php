@@ -19,12 +19,16 @@ class FrontendController extends Controller
         $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
         // $noticia = Noticia::all()->sortByDesc('fecha')->take(3);
         $fotografia = Fotografia::all()->sortByDesc('idfotografia')->take(8);
-        $noticia = DB::table('noticia')
-            ->join('fotografia', 'noticia.idnoticia', '=', 'fotografia.noticia_id')
-            ->select('noticia.*', 'fotografia.*')
+        
+        $noticia = DB::table('noticia')        
+        ->select('noticia.*')       
+        ->get();
+
+        foreach($noticia  as $secciones){  
+            $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();        
+            $secciones->nombrefotografia = $foto; 
+        }         
        
-            ->get()->sortByDesc('noticia.fecha');
-            
         return view('frontend.index',compact(['slider','programa','servicio','noticia','fotografia']));
     }
 }
