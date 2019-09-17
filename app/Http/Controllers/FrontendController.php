@@ -22,7 +22,7 @@ class FrontendController extends Controller
         $noticia = DB::table('noticia')
             ->join('fotografia', 'noticia.idnoticia', '=', 'fotografia.noticia_id')
             ->select('noticia.*', 'fotografia.*')
-       
+            ->groupBy('noticia.idnoticia')
             ->get()->sortByDesc('noticia.fecha');
             
         return view('frontend.index',compact(['slider','programa','servicio','noticia','fotografia']));
