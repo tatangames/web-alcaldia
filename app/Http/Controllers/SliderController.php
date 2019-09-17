@@ -232,7 +232,7 @@ class SliderController extends Controller
                     'message' => $validar->errors()->all()
                 ];
             } 
-            
+
             // generar nombre para la imagen
             $cadena = Str::random(15);
             $tiempo = microtime(); 

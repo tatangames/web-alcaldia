@@ -24,7 +24,7 @@ class FotografiaController extends Controller
 
     public function nuevaFotografia(Request $request){
         if($request->isMethod('post')){
-           
+
             $regla = array( 
                 'id' => 'required',
                 'imagen' => 'required',

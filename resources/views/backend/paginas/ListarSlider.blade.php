@@ -211,10 +211,10 @@
         axios.post('/admin/agregar-slider', formData, {  
           })
           .then((response) => {	
-            loadingOverlay().cancel(spinHandle); // cerrar loading
-            //habilitar boton
+            loadingOverlay().cancel(spinHandle);            
             document.getElementById("btnGuardar").disabled = false;             
            
+           console.log(response);
             mensajeResponse(response);
           })
           .catch((error) => {
