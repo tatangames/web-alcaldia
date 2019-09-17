@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Programa;
+use App\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -22,7 +23,7 @@ class ProgramasController extends Controller
         return view('backend.paginas.tablas.tablaPrograma',compact('programa'));
     }
 
-    // agregar nuevo slider
+    // agregar nuevo programa
     public function nuevoPrograma(Request $request){ 
         if($request->isMethod('post')){  
            
@@ -122,14 +123,14 @@ class ProgramasController extends Controller
                 ];
             }else{
                 return [
-                    'success' => 2 // slider no encontrado                   
+                    'success' => 2 // programa no encontrado                   
                 ];
             }
         }
     }
 
 
-     // editar un slider
+     // editar un programa
     public function editarPrograma(Request $request){
 
         if($request->isMethod('post')){  
@@ -182,10 +183,10 @@ class ProgramasController extends Controller
                 }              
             }
 
-            // encontrar slider a modificar
+            // encontrar programa a modificar
             if($programa = Programa::where('idprograma', $request->idprograma)->first()){                        
 
-                if($request->hasFile('imagen')){ // editara slider y su imagen   
+                if($request->hasFile('imagen')){ // editara programa y su imagen   
 
                     $cadena = Str::random(15);
                     $tiempo = microtime(); 
@@ -258,7 +259,7 @@ class ProgramasController extends Controller
 
             if($datos = Programa::where('idprograma', $request->id)->first()){
                 
-                // borrar slider
+                // borrar programa
                 Programa::where('idprograma', $request->id)->delete();
                 // borrar imagen 
 
@@ -267,14 +268,21 @@ class ProgramasController extends Controller
                 }
                 
                 return [
-                    'success' => 1 // slider eliminado              
+                    'success' => 1 // programa eliminado              
                 ];
             }else{
                 return [
-                    'success' => 2 // slider no encontrado                   
+                    'success' => 2 // programa no encontrado                   
                 ];
             }
         }
     }
+
+    public function getProgramaByname($nombre){        
+        $programa =  DB::table('programas')->where('nombreprograma', $nombre)->first();
+        $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
+        return view('frontend.paginas.programa',compact(['programa','servicio']));
+    }
+
 
 }

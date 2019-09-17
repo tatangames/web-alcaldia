@@ -10,17 +10,13 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
-	<link href='images/LOGO_2_-_copia.png' rel='shortcut icon' type='image/png'>
+	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{asset('icomoon/iconmoon.ttf')}}">
 	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-
-
-
-
 
 </head>
 
@@ -39,16 +35,14 @@
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li class="active"><a href="index.html">Inicio</a></li>
+								<li class="active"><a href="/">Inicio</a></li>
 								<li><a href="noticias.html">Noticias</a></li>
 								<li class="has-dropdown">
-									<a href="servicios.html">Servicios</a>
+									<a href="/servicios">Servicios</a>
 									<ul class="dropdown">
-										<li><a href="servicio.html">Servicio 1</a></li>
-										<li><a href="servicio.html">Servicio 2</a></li>
-										<li><a href="servicio.html">Servicio 3</a></li>
-										<li><a href="servicio.html">Servicio 4</a></li>
-										<li><a href="servicio.html">Servicio 5</a></li>
+									@foreach($servicio as $dato3)
+										<li><a href="/servicio/{{$dato3->nombreservicio}}">{{$dato3->nombreservicio}}</a></li>
+									@endforeach	
 									</ul>
 								</li>
 								<li class="has-dropdown">
@@ -118,27 +112,29 @@
 					<div class="col-md-12 tex-center ">
 						<br><br>
 						<center>
-							<h1>Promamas municipales</h1>
+							<h1>Programas Municipales</h1>
 						</center>
-
 					</div>
 				</div>
-				<div class="row no-gutters">
-				@foreach($programa as $dato)
+				
+				<div class="row no-gutters" >
+					@foreach($programa as $dato2)
+					@if ($loop->first)
+        			<div class="col-md-3 animate-box text-center aside-stretch">	
+    				@else
 					<div class="col-md-3 animate-box text-center ">
+					@endif
 						<div class="services">
-							<a href="programa.html">
+							<a href="/programa/{{$dato2->nombreprograma}}">
 								<span class="icon">
-								<img alt="Slider" src="{{ url('storage/programa/'.$dato->logo) }}" width="150px" height="150px" />
+								<img src="storage/programa/{{ $dato2->logo }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
-								<h3>{{ $dato->nombreprograma }}</h3>
+								<h3>{{ $dato2->nombreprograma }}</h3>
 							</a>
-							 {{ print $dato->descorta}} 
+							{!! $dato2->descorta  !!} 
 						</div>
-
 					</div>
-					@endforeach	
-
+					@endforeach
 				</div>
 			</div>
 		</div>
@@ -154,86 +150,28 @@
 				</div>
 				<div class="blog-flex">
 					<div class="row">
+					@foreach($servicio as $dato3)
 						<div class="col-md-6 animate-box">
 
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a1.jpg);"></span>
+							<a href="/servicio/{{ $dato3->nombreservicio }}" class="blog-post">
+								<span class="img" style="background-image: url('storage/servicio/{{ $dato3->logo }}');"></span>
 								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> a alcaldia de metapan santa ana, el salvador Centro America
-										Descripcion corta de ejemplo para el servicio proporcionado po</span>
-									</span>
+									<h3>{{ $dato3->nombreservicio }}</h3>
+									<span>{!! $dato3->descorta  !!}</span>
 
 								</div>
 							</a>
 						</div>
-						<div class="col-md-6 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a5.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America
-
-									</span>
-
+							@if ($loop->iteration == 2)
+							    </div>
+								<div class="row">	
+    						@elseif($loop->iteration == 4)
 								</div>
-							</a>
-						</div>
+								<div class="row">	
+							@endif
+					@endforeach					
 
 					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box">
-
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a8.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia demetapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
-						<div class="col-md-6 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a2.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia demetapan santa ana, el salvador Centro America Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia demetapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>					
-					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box">
-
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a8.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de  metapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
-						<div class="col-md-6 animate-box">
-							<a href="blog.html" class="blog-post">
-								<span class="img" style="background-image: url(images/Slider/a2.jpg);"></span>
-								<div class="desc">
-									<h3>Nombre del servicio</h3>
-									<span class="date"> Descripcion corta de ejemplo para el servicio proporcionado por
-										la alcaldia de metapan santa ana, el salvador Centro America</span>
-
-								</div>
-							</a>
-						</div>
-					</div>
-
 				</div>
 
 
@@ -252,68 +190,15 @@
 				</div>
 			</div>
 			<div class="tour-wrap">
+			@foreach($fotografia as $dato4)
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a1.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url('storage/noticia/{{ $dato4->nombrefotografia }}');" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 					<span class="desc">
 						<h2>Titulo</h2>
 						<span class="city">Fecha</span>
 					</span>
 				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a2.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a3.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a4.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo </h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a9.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo </h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a7.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo </h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a8.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
-				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url(images/Slider/a5.jpg);" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
-
-					<span class="desc">
-						<h2>Titulo</h2>
-						<span class="city">Fecha</span>
-					</span>
-				</a>
+			@endforeach	
 			</div>
 		</div>
 		<!--End Fotografías recientes-->
@@ -330,6 +215,7 @@
 				<div class="row">
 					<div class="col-md-12 animate-box">
 						<div class="owl-carousel">
+						@foreach($noticia as $dato5)
 							<div class="item">
 								<div class="hotel-entry">
 									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a1.jpg);"></a>
@@ -337,38 +223,13 @@
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
 									<div class="desc">
-										<h3><a href="noticiaSelect.html">Titulo Noticia</a></h3>
-										<span class="place">Fecha de publicacion</span>
-										<p>Descripcion corta de noticia</p>
+										<h3><a href="noticiaSelect.html">{{ $dato5->nombrenoticia }}</a></h3>
+										<span class="place">{{ $dato5->fecha }}</span>
+										<p>{!! $dato5->descorta !!}</p>
 									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a8.jpg);"></a>
-									<!--Espacio para la categoria de la noticia si hubiera-->
-									<!--<p class="price"><span></span><small> </small></p>-->
-									</a>
-									<div class="desc">
-										<h3><a href="noticiaSelect.html">Titulo Noticia</a></h3>
-										<span class="place">Fecha de publicacion</span>
-										<p>Descripcion corta de noticia</p>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url(images/Slider/a2.jpg);"></a>
-									<!--Espacio para la categoria de la noticia si hubiera-->
-									<!--<p class="price"><span></span><small> </small></p>-->
-									</a>
-									<div class="desc">
-										<h3><a href="noticiaSelect.html">Titulo Noticia</a></h3>
-										<span class="place">Fecha de publicacion</span>
-										<p>Descripcion corta de noticia</p>
-									</div>
-								</div>
-							</div>
+						@endforeach		
 						</div>
 					</div>
 				</div>

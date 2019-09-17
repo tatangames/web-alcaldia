@@ -45,12 +45,19 @@ Route::post('admin/agregar-programa', 'ProgramasController@nuevoPrograma');
 Route::post('admin/informacion-programa', 'ProgramasController@infoPrograma');
 Route::post('admin/editar-programa', 'ProgramasController@editarPrograma');
 Route::post('admin/eliminar-programa', 'ProgramasController@eliminarPrograma');
+Route::get('/programa/{nombre}','ProgramasController@getProgramaByname');
 
 
 // NOTICIA
 Route::get('admin/listarnoticia', 'NoticiaController@index');
 Route::get('admin/tablas/noticia', 'NoticiaController@getNoticiaTabla'); 
 Route::post('admin/agregar-noticia', 'NoticiaController@nuevaNoticia');
+Route::post('admin/informacion-noticia', 'NoticiaController@infoNoticia');
+Route::post('admin/editar-noticia', 'NoticiaController@editarNoticia');
+Route::post('admin/eliminar-noticia', 'NoticiaController@eliminarNoticia');
+
+// FOTOGRAFIA
+Route::get('admin/tablas/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
 
 
 
@@ -61,8 +68,9 @@ Route::post('admin/agregar-servicio', 'ServiciosController@nuevoServicio');
 Route::post('admin/informacion-servicio', 'ServiciosController@infoServicio');
 Route::post('admin/editar-servicio', 'ServiciosController@editarServicio');
 Route::post('admin/eliminar-servicio', 'ServiciosController@eliminarServicio');
-
 Route::get('admin/logout', 'Auth\LoginController@logout');
+Route::get('/servicios','ServiciosController@getall');
+Route::get('/servicio/{nombre}','ServiciosController@getServicioByname');
 
 
 Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUsuario');
