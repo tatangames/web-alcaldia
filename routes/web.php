@@ -56,7 +56,10 @@ Route::post('admin/editar-noticia', 'NoticiaController@editarNoticia');
 Route::post('admin/eliminar-noticia', 'NoticiaController@eliminarNoticia');
 
 // FOTOGRAFIA
-Route::get('admin/tablas/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
+Route::get('admin/fotografia/{id}', 'FotografiaController@getFotografiaVista'); 
+Route::get('admin/tabla/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
+Route::post('admin/agregar-fotografia', 'FotografiaController@nuevaFotografia');
+Route::post('admin/eliminar-fotografia', 'FotografiaController@eliminarFotografia');
 
 
 
