@@ -18,8 +18,6 @@ class FrontendController extends Controller
         $slider = Slider::all()->sortBy('posicion');
         $programa = Programa::all()->sortByDesc('idprograma')->take(4);
         $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
-
-
         $fotografia = Fotografia::all()->sortByDesc('idfotografia')->take(8);
 
         foreach($fotografia  as $secciones){  
@@ -30,7 +28,7 @@ class FrontendController extends Controller
         
         $noticia = DB::table('noticia')        
         ->select('noticia.*')       
-        ->get();
+        ->get()->take(5);
 
         foreach($noticia  as $secciones){  
             $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();        
