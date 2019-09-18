@@ -64,7 +64,7 @@ class FrontendController extends Controller
     //Metodo para pagina de Galerias
   public function getAllFotografias()
   {
-      $fotografias = Fotografia::all()->sortByDesc('idfotografia')->take(100);
+      $fotografias = Fotografia::paginate(9);
       $serviciosMenu = $this->getServiciosMenu(); 
       return view('frontend.paginas.galeria', compact(['fotografias','serviciosMenu']));
   }
