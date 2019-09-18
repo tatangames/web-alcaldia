@@ -122,12 +122,4 @@ class FotografiaController extends Controller
             }
         }
     }
-
-    // obtener pagina galeria
-    public function getAll()
-    {
-        $fotografias = Fotografia::all()->sortByDesc('idfotografia')->take(100);
-        $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
-        return view('frontend.paginas.galeria', compact(['fotografias','servicio']));
-    }
 }

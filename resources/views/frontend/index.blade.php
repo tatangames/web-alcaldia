@@ -93,7 +93,7 @@
 						<div class="services">
 							<a href="{{ url('programa/'.$dato2->nombreprograma) }}">
 								<span class="icon">
-								<img src="storage/programa/{{ $dato2->logo }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
+								<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
 								<h3>{{ $dato2->nombreprograma }}</h3>
 							</a>
@@ -116,7 +116,7 @@
 				</div>
 				<div class="blog-flex">
 					<div class="row">
-					@foreach($servicio as $dato3)
+					@foreach($servicios as $dato3)
 						<div class="col-md-6 animate-box">
 
 							<a href="{{ url('servicio/'.$dato3->nombreservicio) }}" class="blog-post">

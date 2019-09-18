@@ -30,7 +30,7 @@
 		<!--Barra de navegacion -->
 		@include("frontend.menus.navbar")
 		<!--End Barra de navegacion-->
-		
+
 		<!--Imagen de cabecera-->
 		<aside id="colorlib-hero">
 			<div class="flexslider">
@@ -62,20 +62,20 @@
 					</div>
 				</div>
 
-				@foreach($servicio as $item)												
+				@foreach($servicios as $item)												
 				<div class="row animate-box">
 					<div class="services">
-						<a href="/servicio/{{$item->nombreservicio}}">
+						<a href="{{ asset('servicio/'.$item->nombreservicio) }}">
 							<div class="col-md-3  text-center">
 							<center>
-							<img src="../storage/servicio/{{ $item->logo }}" alt="Programa Municipal" style="width:180px; height:180px;"/>
+							<img src="{{ asset('storage/servicio/'.$item->logo) }}" alt="Programa Municipal" style="width:180px; height:180px;"/>
 							</center>
 							</div>
 						</a>
 						<div class="col-md-9">
 							<div class="row">
 								<div class="col-md-12">
-									<a href="/servicio/{{$item->nombreservicio}}">
+									<a href="{{ asset('servicio/'.$item->nombreservicio) }}">
 										<h3>{{ $item->nombreservicio }}</h3>
 									</a>
 								</div>

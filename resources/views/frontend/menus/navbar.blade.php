@@ -3,7 +3,7 @@
 				<div class="container-fluid ">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="#"><img src="images/LogoWeb.png" alt="" srcset="" width="400px" height="80px;" style="position: relative; top:-30px;"></a></div>
+							<div id="colorlib-logo"><a href="#"><img src="{{ asset('images/LogoWeb.png') }}" alt="" srcset="" width="400px" height="80px;" style="position: relative; top:-30px;"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -12,7 +12,7 @@
 								<li class="has-dropdown">
 									<a href="/servicios">Servicios</a>
 									<ul class="dropdown">
-									@foreach($servicio as $dato3)
+									@foreach($serviciosMenu as $dato3)
 										<li><a href="{{ url('servicio/'.$dato3->nombreservicio) }}">{{$dato3->nombreservicio}}</a></li>
 									@endforeach	
 									</ul>
