@@ -31,7 +31,7 @@
 				<div class="container-fluid ">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html"><img src="images/LOGO_2_-_copia.png" alt="" srcset="" width="60px" height="80px;" style="position: relative; top:-25px;"></a></div>
+							<div id="colorlib-logo"><a href="#"><img src="images/LogoWeb.png" alt="" srcset="" width="400px" height="80px;" style="position: relative; top:-30px;"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
