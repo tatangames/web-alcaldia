@@ -275,21 +275,4 @@ class ServiciosController extends Controller
             }
         }
     }
-<<<<<<< HEAD
-
-    public function getall(){
-        $servicio = Servicio::all();
-        $serviciomenu = Servicio::all()->take(6);
-        return view('frontend.paginas.servicios',compact(['servicio','serviciomenu']));
-
-
-    }
-
-    public function getServicioByname($nombre){        
-        $servicio =  DB::table('servicios')->where('nombreservicio', $nombre)->first();
-        $servicios = Servicio::all();
-        return view('frontend.paginas.servicio',compact(['servicio','servicios']));
-    }
-=======
->>>>>>> b4cfce841b077e91a81218cc795605556e632538
 }
