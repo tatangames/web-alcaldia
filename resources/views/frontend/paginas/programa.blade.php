@@ -29,13 +29,11 @@
 	<div id="page">
 		<!--Barra de navegacion -->
 		<nav class="colorlib-nav" role="navigation">
-			<div class="top-menu" style="background-color: rgb(0,0,0,0.5); height: 100px; ">
+			<div class="top-menu" style="background-color: rgb(0,0,0,0.6); height: 100px; ">
 				<div class="container-fluid ">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html"><img src="{{ asset('images/LOGO_2_-_copia.png') }}" alt=""
-										srcset="" width="60px" height="80px;"
-										style="position: relative; top:-25px;"></a></div>
+							<div id="colorlib-logo"><a href="#"><img src="images/LogoWeb.png" alt="" srcset="" width="400px" height="80px;" style="position: relative; top:-30px;"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -58,7 +56,8 @@
 								</li>
 								<li><a href="/galeria">Galer&iacute;a</a></li>
 								<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
-								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de transparencia</a></li>
+								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
+										transparencia</a></li>
 							</ul>
 						</div>
 					</div>
