@@ -126,8 +126,8 @@ class FotografiaController extends Controller
     {
      if($request->ajax())
      {
-      $fotografias =  Fotografia::paginate(9);
-      return view('paginationdata', compact('fotografias'))->render();
+      $fotografias = Fotografia::paginate(9);
+      return view('frontend.paginas.paginatedata', compact('fotografias'))->render();
      }
     }
 }
