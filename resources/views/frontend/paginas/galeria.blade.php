@@ -27,45 +27,8 @@
 
 	<div id="page">
 		<!--Barra de navegacion -->
-		<nav class="colorlib-nav" role="navigation">
-			<div class="top-menu" style="background-color: rgb(0,0,0,0.5); height: 100px; ">
-				<div class="container-fluid ">
-					<div class="row">
-						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html"><img src="images/LOGO_2_-_copia.png" alt=""
-										srcset="" width="60px" height="80px;"
-										style="position: relative; top:-25px;"></a></div>
-						</div>
-						<div class="col-xs-10 text-right menu-1">
-							<ul>
-								<li class="active"><a href="/">Inicio</a></li>
-								<li><a href="noticias.html">Noticias</a></li>
-								<li class="has-dropdown">
-									<a href="/servicios">Servicios</a>
-									<ul class="dropdown">
-									@foreach($servicio as $dato3)
-										<li><a href="/servicio/{{$dato3->nombreservicio}}">{{$dato3->nombreservicio}}</a></li>
-									@endforeach	
-									</ul>
-								</li>
-								<li class="has-dropdown">
-									<a href="info.html">Tu Alcad&iacute;a</a>
-									<ul class="dropdown">
-										<li><a href="gob.html">Gobierno municipal</a></li>
-										<li><a href="historia.html">Historia</a></li>
-									</ul>
-								</li>
-								<li><a href="/galeria">Galer&iacute;a</a></li>
-								<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
-								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
-										transparencia</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-		<!--End Barra de navegacion -->
+		@include("frontend.menus.navbar")
+		<!--End Barra de navegacion-->
 
 		<!--Imagen de Cabecera-->
 		<aside id="colorlib-hero">
@@ -134,78 +97,7 @@
 			</div>
 		</div>
 		<!--End Cuadro modal-->
-
-		<!--Imagen pie de pagina-->
-		<div id="colorlib-subscribe" style="background-image:url(images/Slider/a5.jpg);"
-			data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-						<h2>Alcald&iacute;a Municipal de Metapán</h2>
-
-						<form class="form-inline qbstp-header-subscribe">
-							<div class="row">
-								<div class="col-md-12 col-md-offset-0">
-									<div class="form-group">
-
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--End imagen pie de pagina-->
-
-		<!--Pie de pagina-->
-		<footer id="colorlib-footer" role="contentinfo">
-			<div class="container">
-				<div class="row row-pb-md">
-					<div class="col-md-3 colorlib-widget">
-						<h4>Siguenos en nuestras redes</h4>
-						<p></p>
-						<p>
-							<ul class="colorlib-social-icons">
-								<li><a href="https://www.facebook.com/AlcaldiadeMetapan/"><i
-											class="icon-facebook"></i></a></li>
-								<i><a href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><i
-											class="icon-youtube"></i></a></i>
-							</ul>
-						</p>
-					</div>
-					<div class="col-md-3 col-md-push-1">
-						<h4>Contactanos!</h4>
-						<ul class="colorlib-footer-links">
-							<li>Avenida Benjam&iacute;n Estrada Valiente<br> 1ra. Calle Poniente, Barrio San
-								Pedro,<br>Metap&aacute;n, Santa Ana</li>
-							<li><a href="tel://24027615">2402-7615</a></li>
-							<li><a href="tel://24027601">2402-7601</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<p>
-							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados |
-							Alclad&iacute;a Municipal de Metap&aacute;n, Santa Ana, El Salvador.
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!--End pie de pagina-->
-	</div>
-	<!--End pie de pagina-->
-
-	<!--Boton subir-->
-	<div class="gototop js-top">
-		<a class="js-gotop"><i class="icon-arrow-up2"></i></a>
-	</div>
-	<!--End boton subir-->
-
+		@include("frontend.menus.footer")
 	<!-- Metodo cambiar url cuadro modal-->
 	<script type="text/javascript">
 		function getPath(img) {
