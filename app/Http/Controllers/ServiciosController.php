@@ -284,6 +284,14 @@ class ServiciosController extends Controller
     public function getServicioByname($nombre){        
         $servicio =  DB::table('servicios')->where('nombreservicio', $nombre)->first();
         $servicios = Servicio::all();
-        return view('frontend.paginas.servicio',compact(['servicio','servicios']));
+
+        $servi = Servicio::all();
+       
+        return view('frontend.paginas.servicio',compact(['servicio','servicios', 'servi']));
     }
+
+
+   
+
+   
 }
