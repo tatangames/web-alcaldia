@@ -17,7 +17,16 @@
 	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-
+	<style>
+		/* On screens that are 768px or less, set the logo bigger */
+		@media screen and (max-width: 768px) {
+  			.logoimage {
+				   width: 300px;
+				   height: 80px;
+				   margin-bottom: -20px;
+  					}
+				}
+	</style>
 </head>
 
 <body>

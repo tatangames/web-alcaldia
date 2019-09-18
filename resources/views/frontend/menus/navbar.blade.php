@@ -2,10 +2,10 @@
 			<div class="top-menu" style="background-color: rgb(0,0,0,0.6); height: 100px; ">
 				<div class="container-fluid ">
 					<div class="row">
-						<div class="col-xs-2">
-							<div id="colorlib-logo"><img src="{{ asset('images/LogoWeb.png') }}" alt="" srcset="" width="100%" height="85%" style="position: relative; "></div>
+						<div class="col-xs-4">
+							<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="90%" height="80%" style="margin-top: -30px" ></div>
 						</div>
-						<div class="col-xs-10 text-right menu-1">
+						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li class="active"><a href="/">Inicio</a></li>
 								<li><a href="noticias.html">Noticias</a></li>
