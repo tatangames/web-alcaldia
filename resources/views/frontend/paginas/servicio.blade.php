@@ -34,7 +34,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url({{ asset('../images/Slider/a4.jpg')}});">
+					<li style="background-image: url({{ asset('images/Slider/a4.jpg')}});">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
@@ -57,14 +57,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h1></h1>
+						<h1>{{$servicio->nombreservicio}}</h1>
 					</div>
 				</div>
 				<br><br><br>
 					<div class="row">
 						<div class="col-md-4">
 							<center>
-							<img src="../storage/servicio/{{ $servicio->logo }}" alt="Programa Municipal" style="width:300px; height:300px;"/>
+							<img src="{{ asset('storage/servicio/'.$servicio->logo) }}" alt="Programa Municipal" style="width:300px; height:300px;"/>
 							</center>
 						</div>
 						<div class="col-md-8">

@@ -45,7 +45,7 @@ Route::post('admin/agregar-programa', 'ProgramasController@nuevoPrograma');
 Route::post('admin/informacion-programa', 'ProgramasController@infoPrograma');
 Route::post('admin/editar-programa', 'ProgramasController@editarPrograma');
 Route::post('admin/eliminar-programa', 'ProgramasController@eliminarPrograma');
-Route::get('/programa/{nombre}','ProgramasController@getProgramaByname');
+Route::get('/programa/{nombre}','FrontendController@getProgramaByname');
 
 
 // NOTICIA
@@ -61,7 +61,8 @@ Route::get('admin/fotografia/{id}', 'FotografiaController@getFotografiaVista');
 Route::get('admin/tabla/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
 Route::post('admin/agregar-fotografia', 'FotografiaController@nuevaFotografia');
 Route::post('admin/eliminar-fotografia', 'FotografiaController@eliminarFotografia');
-Route::get('/galeria','FotografiaController@getAll');
+Route::get('/galeria','FrontendController@getAllFotografias');
+Route::get('/pagination/fetch_data', 'FotografiaController@fetch_data');
 
 
 
@@ -73,8 +74,8 @@ Route::post('admin/informacion-servicio', 'ServiciosController@infoServicio');
 Route::post('admin/editar-servicio', 'ServiciosController@editarServicio');
 Route::post('admin/eliminar-servicio', 'ServiciosController@eliminarServicio');
 Route::get('admin/logout', 'Auth\LoginController@logout');
-Route::get('/servicios','ServiciosController@getall');
-Route::get('/servicio/{nombre}','ServiciosController@getServicioByname');
+Route::get('/servicios','FrontendController@getAllServicios');
+Route::get('/servicio/{nombre}','FrontendController@getServicioByname');
 
 
 Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUsuario');

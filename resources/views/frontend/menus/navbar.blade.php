@@ -2,18 +2,18 @@
 			<div class="top-menu" style="background-color: rgb(0,0,0,0.6); height: 100px; ">
 				<div class="container-fluid ">
 					<div class="row">
-						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="#"><img src="images/LogoWeb.png" alt="" srcset="" width="400px" height="80px;" style="position: relative; top:-30px;"></a></div>
+						<div class="col-xs-4">
+							<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="90%" height="80%" style="margin-top: -30px" ></div>
 						</div>
-						<div class="col-xs-10 text-right menu-1">
+						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li class="active"><a href="/">Inicio</a></li>
 								<li><a href="noticias.html">Noticias</a></li>
 								<li class="has-dropdown">
 									<a href="/servicios">Servicios</a>
 									<ul class="dropdown">
-									@foreach($servi as $dato3)
-										<li><a href="{{ url('servicio/') }}"></a>{{ $dato3->nombreservicio }}</li>
+									@foreach($serviciosMenu as $dato3)
+										<li><a href="{{ url('servicio/'.$dato3->nombreservicio) }}">{{$dato3->nombreservicio}}</a></li>
 									@endforeach	
 									</ul>
 								</li>

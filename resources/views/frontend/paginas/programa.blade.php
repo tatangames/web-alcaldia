@@ -65,7 +65,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<center>
-							<img src="../storage/programa/{{ $programa->logo }}" alt="Programa Municipal" style="width:300px; height:300px;"/>
+							<img src="{{ asset('storage/programa/'.$programa->logo) }}" alt="Programa Municipal" style="width:300px; height:300px;"/>
 							</center>
 						</div>
 						<div class="col-md-8">

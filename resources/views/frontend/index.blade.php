@@ -17,7 +17,16 @@
 	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-
+	<style>
+		/* On screens that are 768px or less, set the logo bigger */
+		@media screen and (max-width: 768px) {
+  			.logoimage {
+				   width: 300px;
+				   height: 80px;
+				   margin-bottom: -20px;
+  					}
+				}
+	</style>
 </head>
 
 <body>
@@ -84,7 +93,7 @@
 				</div>
 				
 				<div class="row no-gutters" >
-					@foreach($programa as $dato2)
+					@foreach($programas as $dato2)
 					@if ($loop->first)
         			<div class="col-md-3 animate-box text-center aside-stretch">	
     				@else
@@ -93,7 +102,7 @@
 						<div class="services">
 							<a href="{{ url('programa/'.$dato2->nombreprograma) }}">
 								<span class="icon">
-								<img src="storage/programa/{{ $dato2->logo }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
+								<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
 								<h3>{{ $dato2->nombreprograma }}</h3>
 							</a>
@@ -116,7 +125,7 @@
 				</div>
 				<div class="blog-flex">
 					<div class="row">
-					@foreach($servicio as $dato3)
+					@foreach($servicios as $dato3)
 						<div class="col-md-6 animate-box">
 
 							<a href="{{ url('servicio/'.$dato3->nombreservicio) }}" class="blog-post">
