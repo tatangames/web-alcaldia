@@ -189,7 +189,6 @@
       </div>        
   </div>
 
-
    <!-- modal eliminar fotografia-->
  
    <div class="modal fade" id="modalEliminarFoto">

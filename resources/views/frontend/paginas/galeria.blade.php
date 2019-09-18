@@ -12,7 +12,6 @@
 
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
@@ -70,7 +69,7 @@
 				<div class="modal-content">
 					<div class="modal-body mb-0 p-0">
 						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-							<img id="imgModal" src="images/Slider/a1.jpg" class="embed-responsive-item" alt="">
+							<img id="imgModal" src="asset('images/Slider/a1.jpg') }}" class="embed-responsive-item" alt="">
 						</div>
 					</div>
 					<!--Pie de pagina -->
@@ -94,38 +93,7 @@
 	<!--Fin Metodo url-->
 	<script src="{{ asset('js/frontend.js') }}" type="text/javascript"></script>
 
-	<script>
-  		$(document).ready(function(){
-   			$(".ancla").click(function(evento){
-      		evento.preventDefault();
-      		var codigo = "#" + $(this).data("ancla");
-      		$("html,body").animate({scrollTop: $(codigo).offset().top}, 300);
-    		});
-  		});
-</script>
 
-<script>
-$(document).ready(function(){
-
- $(document).on('click', '.pagination a', function(event){
-  event.preventDefault(); 
-  var page = $(this).attr('href').split('page=')[1];
-  fetch_data(page);
- });
-
- function fetch_data(page)
- {
-  $.ajax({
-   url:"/pagination/fetch_data?page="+page,
-   success:function(data)
-   {
-    $('#contenidopagina').html(data);
-   }
-  });
- }
- 
-});
-</script>
 
 </body>
 
