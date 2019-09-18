@@ -25,6 +25,7 @@ class NoticiaController extends Controller
         return view('backend.paginas.tablas.tablaNoticia',compact('noticia'));
     }
 
+    // agregar nueva noticia
     public function nuevaNoticia(Request $request){       
 
         if($request->isMethod('post')){
@@ -97,6 +98,7 @@ class NoticiaController extends Controller
         }
     }
 
+    // obtener datos de noticia para editar
     public function infoNoticia(Request $request){
         if($request->isMethod('post')){    
             
@@ -131,6 +133,7 @@ class NoticiaController extends Controller
         }
     }
 
+    // editar la noticia
     public function editarNoticia(Request $request){
 
         if($request->isMethod('post')){  
@@ -180,6 +183,7 @@ class NoticiaController extends Controller
         }
     }
 
+    // eliminar una noticia y todos los datos en tabla fotografia
     public function eliminarNoticia(Request $request){
         if($request->isMethod('post')){  
             $regla = array( 

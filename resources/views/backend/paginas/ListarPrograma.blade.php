@@ -216,7 +216,6 @@
     });
  </script>
 
-
   <script>
 
   function abrirModalAgregar(){
@@ -301,9 +300,15 @@
           toastr.error('Error', 'Agregar descripción larga!');
           return false;
       }
-      else{
-          return true;
-      }
+      
+      // validar formato de imagen
+     
+      if (!imgFile.files[0].type.match('image/png')){      
+        toastr.error('Error', 'Formato de imagen permitido: .png');
+        return false;       
+      }   
+
+      return true;     
   } 
 
 
@@ -343,7 +348,7 @@
       var imagen = document.getElementById('logoU'); 
       
       // validacion
-      var retorno = validacionesEditar(nombre, editor3, editor4);
+      var retorno = validacionesEditar(nombre, editor3, editor4, imagen);
     
       if(retorno){
           var spinHandle = loadingOverlay().activate(); // activar loading
@@ -390,7 +395,7 @@
   }
         
   // validar antes de agregar
-  function validacionesEditar(nombre, editor3, editor4){           
+  function validacionesEditar(nombre, editor3, editor4, imagen){           
       
       if(nombre === ''){
           toastr.error('Error', 'Agregar nombre de programa'); 
@@ -404,9 +409,16 @@
           toastr.error('Error', 'Agregar descripción larga'); 
           return false;
       }
-      else{
-          return true;
+      
+
+      if(imagen.files && imagen.files[0]){ // si trae imagen
+          if (!imagen.files[0].type.match('image/png')){      
+            toastr.error('Error', 'Formato de imagen permitido: .png');
+            return false;       
+          } 
       }
+
+      return true;
   } 
 
   // abre el modal para eliminar slider

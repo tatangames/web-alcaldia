@@ -65,7 +65,7 @@ class LoginController extends Controller
                     'success' => 2, 
                     'message' => 'Los datos ingresados son incorrectos'
                 ];
-            }  
+            }
         }else{
             return [
                 'success' => 3, 
@@ -73,6 +73,7 @@ class LoginController extends Controller
             ];
         }
     }
+    
     public function logout (Request $request){
         Auth::logout();
         return redirect("/admin");

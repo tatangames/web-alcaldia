@@ -129,7 +129,6 @@ class ProgramasController extends Controller
         }
     }
 
-
      // editar un programa
     public function editarPrograma(Request $request){
 
@@ -278,11 +277,11 @@ class ProgramasController extends Controller
         }
     }
 
+    // obtener programa por nombre
     public function getProgramaByname($nombre){        
         $programa =  DB::table('programas')->where('nombreprograma', $nombre)->first();
         $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
         return view('frontend.paginas.programa',compact(['programa','servicio']));
     }
-
 
 }

@@ -128,7 +128,7 @@ class ServiciosController extends Controller
             }
         }
     }
-     // editar un slider
+     // editar un servicio
     public function editarServicio(Request $request){
 
         if($request->isMethod('post')){  
@@ -257,7 +257,7 @@ class ServiciosController extends Controller
 
             if($datos = Servicio::where('idservicio', $request->id)->first()){
                 
-                // borrar slider
+                // borrar servicio
                 Servicio::where('idservicio', $request->id)->delete();
                 // borrar imagen 
 
@@ -279,7 +279,6 @@ class ServiciosController extends Controller
     public function getall(){
         $servicio = Servicio::all();
         return view('frontend.paginas.servicios',compact('servicio'));
-
     }
 
     public function getServicioByname($nombre){        
