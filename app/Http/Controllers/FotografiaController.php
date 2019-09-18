@@ -12,18 +12,22 @@ use Illuminate\Support\Str;
 
 class FotografiaController extends Controller
 {
+
+    // obtener vista para ver lista de fotografias por id
     public function getFotografiaVista($idfoto)
     {
         $fotografia = Fotografia::where('noticia_id', $idfoto)->get();
         return view('backend.paginas.ListarFotografia', compact('idfoto'));
     }
 
+    // obtener vista de tabla para ver fotografias
     public function getFotografiaTabla($idfoto)
     {
         $fotografia = Fotografia::where('noticia_id', $idfoto)->get();
         return view('backend.paginas.tablas.tablaFotografia', compact('fotografia'));
     }
 
+    // agregar 1 o mas fotografias 
     public function nuevaFotografia(Request $request){
         if($request->isMethod('post')){
 
@@ -80,6 +84,7 @@ class FotografiaController extends Controller
         }
     }
 
+    // eliminar fotografia por id
     public function eliminarFotografia(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -116,13 +121,6 @@ class FotografiaController extends Controller
                 ];
             }
         }
-    }
-
-    public function getAll()
-    {
-        $fotografias = Fotografia::paginate(9);
-        $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
-        return view('frontend.paginas.galeria', compact(['fotografias','servicio']));
     }
     function fetch_data(Request $request)
     {

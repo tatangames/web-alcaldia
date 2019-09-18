@@ -212,26 +212,21 @@
 <script>
 $(document).ready(function(){
 
- $(document).on('click', '.pagination a', function(event){
+ $(document).on('click', '.galeria a', function(event){
   event.preventDefault(); 
-  var page= $(this).attr('href').split('page=')[1];
+  var page = $(this).attr('href').split('page=')[1];
   fetch_data(page);
  });
 
  function fetch_data(page)
  {
-	 console.log(page)
-	 axios.get('/galeria/'+page,{
-        })
-        .then((response) => {	
-
-			console.log(reponse);
-         
-        })
-        .catch((error) => {
-		  console.log(error);
-             
-    });
+  $.ajax({
+   url:"/galeria/fetch_data?page="+page,
+   success:function(data)
+   {
+    $('#contenidopagina').html(data);
+   }
+  });
  }
  
 });

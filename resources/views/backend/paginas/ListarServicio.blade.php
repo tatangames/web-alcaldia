@@ -303,9 +303,13 @@ function validaciones(nombre, editor1, editor2, imgFile){
         toastr.error('Error', 'Agregar descripción larga!');
         return false;
     }
-    else{
-        return true;
+
+    if (!imgFile.files[0].type.match('image/png')){      
+        toastr.error('Error', 'Formato de imagen permitido: .png');
+        return false;       
     }
+
+    return true; 
 } 
 
 
@@ -345,7 +349,7 @@ function editarServicio(){
     var imagen = document.getElementById('logoU'); 
     
     // validacion
-    var retorno = validacionesEditar(nombre, editor3, editor4);
+    var retorno = validacionesEditar(nombre, editor3, editor4, imagen);
   
     if(retorno){
         var spinHandle = loadingOverlay().activate(); // activar loading
@@ -392,7 +396,7 @@ function mostrarMensajeEditar(valor) {
 }
       
 // validar antes de agregar
-function validacionesEditar(nombre, editor3, editor4){           
+function validacionesEditar(nombre, editor3, editor4, imagen){           
     
     if(nombre === ''){
         toastr.error('Error', 'Agregar nombre de servicio'); 
@@ -406,9 +410,16 @@ function validacionesEditar(nombre, editor3, editor4){
         toastr.error('Error', 'Agregar descripción larga'); 
         return false;
     }
-    else{
-        return true;
+   
+   
+    if(imagen.files && imagen.files[0]){ // si trae imagen
+          if (!imagen.files[0].type.match('image/png')){      
+            toastr.error('Error', 'Formato de imagen permitido: .png');
+            return false;       
+          } 
     }
+
+    return true;
 } 
 
 // abre el modal para eliminar slider

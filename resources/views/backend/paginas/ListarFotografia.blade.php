@@ -162,11 +162,6 @@
         for (var i = 0; i < files.length; i++){
             var file = files[i];
 
-            // permitir cualquier tipo de imagen, pero backend valida
-            if (!file.type.match('image/jpeg|image/png|image/jpeg')){
-              continue;
-            }
-
             // Add the file to the request.
             formData.append('imagen[]', file, file.name);
         }
@@ -201,21 +196,21 @@
   }
     
     // validar antes de agregar foto
-  function validaciones(imagen){  
+  function validaciones(imgFile){  
 
-      if(imagen.files && imagen.files[0]){
+      if(imgFile.files && imgFile.files[0]){
         
       }else{
         toastr.error('Error', 'Agregar una imagen!');
         return false;
       }
 
-      var files = imagen.files;
+      var files = imgFile.files;
       for (var i = 0; i < files.length; i++){
           var file = files[i];
 
           if (!file.type.match('image/jpeg|image/jpeg')){
-            console.log('alguna imagen formato invalido');
+            toastr.error('Error', 'Formatos de imagen validos unicamente .jpg .jpeg');
             return false;
             break;
           }  

@@ -279,12 +279,7 @@
         var files = imagen.files;
         for (var i = 0; i < files.length; i++){
             var file = files[i];
-
-            // permitir cualquier tipo de imagen, pero backend valida
-            if (!file.type.match('image/jpeg|image/png|image/jpeg')){
-              continue;
-            }
-
+           
             // Add the file to the request.
             formData.append('imagen[]', file, file.name);
         }
@@ -341,7 +336,7 @@
       if(nombre === ''){
           toastr.error('Error', 'Agregar nombre de programa!');
           return false;
-      }
+      } 
       else if(editor1 === ''){
           toastr.error('Error', 'Agregar descripción corta!');
           return false;
@@ -354,9 +349,19 @@
           toastr.error('Error', 'Agregar descripción larga!');
           return false;
       }
-      else{
-          return true;
-      }
+      
+      var files = imgFile.files;
+      for (var i = 0; i < files.length; i++){
+          var file = files[i];
+
+          if (!file.type.match('image/jpeg|image/jpeg')){
+            toastr.error('Error', 'Formatos de imagen validos unicamente .jpg .jpeg');
+            return false;
+            break;
+          }  
+      } 
+
+      return true;
   } 
 
   // abre el modal para editar la noticia

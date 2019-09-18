@@ -220,8 +220,6 @@
             loadingOverlay().cancel(spinHandle); // cerrar loading   
             toastr.error('Error', 'Datos incorrectos!');               
           }); 
-      }else{
-        console.log('eeee');
       }
     }
 
