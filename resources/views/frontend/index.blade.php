@@ -26,42 +26,8 @@
 
 	<div id="page">
 		<!--Barra de navegacion -->
-		<nav class="colorlib-nav" role="navigation">
-			<div class="top-menu" style="background-color: rgb(0,0,0,0.6); height: 100px; ">
-				<div class="container-fluid ">
-					<div class="row">
-						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="#"><img src="images/LogoWeb.png" alt="" srcset="" width="400px" height="80px;" style="position: relative; top:-30px;"></a></div>
-						</div>
-						<div class="col-xs-10 text-right menu-1">
-							<ul>
-								<li class="active"><a href="/">Inicio</a></li>
-								<li><a href="noticias.html">Noticias</a></li>
-								<li class="has-dropdown">
-									<a href="/servicios">Servicios</a>
-									<ul class="dropdown">
-									@foreach($servicio as $dato3)
-										<li><a href="/servicio/{{$dato3->nombreservicio}}">{{$dato3->nombreservicio}}</a></li>
-									@endforeach	
-									</ul>
-								</li>
-								<li class="has-dropdown">
-									<a href="info.html">Tu Alcad&iacute;a</a>
-									<ul class="dropdown">
-										<li><a href="gob.html">Gobierno municipal</a></li>
-										<li><a href="historia.html">Historia</a></li>
-									</ul>
-								</li>
-								<li><a href="/galeria">Galer&iacute;a</a></li>
-								<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
-								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
-										transparencia</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
+	@include("frontend.menus.navbar")
+    	<!--End Barra de navegacion-->
 		<!--Imagenes de cabecera-->
 		<aside id="colorlib-hero">
 			<div class="flexslider">
@@ -96,7 +62,7 @@
 					</div>
 					<div class="tab-content">
 						<div id="flight" class="tab-pane fade in active">
-							<center><img src="images/slogan6.png" alt=""></center>
+							<center><img src="{{asset('images/slogan6.png')}}" alt=""></center>
 						</div>
 
 					</div>
@@ -125,7 +91,7 @@
 					<div class="col-md-3 animate-box text-center ">
 					@endif
 						<div class="services">
-							<a href="/programa/{{$dato2->nombreprograma}}">
+							<a href="{{ url('programa/'.$dato2->nombreprograma) }}">
 								<span class="icon">
 								<img src="storage/programa/{{ $dato2->logo }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
@@ -153,7 +119,7 @@
 					@foreach($servicio as $dato3)
 						<div class="col-md-6 animate-box">
 
-							<a href="/servicio/{{ $dato3->nombreservicio }}" class="blog-post">
+							<a href="{{ url('servicio/'.$dato3->nombreservicio) }}" class="blog-post">
 								<span class="img" style="background-image: url('storage/servicio/{{ $dato3->logo }}');"></span>
 								<div class="desc">
 									<h3>{{ $dato3->nombreservicio }}</h3>
@@ -259,7 +225,7 @@
 			<div class="modal-content">
 				<div class="modal-body mb-0 p-0">
 					<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-						<img id="imgModal" src="images/Slider/a1.jpg" class="embed-responsive-item" alt="">
+						<img id="imgModal" src="{{ asset('images/Slider/a1.jpg') }}" class="embed-responsive-item" alt="">
 					</div>
 				</div>
 				<!--Pie de pagina -->
