@@ -84,7 +84,7 @@
 				</div>
 				
 				<div class="row no-gutters" >
-					@foreach($programa as $dato2)
+					@foreach($programas as $dato2)
 					@if ($loop->first)
         			<div class="col-md-3 animate-box text-center aside-stretch">	
     				@else
