@@ -1,31 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ $programa->nombreprograma }}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
-
-
-	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" href="{{asset('icomoon/iconmoon.ttf')}}">
-	<link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
-	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-
-
-</head>
-
+<!--Parte superior de las paginas -  hasta head  -->
+@include('frontend.menus.indexSuperior')
 <body>
-
 	<div class="colorlib-loader"></div>
-
 	<div id="page">
 		<!--Barra de navegacion -->
 		@include("frontend.menus.navbar")
