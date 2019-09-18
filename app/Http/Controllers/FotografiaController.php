@@ -120,8 +120,16 @@ class FotografiaController extends Controller
 
     public function getAll()
     {
-        $fotografias = Fotografia::all()->sortByDesc('idfotografia')->take(100);
+        $fotografias = Fotografia::paginate(9);
         $servicio = Servicio::all()->sortByDesc('idservicio')->take(6);
         return view('frontend.paginas.galeria', compact(['fotografias','servicio']));
+    }
+    function fetch_data(Request $request)
+    {
+     if($request->ajax())
+     {
+      $fotografias =  Fotografia::paginate(9);
+      return view('paginationdata', compact('fotografias'))->render();
+     }
     }
 }

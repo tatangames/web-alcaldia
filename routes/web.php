@@ -62,6 +62,7 @@ Route::get('admin/tabla/fotografia/{id}', 'FotografiaController@getFotografiaTab
 Route::post('admin/agregar-fotografia', 'FotografiaController@nuevaFotografia');
 Route::post('admin/eliminar-fotografia', 'FotografiaController@eliminarFotografia');
 Route::get('/galeria','FotografiaController@getAll');
+Route::get('/galeria/{page}', 'PaginationController@fetch_data');
 
 
 

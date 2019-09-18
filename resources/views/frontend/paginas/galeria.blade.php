@@ -10,6 +10,7 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
@@ -45,7 +46,7 @@
 									<ul class="dropdown">
 									@foreach($servicio as $dato3)
 										<li><a href="/servicio/{{$dato3->nombreservicio}}">{{$dato3->nombreservicio}}</a></li>
-									@endforeach	
+									@endforeach
 									</ul>
 								</li>
 								<li class="has-dropdown">
@@ -89,28 +90,11 @@
 		<!--End Imagen de Cabecera-->
 
 		<!--Galeria de fotos-->
-		<div class="colorlib-wrap">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="row">
-							<div class="wrap-division">
-							@foreach($fotografias as $foto)
-								<div class="col-md-4 col-sm-4 animate-box">
-									<div class="tour">
-										<a class="tour-img" style="background-image: url(storage/noticia/{{ $foto->nombrefotografia }});"
-											data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></a>
-									</div>
-								</div>
-								@endforeach
-								
-							</div>
-						</div>
-						<br><br>
-					</div>
-				</div>
-			</div>
+		<div class="colorlib-wrap" id="contenidopagina">
+		@include('frontend.paginas.paginatedata')
 		</div>
+		
+	
 		<!--End galería de fotos-->
 
 		<!--Cuadro modal Zoom  fotos-->
@@ -224,6 +208,33 @@
       		$("html,body").animate({scrollTop: $(codigo).offset().top}, 300);
     		});
   		});
+</script>
+<script>
+$(document).ready(function(){
+
+ $(document).on('click', '.pagination a', function(event){
+  event.preventDefault(); 
+  var page= $(this).attr('href').split('page=')[1];
+  fetch_data(page);
+ });
+
+ function fetch_data(page)
+ {
+	 console.log(page)
+	 axios.get('/galeria/'+page,{
+        })
+        .then((response) => {	
+
+			console.log(reponse);
+         
+        })
+        .catch((error) => {
+		  console.log(error);
+             
+    });
+ }
+ 
+});
 </script>
 
 </body>

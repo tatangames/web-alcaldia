@@ -278,7 +278,9 @@ class ServiciosController extends Controller
 
     public function getall(){
         $servicio = Servicio::all();
-        return view('frontend.paginas.servicios',compact('servicio'));
+        $serviciomenu = Servicio::all()->take(6);
+        return view('frontend.paginas.servicios',compact(['servicio','serviciomenu']));
+
 
     }
 
