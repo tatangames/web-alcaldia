@@ -17,7 +17,7 @@ class FrontendController extends Controller
     // Metodo para cargar informacion en pagina Index Publica
     public function index(){
         $slider = Slider::all()->sortBy('posicion');
-        $programa = Programa::all()->sortByDesc('idprograma')->take(4);
+        $programas = Programa::all()->sortByDesc('idprograma')->take(4);
         $servicios = Servicio::all()->sortByDesc('idservicio')->take(6);
         $fotografia = Fotografia::all()->sortByDesc('idfotografia')->take(8);
         $serviciosMenu = $this->getServiciosMenu(); 
@@ -36,7 +36,7 @@ class FrontendController extends Controller
             $secciones->nombrefotografia = $foto; 
         }         
        
-        return view('frontend.index',compact(['slider','programa','servicios','noticia','fotografia','serviciosMenu']));
+        return view('frontend.index',compact(['slider','programas','servicios','noticia','fotografia','serviciosMenu']));
     }
     //Metodo para la pagina de servicios para listarlos todos
     public function getAllServicios(){
