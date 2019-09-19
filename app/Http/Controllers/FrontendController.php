@@ -34,7 +34,9 @@ class FrontendController extends Controller
   public function getRecentNew($filtro){
     $noticiaReciente = DB::table('noticia')
       ->select('noticia.*')
-      ->get()->take($filtro);
+      ->get()
+      ->sortByDesc('fecha')
+      ->take($filtro);
 
     foreach ($noticiaReciente  as $secciones) {
         $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();

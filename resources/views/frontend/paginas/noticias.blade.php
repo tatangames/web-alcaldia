@@ -12,13 +12,13 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(images/Slider/a4.jpg);">
+				<li style="background-image: url({{ asset('images/Slider/a4.jpg')}});">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 									<div class="slider-text-inner text-center">
-										<h1>Servicios</h1>
+										<h1>Noticias y Anuncios</h1>
 									</div>
 								</div>
 							</div>
@@ -35,19 +35,21 @@
 					<div class="col-md-10">
 						<div class="wrap-division">
 						@foreach($noticias as $item)
-							<article class="animate-box">
-								<a href="/noticia/{{$item->nombrenoticia}}">
-									<div class="blog-img" style="background-image: url(storage/noticia/{{ $item->nombrefotografia }});"></div>
+						<article>
+								<div class="animate-box">
+								<a href="{{ url('/noticia/'.$item->nombrenoticia) }}">
+									<div class="blog-img" style="background-image: url( {{ asset('storage/noticia/'.$item->nombrefotografia) }});"></div>
 								</a>
 								<div class="desc">
 									<div class="meta">
 										<p>
-											<span>{{$item->fecha}}</span}>
+											<span>{{ $item->fecha }}</span>
 										</p>
 									</div>
 									<a href="noticiaSelect.html"></a>
-									<h2>{{$item->nombrenoticia}}</h2></a>
+									<h2>{{ $item->nombrenoticia }}</h2></a>
 									<p>{!! $item->descorta !!}</p>
+									</div>
 								</div>
 							</article>
 							@endforeach
@@ -72,6 +74,5 @@
 				});
 			});
 		</script>
-</body>
-
+	</body>
 </html>

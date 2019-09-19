@@ -29,48 +29,29 @@
 		<!--End Imagen de Cabecera-->
 
 		<!--Galeria de fotos-->
-		<div class="colorlib-wrap" id="contenidopagina">
-
-
+		<div  class="colorlib-wrap" id="contenidopagina">
 		<div class="container">
-			<div class="row">
+		<div class="row">
 				<div class="col-md-12">
-					<div class="row">
 						<div class="wrap-division">
 							<div class="infinite-scroll">
 								@foreach($fotografias as $foto)
-					
-							
-
-						
-
 									<div class="col-md-4 col-sm-4 animated zoomIn">
 										<div class="tour">
 											<a class="tour-img" style="background-image: url(storage/noticia/{{ $foto->nombrefotografia }});" data-toggle="modal" data-target="#modal1" onclick="getPath(this)" alt="error"></a>
 										</div>
 									</div>
-									
-
 								@endforeach
 
 							{{ $fotografias->links() }}
 							</div>
 						</div>
-					</div>
-					<br><br>
+					<br>
+					<br>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-	
-	
-		
-	
+	</div>
 		<!--End galería de fotos-->
 
 		<!--Cuadro modal Zoom  fotos-->
@@ -81,7 +62,7 @@
 				<div class="modal-content">
 					<div class="modal-body mb-0 p-0">
 						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-							<img id="imgModal" src="{{ asset('images/Slider/a1.jpg') }}" class="embed-responsive-item" alt="">
+							<img id="imgModal" src="" class="embed-responsive-item" alt="">
 						</div>
 					</div>
 					<!--Pie de pagina -->
@@ -104,12 +85,7 @@
 	</script>
 	<!--Fin Metodo url-->
 
-
-
-
 	<script src="{{ asset('plugins/scrollinfinite/jquery.jscroll.min.js') }}" type="text/javascript"></script>
-
-
 	<script src="{{ asset('js/frontend.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
@@ -126,8 +102,7 @@
 				}
 			});
 		});
-</script>
+	</script>
 
 </body>
-
 </html>

@@ -12,13 +12,13 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(images/Slider/a4.jpg);">
+					<li style="background-image: url({{ asset('images/Slider/a4.jpg')}});">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
 									<div class="slider-text-inner text-center">
-										<h1>Servicios</h1>
+										<h1>{{ $noticia->nombrenoticia }}</h1>
 									</div>
 								</div>
 							</div>
@@ -34,27 +34,27 @@
 			<div class="container">
 
 				<div class="row">
-					<div class="about-flex">
-						<div class="col-md-8 animate-box">
+					<div class="about-flex ">
+						<div class="col-md-8 ">
 							<br><br><br><br>
 							<strong>
-								<h1>{{$noticia->nombrenoticia}}</h1>
+								<h1>{{ $noticia->nombrenoticia }}</h1>
 							</strong>
 							<div class="row row-pb-sm">
-								<div class="col-md-12">
+								<div class="col-md-12 animate-box">
 									<img class="img-responsive" src="{{ asset('storage/noticia/'.$noticia->nombrefotografia)}}" alt="" data-toggle="modal" data-target="#modal1" onclick="getPath(this)">
 								</div>
 
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-								{!!$noticia->deslarga!!}
+								{!! $noticia->deslarga !!}
 									<br>
 								</div>
 							</div>
 							<div class="row">
 							@foreach($fotografias as $foto)
-								<div class="col-md-4" animate-box>
+								<div class="col-md-4 animate-box">
 									<img class="img-responsive" src="{{ asset('storage/noticia/'.$foto->nombrefotografia)}}" alt="" data-toggle="modal" data-target="#modal1" onclick="getPath(this)">
 								</div>
 							@endforeach
@@ -71,8 +71,8 @@
 									<a href="/noticia/{{$item->nombrenoticia}}" class="blog-post">
 										<span class="img" style="background-image: url({{ asset('storage/noticia/'.$item->nombrefotografia)}});"></span>
 										<div class="desc">
-											<span class="date">{{$item->fecha}}</span>
-											<h4>{{$item->nombrenoticia}}</h4>
+											<span class="date">{{ $item->fecha }}</span>
+											<h4>{{ $item->nombrenoticia }}</h4>
 											<span class="cat">Ver noticia</span>
 										</div>
 									</a>
@@ -87,9 +87,9 @@
 			</div>
 		</div>
 		<!--Fin contenido noticia-->
-
 		<br>
-		<hr><br>
+		<br>
+		<br>
 
 		<!--Cuadro modal para el Zoom de las fotos-->
 		<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,7 +98,7 @@
 				<div class="modal-content">
 					<div class="modal-body mb-0 p-0">
 						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-							<img id="imgModal" src="images/Slider/a1.jpg" class="embed-responsive-item" alt="">
+							<img id="imgModal" src="" class="embed-responsive-item" alt="">
 						</div>
 					</div>
 					<!--Pie de pagina -->
@@ -132,8 +132,5 @@
 			}
 		</script>
 		<!--End Cuadro modal-->
-
-
 </body>
-
 </html>

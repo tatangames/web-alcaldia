@@ -1,6 +1,6 @@
 <!--Parte superior de las paginas -  hasta head  -->
 @include('frontend.menus.indexSuperior')
-<body>
+<body class="scrollbar-indigo bordered-indigo">
 <div class="colorlib-loader"></div>
 	<div id="page">
 	<!--Barra de navegacion -->
