@@ -44,7 +44,7 @@
 				<div class="modal-content">
 					<div class="modal-body mb-0 p-0">
 						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-							<img id="imgModal" src="asset('images/Slider/a1.jpg') }}" class="embed-responsive-item" alt="">
+							<img id="imgModal" src="{{ asset('images/Slider/a1.jpg') }}" class="embed-responsive-item" alt="">
 						</div>
 					</div>
 					<!--Pie de pagina -->
