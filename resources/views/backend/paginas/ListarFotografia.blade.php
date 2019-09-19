@@ -204,7 +204,7 @@
         toastr.error('Error', 'Agregar una imagen!');
         return false;
       }
-
+ 
       var files = imgFile.files;
       for (var i = 0; i < files.length; i++){
           var file = files[i];

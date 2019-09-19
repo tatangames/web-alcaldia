@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Documento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -52,13 +53,38 @@ class ServiciosController extends Controller
                     'success' => 0, 
                     'message' => $validar->errors()->all()
                 ];
-            }        
-
+            }   
             
+            if ($request->hasFile('documento')) {
+            
+                // validacion si manda el documento pdf
+                $regla2 = array( 
+                    'documento' => 'required',
+                    'documento.*' => 'required|mimes:pdf',
+                );
+
+                $mensaje2 = array(                
+                    'documento.required' => 'El documento es requerido',
+                    'documento.mimes' => 'Formato validos .pdf',
+                    'documento.*.required' => 'Array de documentos requeridos',
+                    'documento.*.mimes' => 'Array de documento permitido es .PDF',
+                    );
+
+                $validar2 = Validator::make($request->all(), $regla2, $mensaje2);
+
+                if ($validar2->fails()) 
+                {
+                    return [
+                        'success' => 0, 
+                        'message' => $validar2->errors()->all()
+                    ];
+                }
+            }
+
            // generar nombre para la imagen
            $cadena = Str::random(15);
            $tiempo = microtime(); 
-           $union = $cadena.$tiempo;
+           $union = $cadena.$tiempo; 
            // quitar espacios vacios
            $nombre = str_replace(' ', '_', $union);
            
@@ -67,24 +93,38 @@ class ServiciosController extends Controller
            $nombreFoto = $nombre.$extension;
            $avatar = $request->file('imagen'); 
            $upload = Storage::disk('servicio')->put($nombreFoto, \File::get($avatar)); 
-    
-           if($upload){
-               
-               $servicio = new Servicio();
-               $servicio->nombreservicio = $request->nombre;              
-               $servicio->logo = $nombreFoto;
-               $servicio->descorta = $request->descorta;
-               $servicio->deslarga = $request->deslarga;
 
-               if($servicio->save()){
-                   return [
-                       'success' => 1 // servicio agregado
-                   ];
-               }else{
-                   return [
-                       'success' => 2 // no guardo los datos
-                   ];
+           $idservicio = Servicio::insertGetId([
+            'nombreservicio'=>$request->nombre,
+            'logo'=>$nombreFoto,
+            'descorta'=>$request->descorta,
+            'deslarga'=>$request->deslarga ]); 
+
+           // subir documentos si envio           
+           if($request->file('documento')){     
+                foreach($request->file('documento') as $img){
+
+                    $cadena = Str::random(15);
+                    $tiempo = microtime(); 
+                    $union = $cadena.$tiempo;       
+                    $nombre = str_replace(' ', '_', $union);
+
+                    $extension = '.'.$img->getClientOriginalExtension();
+                    $nombrePDF = $idservicio.'_'.$img->getClientOriginalName();
+                    $nombreUrl = $nombre.$extension;
+                                    
+                    Storage::disk('servicio')->put($nombreUrl, \File::get($img));
+                    
+                    Documento::create(['servicio_id'=>$idservicio,
+                    'nombre'=>$nombrePDF, 'url'=> $nombreUrl]);
                }
+            }
+    
+           if($upload){               
+         
+                return [
+                    'success' => 1 // servicio agregado
+                ];              
 
            }else{
                return [

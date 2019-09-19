@@ -121,13 +121,5 @@ class FotografiaController extends Controller
                 ];
             }
         }
-    }
-    function fetch_data(Request $request)
-    {
-     if($request->ajax())
-     {
-      $fotografias = Fotografia::paginate(9);
-      return view('frontend.paginas.paginatedata', compact('fotografias'))->render();
-     }
-    }
+    }   
 }

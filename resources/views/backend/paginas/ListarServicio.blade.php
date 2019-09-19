@@ -83,6 +83,11 @@
                         <!-- editor 1 -->
                       <textarea id="editor1" name="editor1"></textarea>
                     </div>
+                    <div class="form-group">
+                      <br>
+                      <label>Documento</label>
+                      <input type="file" class="form-control" id="documento" name="documento[]" multiple accept="application/pdf" />                 
+                    </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
@@ -111,7 +116,6 @@
         </div>        
       </div>      
     </div>
-
 
 	 <!-- modal editar servicio -->
    <div class="modal fade" id="modalEditar">
@@ -234,12 +238,13 @@ function guardarServicio(){
     var nombre = document.getElementById('nombre').value;
     var editor1 = CKEDITOR.instances.editor1.getData();  
     var editor2 = CKEDITOR.instances.editor2.getData();
-    var imagen = document.getElementById('logo'); 
+    var imagen = document.getElementById('logo');
+    var documento = document.getElementById('documento');
 
-    var retorno = validaciones(nombre, editor1, editor2, imagen);
+    var retorno = validaciones(nombre, editor1, editor2, imagen, documento);
 
     if(retorno){ 
-
+   
       var spinHandle = loadingOverlay().activate(); // activar loading
       document.getElementById("btnGuardar").disabled = true;
             
@@ -249,13 +254,22 @@ function guardarServicio(){
       formData.append('deslarga', editor2);
       formData.append('imagen', imagen.files[0]);
 
+     
+      var files = documento.files;
+        for (var i = 0; i < files.length; i++){
+            var file = files[i];
+           
+            // Add the file to the request.
+            formData.append('documento[]', file, file.name);
+        }
+
       axios.post('/admin/agregar-servicio', formData, {  
         })
         .then((response) => {	
           loadingOverlay().cancel(spinHandle); // cerrar loading            
           document.getElementById("btnGuardar").disabled = false; //habilitar boton          
-         
-          mensajeResponse(response);
+         console.log(response);
+         // mensajeResponse(response);
         })
         .catch((error) => {
           document.getElementById("btnGuardar").disabled = false;     
@@ -283,12 +297,29 @@ function mensajeResponse(valor){
 }
   
   // validar antes de agregar servicio
-function validaciones(nombre, editor1, editor2, imgFile){            
+function validaciones(nombre, editor1, editor2, imgFile, documento){            
     if(imgFile.files && imgFile.files[0]){
-      
+      if (!imgFile.files[0].type.match('image/png')){      
+        toastr.error('Error', 'Formato de imagen permitido: .png');
+        return false;       
+    }
     }else{
         toastr.error('Error', 'Agregar una imagen!');
         return false;
+    }
+
+    // solo si hay documento agregado
+    if(documento.files && documento.files[0]){
+      var files = documento.files;
+      for (var i = 0; i < files.length; i++){
+          var file = files[i];
+
+          if (!file.type.match('application/pdf')){
+            toastr.error('Error', 'Formatos de documento debe ser .PDF');
+            return false;
+            break;
+          }  
+      } 
     }
     
     if(nombre === ''){
@@ -302,12 +333,7 @@ function validaciones(nombre, editor1, editor2, imgFile){
     else if(editor2 === ''){
         toastr.error('Error', 'Agregar descripción larga!');
         return false;
-    }
-
-    if (!imgFile.files[0].type.match('image/png')){      
-        toastr.error('Error', 'Formato de imagen permitido: .png');
-        return false;       
-    }
+    }    
 
     return true; 
 } 
