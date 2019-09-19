@@ -26,14 +26,7 @@ class FrontendController extends Controller
             $secciones->fecha = $noticia->fecha; 
         } 
         
-        $noticia = DB::table('noticia')        
-        ->select('noticia.*')       
-        ->get()->take(5);
-
-        foreach($noticia  as $secciones){  
-            $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();        
-            $secciones->nombrefotografia = $foto; 
-        }         
+        $noticia = $this->getRecentNew(5);        
        
         return view('frontend.index',compact(['slider','programas','servicios','noticia','fotografia','serviciosMenu']));
     }
@@ -74,4 +67,41 @@ class FrontendController extends Controller
       $serviciosMenu = $this->getServiciosMenu(); 
       return view('frontend.paginas.galeria', compact(['fotografias','serviciosMenu']));
   }
+
+  //Metodo para obtener todas las noticias 
+  public function getNoticias(){
+        $noticias = Noticia::all();
+        foreach($noticias  as $new){  
+            $foto = Fotografia::where('noticia_id', $new->idnoticia)->pluck('nombrefotografia')->first();        
+            $new->nombrefotografia = $foto; 
+        }  
+        $serviciosMenu = $this->getServiciosMenu(); 
+        return view('frontend.paginas.noticias', compact(['serviciosMenu','noticias']));
+  }
+
+  //Metodo para obtener una noticia por su nombre
+  public function getNoticiaByName($nombre){
+    $noticia =  DB::table('noticia')->where('nombrenoticia', $nombre)->first();
+    $fotoInicial = Fotografia::where('noticia_id', $noticia->idnoticia)->pluck('nombrefotografia')->first(); 
+    $fotografias = Fotografia::where('noticia_id', $noticia->idnoticia)->get()->forget(0);
+    $noticia->nombrefotografia = $fotoInicial; 
+    $noticiaReciente = $this->getRecentNew(3);
+    $serviciosMenu = $this->getServiciosMenu(); 
+    return view('frontend.paginas.noticiaSelect',compact(['noticia','serviciosMenu','noticiaReciente','fotografias']));
+  }
+
+  //Metdo para obtener las noticias recientes, usado en index y en noticiaselect
+  public function getRecentNew($filtro){
+      $noticiaReciente = DB::table('noticia')
+        ->select('noticia.*')
+        ->get()->take($filtro);
+
+      foreach ($noticiaReciente  as $secciones) {
+          $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();
+          $secciones->nombrefotografia = $foto;
+      }
+      return $noticiaReciente;  
+  }
+        
+
 }

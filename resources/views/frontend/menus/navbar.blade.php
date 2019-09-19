@@ -8,7 +8,7 @@
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li class="active"><a href="/">Inicio</a></li>
-								<li><a href="noticias.html">Noticias</a></li>
+								<li><a href="/noticias/">Noticias</a></li>
 								<li class="has-dropdown">
 									<a href="/servicios">Servicios</a>
 									<ul class="dropdown">
