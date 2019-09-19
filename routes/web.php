@@ -64,7 +64,7 @@ Route::post('admin/eliminar-fotografia', 'FotografiaController@eliminarFotografi
 Route::get('/galeria','FrontendController@getAllFotografias');
 Route::get('/pagination/fetch_data', 'FotografiaController@fetch_data');
 
-
+ 
 
 // SERVICIO
 Route::get('admin/listarservicio', 'ServiciosController@index');

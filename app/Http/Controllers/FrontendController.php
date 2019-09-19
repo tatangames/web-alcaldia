@@ -9,7 +9,6 @@ use App\Noticia;
 use App\Fotografia;
 use Illuminate\Support\Facades\DB;
 
-
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -61,10 +60,17 @@ class FrontendController extends Controller
         $serviciosMenu = $this->getServiciosMenu(); 
         return view('frontend.paginas.programa',compact(['programa','serviciosMenu']));
     }
-    //Metodo para pagina de Galerias
-  public function getAllFotografias()
+
+
+
+    protected $posts_per_page = 10;
+
+
+  //Metodo para pagina de Galerias
+  public function getAllFotografias(Request $request)
   {
-      $fotografias = Fotografia::paginate(9);
+
+      $fotografias = Fotografia::paginate(6);
       $serviciosMenu = $this->getServiciosMenu(); 
       return view('frontend.paginas.galeria', compact(['fotografias','serviciosMenu']));
   }

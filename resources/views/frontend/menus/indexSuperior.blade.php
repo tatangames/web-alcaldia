@@ -13,9 +13,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('icomoon/iconmoon.ttf')}}">
-    <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
+	<link rel="stylesheet" href="{{asset('fonts/icomoon/icomoon.ttf')}}">
+	
+	<link href="{{ asset('plugins/animaciones/animaciones.css') }}" type="text/css" rel="stylesheet" />
+
+	
+	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+	
+
+	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
+	
+
+	
+
+
+
 	@yield('header')
 	<style>
 		/* On screens that are 768px or less, set the logo bigger */
