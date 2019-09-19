@@ -30,6 +30,19 @@ class FrontendController extends Controller
        
         return view('frontend.index',compact(['slider','programas','servicios','noticia','fotografia','serviciosMenu']));
     }
+    //Metodo para obtener las noticias recientes, usado en index y en noticiaselect
+  public function getRecentNew($filtro){
+    $noticiaReciente = DB::table('noticia')
+      ->select('noticia.*')
+      ->get()->take($filtro);
+
+    foreach ($noticiaReciente  as $secciones) {
+        $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();
+        $secciones->nombrefotografia = $foto;
+        }
+    return $noticiaReciente;  
+    }
+
     //Metodo para la pagina de servicios para listarlos todos
     public function getAllServicios(){
         $servicios = Servicio::all();
@@ -53,10 +66,6 @@ class FrontendController extends Controller
         $serviciosMenu = $this->getServiciosMenu(); 
         return view('frontend.paginas.programa',compact(['programa','serviciosMenu']));
     }
-
-
-
-    protected $posts_per_page = 10;
 
 
   //Metodo para pagina de Galerias
@@ -90,18 +99,5 @@ class FrontendController extends Controller
     return view('frontend.paginas.noticiaSelect',compact(['noticia','serviciosMenu','noticiaReciente','fotografias']));
   }
 
-  //Metdo para obtener las noticias recientes, usado en index y en noticiaselect
-  public function getRecentNew($filtro){
-      $noticiaReciente = DB::table('noticia')
-        ->select('noticia.*')
-        ->get()->take($filtro);
-
-      foreach ($noticiaReciente  as $secciones) {
-          $foto = Fotografia::where('noticia_id', $secciones->idnoticia)->pluck('nombrefotografia')->first();
-          $secciones->nombrefotografia = $foto;
-      }
-      return $noticiaReciente;  
-  }
-        
 
 }
