@@ -30,8 +30,45 @@
 
 		<!--Galeria de fotos-->
 		<div class="colorlib-wrap" id="contenidopagina">
-		@include('frontend.paginas.paginatedata')
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="wrap-division">
+							<div class="infinite-scroll">
+								@foreach($fotografias as $foto)
+					
+							
+
+						
+
+									<div class="col-md-4 col-sm-4 animated zoomIn">
+										<div class="tour">
+											<a class="tour-img" style="background-image: url(storage/noticia/{{ $foto->nombrefotografia }});" data-toggle="modal" data-target="#modal1" onclick="getPath(this)" alt="error"></a>
+										</div>
+									</div>
+									
+
+								@endforeach
+
+							{{ $fotografias->links() }}
+							</div>
+						</div>
+					</div>
+					<br><br>
+				</div>
+			</div>
 		</div>
+
+
+
+
+
+
+	
+	
 		
 	
 		<!--End galería de fotos-->
@@ -66,9 +103,30 @@
 		}
 	</script>
 	<!--Fin Metodo url-->
+
+
+
+
+	<script src="{{ asset('plugins/scrollinfinite/jquery.jscroll.min.js') }}" type="text/javascript"></script>
+
+
 	<script src="{{ asset('js/frontend.js') }}" type="text/javascript"></script>
 
-
+	<script type="text/javascript">
+		$('ul.pagination').hide();
+		$(function() {
+			$('.infinite-scroll').jscroll({
+				autoTrigger: true,
+				loadingHtml: '<img class="center-block" src="/images/loadinggif.gif" alt="Loading..." />',
+				padding: 0,
+				nextSelector: '.pagination li.active + li a',
+				contentSelector: 'div.infinite-scroll',
+				callback: function() {
+					$('ul.pagination').remove();
+				}
+			});
+		});
+</script>
 
 </body>
 
