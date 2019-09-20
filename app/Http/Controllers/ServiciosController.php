@@ -47,7 +47,7 @@ class ServiciosController extends Controller
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
 
-            if ($validar->fails()) 
+            if ($validar->fails())
             {
                 return [
                     'success' => 0, 
@@ -94,11 +94,21 @@ class ServiciosController extends Controller
            $avatar = $request->file('imagen'); 
            $upload = Storage::disk('servicio')->put($nombreFoto, \File::get($avatar)); 
 
+           $slug = Str::slug($request->nombre, '-');
+         
+           if(Servicio::where('slug', $slug)->first()){
+                return [
+                    'success' => 4, 
+                    'message' => 'El slug del servicio ya existe'
+                ];
+           }
+
            $idservicio = Servicio::insertGetId([
             'nombreservicio'=>$request->nombre,
             'logo'=>$nombreFoto,
             'descorta'=>$request->descorta,
-            'deslarga'=>$request->deslarga ]); 
+            'deslarga'=>$request->deslarga,
+            'slug' => $slug ]); 
 
            // subir documentos si envio           
            if($request->file('documento')){     
@@ -174,12 +184,14 @@ class ServiciosController extends Controller
         if($request->isMethod('post')){  
 
             $regla = array( 
+                'idservicio' => 'required',
                 'nombre' => 'required|max:450',                
                 'descorta' => 'required',
                 'deslarga' => 'required',
             );    
 
             $mensaje = array(
+                'idservicio.required' => 'ID es requerido',
                 'nombre.required' => 'Nombre de servicio es requerio',
                 'nombre.max' => 'Maximo 450 caracteres',                
                 'descorta.required' => 'Descripcion corta es requeria',
@@ -221,6 +233,15 @@ class ServiciosController extends Controller
                 }              
             }
 
+            $slug = Str::slug($request->nombre, '-');
+         
+            if(Servicio::where('slug', $slug)->where('idservicio', '!=', $request->idservicio)->first()){
+                 return [
+                     'success' => 4, 
+                     'message' => 'El slug del servicio ya existe'
+                 ];
+            }
+
             // encontrar servicio a modificar
             if($servicio = Servicio::where('idservicio', $request->idservicio)->first()){                        
 
@@ -242,7 +263,7 @@ class ServiciosController extends Controller
                         $imagenOld = $servicio->logo; //nombre de imagen a borrar
                         
                         Servicio::where('idservicio', '=', $request->idservicio)->update(['nombreservicio' => $request->nombre, 
-                        'logo' => $nombreFoto, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga]);
+                        'logo' => $nombreFoto, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
                             
                         if(Storage::disk('servicio')->exists($imagenOld)){
                             Storage::disk('servicio')->delete($imagenOld);                                
@@ -260,7 +281,7 @@ class ServiciosController extends Controller
                 }else{ // guardar solo datos
                 
                     Servicio::where('idservicio', '=', $request->idservicio)->update(['nombreservicio' => $request->nombre,
-                    'descorta' => $request->descorta, 'deslarga' => $request->deslarga]);
+                    'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
                     
                     return [
                         'success' => 1 // datos guardados correctamente

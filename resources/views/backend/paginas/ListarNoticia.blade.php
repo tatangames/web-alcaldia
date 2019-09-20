@@ -96,9 +96,10 @@
                       <textarea id="editor2" name="editor2"></textarea>
                     </div>
                   </div>
-                  <br>
+                
                   <div class="form-group">
-                      <label>Fecha</label>
+                  <br>
+                      <label> Fecha</label>
                       <input type="date" class="form-control" id="fecha" name="fecha">
                   </div>
                 </div> 
@@ -287,6 +288,7 @@
           })
           .then((response) => {	
             loadingOverlay().cancel(spinHandle); // cerrar loading            
+<<<<<<< HEAD
             document.getElementById("btnGuardar").disabled = false; //habilitar boton          
      
            if(response.data.success == 1){
@@ -297,6 +299,10 @@
             }else{
               toastr.error('Error', 'No se guardo la noticia!'); 
             }
+=======
+            document.getElementById("btnGuardar").disabled = false; //habilitar boton            
+            mensajeResponse(response);
+>>>>>>> 5baf8790516d54e2682e42c6ed2d6db14c623b20
           })
           .catch((error) => {
             document.getElementById("btnGuardar").disabled = false;     
@@ -309,14 +315,12 @@
   // mensaje cuando guardamos slider
   function mensajeResponse(valor){
     if(valor.data.success == 1){
-      toastr.success('Guardado', 'Se ha creado nuevo Programa!');
+      toastr.success('Guardado', 'Se ha creado nueva noticia!');
       $('#modalAgregar').modal('hide');             
-      var ruta = "{{ URL::to('admin/tablas/programa') }}";   
+      var ruta = "{{ URL::to('admin/tablas/noticia') }}";   
       $('#tablaDatatable').load(ruta);
-    }else if(valor.data.success == 2){
-      toastr.error('Error', 'Datos no guardados!');
-    }else if(valor.data.success == 3){
-      toastr.error('Error', 'No se guardo la imagen!');
+    }else if(valor.data.success == 4){
+      toastr.error('El nombre de la noticia ya existe, porfavor cambiarlo');
     }else{
       // error en validacion en servidor
       toastr.error('Error', 'Datos incorrectos!');
@@ -349,7 +353,11 @@
           return false;
       }
       
+<<<<<<< HEAD
      var files = imgFile.files;
+=======
+      var files = imgFile.files;
+>>>>>>> 5baf8790516d54e2682e42c6ed2d6db14c623b20
       for (var i = 0; i < files.length; i++){
           var file = files[i];
 
@@ -439,7 +447,9 @@
           toastr.success('Guardado', 'Programa actualizado');    
       } else if (valor.data.success == 2) { 
           toastr.error('Error', 'Noticia no encontrado'); 
-      } else {
+      } else if(valor.data.success == 4){
+          toastr.error('El nombre de la noticia ya existe, porfavor cambiarlo');
+        }else {
           toastr.error('Error'); 
       }
   }

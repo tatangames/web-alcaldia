@@ -54,6 +54,14 @@ class ProgramasController extends Controller
                 ];
             }        
 
+            $slug = Str::slug($request->nombre, '-');
+        
+            if(Programa::where('slug', $slug)->first()){
+                return [
+                    'success' => 4, 
+                    'message' => 'El slug del programa ya existe'
+                ];
+            }
             
            // generar nombre para la imagen
            $cadena = Str::random(15);
@@ -75,6 +83,7 @@ class ProgramasController extends Controller
                $programa->logo = $nombreFoto;
                $programa->descorta = $request->descorta;
                $programa->deslarga = $request->deslarga;
+               $programa->slug = $slug;
 
                if($programa->save()){
                    return [
@@ -135,12 +144,14 @@ class ProgramasController extends Controller
         if($request->isMethod('post')){  
 
             $regla = array( 
+                'idprograma' => 'required',
                 'nombre' => 'required|max:450',                
                 'descorta' => 'required',
                 'deslarga' => 'required',
             );    
 
             $mensaje = array(
+                'idprograma.required' => 'Id es requerido',
                 'nombre.required' => 'Nombre programa es requerio',
                 'nombre.max' => 'Maximo 450 caracteres',                
                 'descorta.required' => 'Descripcion corta es requeria',
@@ -182,6 +193,15 @@ class ProgramasController extends Controller
                 }              
             }
 
+            $slug = Str::slug($request->nombre, '-');
+        
+            if(Programa::where('slug', $slug)->where('idprograma', '!=', $request->idprograma)->first()){
+                return [
+                    'success' => 4, 
+                    'message' => 'El slug del programa ya existe'
+                ];
+            }
+            
             // encontrar programa a modificar
             if($programa = Programa::where('idprograma', $request->idprograma)->first()){                        
 
@@ -203,7 +223,7 @@ class ProgramasController extends Controller
                         $imagenOld = $programa->logo; //nombre de imagen a borrar
                         
                         Programa::where('idprograma', '=', $request->idprograma)->update(['nombreprograma' => $request->nombre, 
-                        'logo' => $nombreFoto, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga]);
+                        'logo' => $nombreFoto, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
                             
                         if(Storage::disk('programa')->exists($imagenOld)){
                             Storage::disk('programa')->delete($imagenOld);                                
@@ -221,7 +241,7 @@ class ProgramasController extends Controller
                 }else{ // guardar solo datos
                 
                     Programa::where('idprograma', '=', $request->idprograma)->update(['nombreprograma' => $request->nombre,
-                    'descorta' => $request->descorta, 'deslarga' => $request->deslarga]);
+                    'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
                     
                     return [
                         'success' => 1 // datos guardados correctamente

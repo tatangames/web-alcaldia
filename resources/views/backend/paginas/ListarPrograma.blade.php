@@ -273,6 +273,8 @@
       toastr.error('Error', 'Datos no guardados!');
     }else if(valor.data.success == 3){
       toastr.error('Error', 'No se guardo la imagen!');
+    }else if(valor.data.success == 4){
+      toastr.error('El nombre de programa ya existe, porfavor cambiarlo');
     }else{
       // error en validacion en servidor
       toastr.error('Error', 'Datos incorrectos!');
@@ -389,7 +391,9 @@
           toastr.error('Error', 'No se pudo cargar la imagen'); 
       } else if (valor.data.success == 3) { 
           toastr.error('Error', 'Programa no encontrado'); 
-      } else {
+      } else if(valor.data.success == 4){
+          toastr.error('El nombre del programa ya existe, porfavor cambiarlo');
+      }else {
           toastr.error('Error'); 
       }
   }

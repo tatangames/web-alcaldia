@@ -20,6 +20,7 @@ class CreateNoticiaTable extends Migration
             $table->date('fecha');
             $table->text('descorta');
             $table->text('deslarga');  
+            $table->string('slug', 150)->unique();
         });
     }
 
