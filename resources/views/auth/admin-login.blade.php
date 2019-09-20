@@ -32,7 +32,7 @@
 					</div>
 					<h3 style="position: relative; top: -10px;">Alcald&iacute;a Municipal</h3>
 				</div>
-				<div class="card-body" ">
+				<div class="card-body">
 				<form class=" validate-form">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
