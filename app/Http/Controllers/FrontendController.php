@@ -101,5 +101,18 @@ class FrontendController extends Controller
     return view('frontend.paginas.noticiaSelect',compact(['noticia','serviciosMenu','noticiaReciente','fotografias']));
   }
 
+  //Metodo para devolver vista de historia de tu alcaldia
+  public function getHistoriaPage()
+  {
+    $serviciosMenu = $this->getServiciosMenu(); 
+    return view('frontend.paginas.historia',compact('serviciosMenu'));
+  }
+
+  public function getGobiernoPage()
+  {
+    $serviciosMenu = $this->getServiciosMenu(); 
+    return view('frontend.paginas.gob',compact('serviciosMenu'));
+  }
+
 
 }

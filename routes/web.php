@@ -83,6 +83,9 @@ Route::get('/servicio/{nombre}','FrontendController@getServicioByname');
 Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUsuario');
 Route::post('/admin/actualizar-usuario','UserController@update');
 
+//TU ALCALDIA
+Route::get('/historia','FrontendController@getHistoriaPage');
+Route::get('/direccion','FrontendController@getGobiernoPage');
 
 
 
