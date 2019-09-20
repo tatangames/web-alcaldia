@@ -64,6 +64,15 @@
 
 	<script type="text/javascript">
 
+		// onkey Enter 
+         var input = document.getElementById("password");	
+			input.addEventListener("keyup", function(event) {	
+			if (event.keyCode === 13) {			
+				event.preventDefault();			
+				login();
+			}
+		});
+
 		function login() {
 
 			var usuario = document.getElementById('usuario').value;
