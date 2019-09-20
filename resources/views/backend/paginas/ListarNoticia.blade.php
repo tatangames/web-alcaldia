@@ -288,16 +288,15 @@
           .then((response) => {	
             loadingOverlay().cancel(spinHandle); // cerrar loading            
             document.getElementById("btnGuardar").disabled = false; //habilitar boton          
-           
-            console.log(response);
-          /*  if(response.data.success == 1){
+     
+           if(response.data.success == 1){
               toastr.success('Guardado', 'Se ha creado nueva noticia!');
               $('#modalAgregar').modal('hide');             
               var ruta = "{{ URL::to('admin/tablas/noticia') }}";   
               $('#tablaDatatable').load(ruta);
             }else{
               toastr.error('Error', 'No se guardo la noticia!'); 
-            }*/abrirModalEliminarFoto
+            }
           })
           .catch((error) => {
             document.getElementById("btnGuardar").disabled = false;     
@@ -350,7 +349,7 @@
           return false;
       }
       
-     /* var files = imgFile.files;
+     var files = imgFile.files;
       for (var i = 0; i < files.length; i++){
           var file = files[i];
 
@@ -359,7 +358,7 @@
             return false;
             break;
           }  
-      }*/ 
+      }
 
       return true;
   } 
@@ -524,9 +523,9 @@
             toastr.success('Fotografia Eliminada!')
 
 
-            /*$('#modalEliminar').modal('hide');   
+            $('#modalEliminar').modal('hide');   
             var ruta = "{{ URL::to('admin/tablas/noticia') }}";   
-            $('#tablaDatatable').load(ruta);*/
+            $('#tablaDatatable').load(ruta);
           }else{
             toastr.error('Error', 'No se pudo eliminar la fotografia');  
           }         

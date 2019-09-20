@@ -81,7 +81,7 @@ class FrontendController extends Controller
 
   //Metodo para obtener todas las noticias 
   public function getNoticias(){
-        $noticias = Noticia::all();
+        $noticias = Noticia::paginate(3);
         foreach($noticias  as $new){  
             $foto = Fotografia::where('noticia_id', $new->idnoticia)->pluck('nombrefotografia')->first();        
             $new->nombrefotografia = $foto; 
