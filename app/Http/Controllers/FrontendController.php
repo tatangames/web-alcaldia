@@ -102,14 +102,12 @@ class FrontendController extends Controller
   }
 
   //Metodo para devolver vista de historia de tu alcaldia
-  public function getHistoriaPage()
-  {
+  public function getHistoriaPage(){
     $serviciosMenu = $this->getServiciosMenu(); 
     return view('frontend.paginas.historia',compact('serviciosMenu'));
   }
-
-  public function getGobiernoPage()
-  {
+//Metodo para devolver vista de gobierno municipal de tu alcaldia
+  public function getGobiernoPage(){
     $serviciosMenu = $this->getServiciosMenu(); 
     return view('frontend.paginas.gob',compact('serviciosMenu'));
   }
