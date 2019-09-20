@@ -288,21 +288,8 @@
           })
           .then((response) => {	
             loadingOverlay().cancel(spinHandle); // cerrar loading            
-<<<<<<< HEAD
-            document.getElementById("btnGuardar").disabled = false; //habilitar boton          
-     
-           if(response.data.success == 1){
-              toastr.success('Guardado', 'Se ha creado nueva noticia!');
-              $('#modalAgregar').modal('hide');             
-              var ruta = "{{ URL::to('admin/tablas/noticia') }}";   
-              $('#tablaDatatable').load(ruta);
-            }else{
-              toastr.error('Error', 'No se guardo la noticia!'); 
-            }
-=======
             document.getElementById("btnGuardar").disabled = false; //habilitar boton            
             mensajeResponse(response);
->>>>>>> 5baf8790516d54e2682e42c6ed2d6db14c623b20
           })
           .catch((error) => {
             document.getElementById("btnGuardar").disabled = false;     
@@ -353,11 +340,7 @@
           return false;
       }
       
-<<<<<<< HEAD
-     var files = imgFile.files;
-=======
       var files = imgFile.files;
->>>>>>> 5baf8790516d54e2682e42c6ed2d6db14c623b20
       for (var i = 0; i < files.length; i++){
           var file = files[i];
 
