@@ -228,9 +228,9 @@
 function abrirModalAgregar(){
     document.getElementById("formulario").reset();
     CKEDITOR.instances['editor1'].setData('');
-    CKEDITOR.instances['editor2'].setData('');              
-    $('#modalAgregar').modal('show'); 
-  }
+    CKEDITOR.instances['editor2'].setData('');     
+    $('#modalAgregar').modal('show');
+}
 
     // guardar nuevo servicio
 function guardarServicio(){
@@ -267,9 +267,8 @@ function guardarServicio(){
         })
         .then((response) => {	
           loadingOverlay().cancel(spinHandle); // cerrar loading            
-          document.getElementById("btnGuardar").disabled = false; //habilitar boton          
-         console.log(response);
-         // mensajeResponse(response);
+          document.getElementById("btnGuardar").disabled = false; //habilitar boton  
+          mensajeResponse(response);
         })
         .catch((error) => {
           document.getElementById("btnGuardar").disabled = false;     
@@ -290,6 +289,8 @@ function mensajeResponse(valor){
     toastr.error('Error', 'Datos no guardados!');
   }else if(valor.data.success == 3){
     toastr.error('Error', 'No se guardo la imagen!');
+  }else if(valor.data.success == 4){
+    toastr.error('El nombre del servicio ya existe, porfavor cambiarlo!');
   }else{
     // error en validacion en servidor
     toastr.error('Error', 'Datos incorrectos!');
@@ -416,6 +417,8 @@ function mostrarMensajeEditar(valor) {
         toastr.error('Error', 'No se pudo cargar la imagen'); 
     } else if (valor.data.success == 3) { 
         toastr.error('Error', 'Servicio no encontrado'); 
+    } else if(valor.data.success == 4){
+    toastr.error('El nombre del servicio ya existe, porfavor cambiarlo!');
     } else {
         toastr.error('Error'); 
     }
@@ -435,8 +438,7 @@ function validacionesEditar(nombre, editor3, editor4, imagen){
     else if(editor4 === ''){
         toastr.error('Error', 'Agregar descripción larga'); 
         return false;
-    }
-   
+    }   
    
     if(imagen.files && imagen.files[0]){ // si trae imagen
           if (!imagen.files[0].type.match('image/png')){      

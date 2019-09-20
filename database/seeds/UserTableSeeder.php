@@ -23,7 +23,7 @@ class UserTableSeeder extends Seeder
             'nombre' => 'Jonathan',
             'apellido' => 'Moran',
             'usuario' => 'tatan',            
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('123'),
             'telefono' => '2402541',
             'dui' => '12345'
         ]);

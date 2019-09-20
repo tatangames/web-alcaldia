@@ -60,13 +60,23 @@ class NoticiaController extends Controller
                     'success' => 0, 
                     'message' => $validar->errors()->all()
                 ];
-            }  
+            }
+
+            $slug = Str::slug($request->nombre, '-');
+         
+            if(Noticia::where('slug', $slug)->first()){
+                 return [
+                     'success' => 4, 
+                     'message' => 'El slug del servicio ya existe'
+                 ];
+            }
 
             $idnoticia = Noticia::insertGetId([
                   'nombrenoticia'=>$request->nombre,
                   'fecha'=>$request->fecha,
                   'descorta'=>$request->descorta,
-                  'deslarga'=>$request->deslarga ]);         
+                  'deslarga'=>$request->deslarga,
+                  'slug' => $slug ]);
 
             foreach($request->file('imagen') as $img){
 
@@ -165,15 +175,24 @@ class NoticiaController extends Controller
                 ];
             } 
 
+            $slug = Str::slug($request->nombre, '-');
+         
+            if(Noticia::where('slug', $slug)->where('idnoticia', '!=', $request->idnoticia)->first()){
+                 return [
+                     'success' => 4, 
+                     'message' => 'El slug del servicio ya existe'
+                 ];
+            }
+
             // encontrar noticia a modificar
             if(Noticia::where('idnoticia', $request->idnoticia)->first()){  
                 
                 Noticia::where('idnoticia', '=', $request->idnoticia)->update(['nombrenoticia' => $request->nombre,
-                'fecha'=> $request->fecha, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga]);
+                'fecha'=> $request->fecha, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
                 
                 return [
                     'success' => 1 // datos guardados correctamente
-                ];     
+                ];
                 
             }else{
                 return [

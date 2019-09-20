@@ -19,7 +19,8 @@ class CreateProgramasTable extends Migration
             $table->boolean('estado')->default('0');           
             $table->string('logo', 100);
             $table->text('descorta');
-            $table->text('deslarga');            
+            $table->text('deslarga');    
+            $table->string('slug', 150)->unique();        
         });
     }
 
