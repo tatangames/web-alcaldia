@@ -69,7 +69,7 @@
 					<div class="col-md-3 animate-box text-center ">
 					@endif
 						<div class="services">
-							<a href="{{ url('programa/'.$dato2->nombreprograma) }}">
+							<a href="{{ url('programa/'.$dato2->slug) }}">
 								<span class="icon">
 								<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
 								</span>
@@ -97,7 +97,7 @@
 					@foreach($servicios as $dato3)
 						<div class="col-md-6 animate-box">
 
-							<a href="{{ url('servicio/'.$dato3->nombreservicio) }}" class="blog-post">
+							<a href="{{ url('servicio/'.$dato3->slug) }}" class="blog-post">
 								<span class="img" style="background-image: url('storage/servicio/{{ $dato3->logo }}');"></span>
 								<div class="desc">
 									<h3>{{ $dato3->nombreservicio }}</h3>
@@ -162,12 +162,12 @@
 						@foreach($noticia as $dato5)
 							<div class="item">
 								<div class="hotel-entry">
-									<a href="noticiaSelect.html" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
+									<a href="{{ url('noticia/'.$dato5->slug) }}" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
 									<!--Espacio para la categoria de la noticia si hubiera-->
 									<!--<p class="price"><span></span><small> </small></p>-->
 									</a>
 									<div class="desc">
-										<h3><a href="noticiaSelect.html">{{ $dato5->nombrenoticia }}</a></h3>
+										<h3><a href="{{ url('noticia/'.$dato5->slug) }}">{{ $dato5->nombrenoticia }}</a></h3>
 										<span class="place">{{ $dato5->fecha }}</span>
 										<p>{!! $dato5->descorta !!}</p>
 									</div>
