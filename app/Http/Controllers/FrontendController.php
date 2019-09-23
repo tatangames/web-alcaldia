@@ -57,14 +57,14 @@ class FrontendController extends Controller
         return $servicios;
     }
     //Metodo para pagina de Servicio Individual
-    public function getServicioByname($nombre){        
-        $servicio =  DB::table('servicios')->where('nombreservicio', $nombre)->first();
+    public function getServicioByname($slug){        
+        $servicio =  DB::table('servicios')->where('slug', $slug)->first();
         $serviciosMenu = $this->getServiciosMenu(); 
         return view('frontend.paginas.servicio',compact(['servicio','serviciosMenu']));
     }
     //Metodo para pagina de Programa Individual
-    public function getProgramaByname($nombre){        
-        $programa =  DB::table('programas')->where('nombreprograma', $nombre)->first();
+    public function getProgramaByname($slug){        
+        $programa =  DB::table('programas')->where('slug', $slug)->first();
         $serviciosMenu = $this->getServiciosMenu(); 
         return view('frontend.paginas.programa',compact(['programa','serviciosMenu']));
     }
@@ -91,8 +91,8 @@ class FrontendController extends Controller
   }
 
   //Metodo para obtener una noticia por su nombre
-  public function getNoticiaByName($nombre){
-    $noticia =  DB::table('noticia')->where('nombrenoticia', $nombre)->first();
+  public function getNoticiaByName($slug){
+    $noticia =  DB::table('noticia')->where('slug', $slug)->first();
     $fotoInicial = Fotografia::where('noticia_id', $noticia->idnoticia)->pluck('nombrefotografia')->first(); 
     $fotografias = Fotografia::where('noticia_id', $noticia->idnoticia)->get()->forget(0);
     $noticia->nombrefotografia = $fotoInicial; 

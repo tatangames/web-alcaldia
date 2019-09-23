@@ -41,7 +41,7 @@
 				@foreach($servicios as $item)												
 				<div class="row animate-box">
 					<div class="services">
-						<a href="{{ asset('servicio/'.$item->nombreservicio) }}">
+						<a href="{{ asset('servicio/'.$item->slug) }}">
 							<div class="col-md-3  text-center">
 							<center>
 							<img src="{{ asset('storage/servicio/'.$item->logo) }}" alt="Programa Municipal" style="width:180px; height:180px;"/>
@@ -51,7 +51,7 @@
 						<div class="col-md-9">
 							<div class="row">
 								<div class="col-md-12">
-									<a href="{{ asset('servicio/'.$item->nombreservicio) }}">
+									<a href="{{ asset('servicio/'.$item->slug) }}">
 										<h3>{{ $item->nombreservicio }}</h3>
 									</a>
 								</div>
