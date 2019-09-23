@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Slider;
+use App\Noticia;
 use App\Programa;
 use App\Servicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -17,13 +20,15 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('backend.index');
+        $idusuario =  auth()->user()->id;
+        $usuario =  DB::table('users')->where('id', $idusuario)->first();
+        return view('backend.index',compact('usuario'));
     }
 
     public function getInicio(){
-        $conteoSlider = Slider::count();
         $conteoPrograma = Programa::count();
         $conteoServicio = Servicio::count();
-        return view('backend.paginas.inicio',compact(['conteoSlider','conteoPrograma','conteoServicio']));
+        $conteoNoticia = Noticia::count();
+        return view('backend.paginas.inicio',compact(['conteoNoticia','conteoPrograma','conteoServicio']));
     }
 }

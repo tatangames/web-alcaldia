@@ -53,13 +53,14 @@ class LoginController extends Controller
 
         // verificar si existe el usuario
         if(User::where('usuario', $request->usuario)->first()){
-
             // validacion de usuario y contrasena
-            if (Auth::attempt(['usuario' => $request->usuario, 'password' => $request->password])) {            
+            if (Auth::attempt(['usuario' => $request->usuario, 'password' => $request->password])) {     
+                if (Auth::check()) {
                 return [
-                    'success'=> 1,           
-                    'message'=> route('admin.dashboard')
+                   'success'=> 1,           
+                   'message'=> route('admin.dashboard')
                     ];
+                }
             }else{
                 return [
                     'success' => 2, 

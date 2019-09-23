@@ -30,38 +30,36 @@
 		<!--End Imagen de cabecera-->
 		<!--Contenido-->
 		<div id="colorlib-blog">
-			<div class="container">
-				<div class="row">
+			<div class="container infinite-scroll">
+			@foreach($noticias as $item)
+			<div class="row ">
 					<div class="col-md-10">
 						<div class="wrap-division">
-						@foreach($noticias as $item)
-						<article>
-								<div class="animate-box">
-								<a href="{{ url('/noticia/'.$item->nombrenoticia) }}">
-									<div class="blog-img" style="background-image: url( {{ asset('storage/noticia/'.$item->nombrefotografia) }});"></div>
-								</a>
+							<a href="{{ url('noticia/'.$item->slug) }}" >
+							<article class="animated zoomIn">
+								<div class="blog-img" style="background-image: url( {{ asset('storage/noticia/'.$item->nombrefotografia) }});"></div>
 								<div class="desc">
 									<div class="meta">
-										<p>
+										<h6>
 											<span>{{ $item->fecha }}</span>
-										</p>
+										</h6>
 									</div>
-									<a href="noticiaSelect.html"></a>
-									<h2>{{ $item->nombrenoticia }}</h2></a>
-									<p>{!! $item->descorta !!}</p>
-									</div>
+									<h2>{{ $item->nombrenoticia }}</h2>
+									<h5>{!! $item->descorta !!}</h5>
 								</div>
-							</article>
-							@endforeach
-						</div>					
+							</article></a>
+						</div>
 					</div>
 				</div>
+				@endforeach
+					{{ $noticias->links() }}
 			</div>
 		</div>
 	</div>
 	<!--End Contenido-->
 
 	@include("frontend.menus.footer")
+	    <script src="{{ asset('plugins/scrollinfinite/jquery.jscroll.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('js/frontend.js') }}" type="text/javascript"></script>
 		<script>
 			$(document).ready(function() {
@@ -74,5 +72,20 @@
 				});
 			});
 		</script>
+		<script type="text/javascript">
+		$('ul.pagination').hide();
+		$(function() {
+			$('.infinite-scroll').jscroll({
+				autoTrigger: true,
+				loadingHtml: '<img class="center-block" src="/images/loadinggif.gif" alt="Loading..." />',
+				padding: 0,
+				nextSelector: '.pagination li.active + li a',
+				contentSelector: 'div.infinite-scroll',
+				callback: function() {
+					$('ul.pagination').remove();
+				}
+			});
+		});
+	</script>
 	</body>
 </html>
