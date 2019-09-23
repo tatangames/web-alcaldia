@@ -32,7 +32,7 @@
 					</div>
 					<h3 style="position: relative; top: -10px;">Alcald&iacute;a Municipal</h3>
 				</div>
-				<div class="card-body" ">
+				<div class="card-body" >
 				<form class=" validate-form">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -65,7 +65,7 @@
 	<script type="text/javascript">
 
 		// onkey Enter 
-         var input = document.getElementById("password");	
+		var input = document.getElementById("password");	
 			input.addEventListener("keyup", function(event) {	
 			if (event.keyCode === 13) {			
 				event.preventDefault();			
@@ -114,6 +114,7 @@
 				alertify.error("Validacion incorrecta...");
 			} else if (response.data.success == 1) {
 				window.location = response.data.message
+				//console.log(response);
 			} else if (response.data.success == 2) {
 				alertify.error("Contraseña incorrecta");
 			} else if (response.data.success == 3) {
