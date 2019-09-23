@@ -61,6 +61,7 @@ class FrontendController extends Controller
     public function getServicioByname($slug){        
         $servicio =  DB::table('servicios')->where('slug', $slug)->first();
         $serviciosMenu = $this->getServiciosMenu(); 
+        $documentos = Documento::where('servicio_id', $servicio->idservicio)->get();
         return view('frontend.paginas.servicio',compact(['servicio','serviciosMenu','documentos']));
     }
 
