@@ -13,7 +13,7 @@
 									<a href="/servicios">Servicios</a>
 									<ul class="dropdown">
 									@foreach($serviciosMenu as $dato3)
-										<li><a href="{{ url('servicio/'.$dato3->nombreservicio) }}">{{$dato3->nombreservicio}}</a></li>
+										<li><a href="{{ url('servicio/'.$dato3->slug) }}">{{$dato3->nombreservicio}}</a></li>
 									@endforeach	
 									</ul>
 								</li>
