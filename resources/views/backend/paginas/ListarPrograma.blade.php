@@ -366,7 +366,6 @@
           axios.post('/admin/editar-programa', formData, {        
           })
           .then((response) => {	
-
             document.getElementById("btnGuardarU").disabled = false;
             loadingOverlay().cancel(spinHandle); // cerrar loading
             mostrarMensajeEditar(response);

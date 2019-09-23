@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Documento;
 use App\Programa;
 use App\Servicio;
 use App\Slider;
@@ -59,9 +60,11 @@ class FrontendController extends Controller
     //Metodo para pagina de Servicio Individual
     public function getServicioByname($nombre){        
         $servicio =  DB::table('servicios')->where('nombreservicio', $nombre)->first();
+        $documentos = Documento::where('servicio_id', $servicio->idservicio)->get();
         $serviciosMenu = $this->getServiciosMenu(); 
-        return view('frontend.paginas.servicio',compact(['servicio','serviciosMenu']));
+        return view('frontend.paginas.servicio',compact(['servicio','serviciosMenu','documentos']));
     }
+
     //Metodo para pagina de Programa Individual
     public function getProgramaByname($nombre){        
         $programa =  DB::table('programas')->where('nombreprograma', $nombre)->first();
@@ -111,6 +114,13 @@ class FrontendController extends Controller
     $serviciosMenu = $this->getServiciosMenu(); 
     return view('frontend.paginas.gob',compact('serviciosMenu'));
   }
+  //Metodo para descargar un archivo
+  public function getFile($nameFile)
+{
+    $file="storage/servicio/".$nameFile;
+    $headers = array('Content-Type: application/pdf',);
+    return response()->download($file, $nameFile, $headers);
+}
 
 
 }

@@ -57,6 +57,7 @@ Route::post('admin/editar-noticia', 'NoticiaController@editarNoticia');
 Route::post('admin/eliminar-noticia', 'NoticiaController@eliminarNoticia');
 Route::get('/noticias', 'FrontendController@getNoticias');
 Route::get('/noticia/{nombre}','FrontendController@getNoticiaByName');
+Route::get('/download/{nombre}','FrontendController@getFile');
 
 // FOTOGRAFIA
 Route::get('admin/fotografia/{id}', 'FotografiaController@getFotografiaVista'); 
