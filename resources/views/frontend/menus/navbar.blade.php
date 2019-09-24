@@ -8,9 +8,9 @@
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li class="active"><a href="/">Inicio</a></li>
-								<li><a href="{{ url('/noticias) }}">Noticias</a></li>
+								<li><a href="{{ url('noticias/') }}">Noticias</a></li>
 								<li class="has-dropdown">
-									<a href="{{ url('/servicios) }}">Servicios</a>
+									<a href="{{ url('servicios/') }}">Servicios</a>
 									<ul class="dropdown">
 									@foreach($serviciosMenu as $dato3)
 										<li><a href="{{ url('servicio/'.$dato3->slug) }}">{{$dato3->nombreservicio}}</a></li>
@@ -18,13 +18,13 @@
 									</ul>
 								</li>
 								<li class="has-dropdown">
-									<a href="{{ url('/historia) }}">Tu Alcad&iacute;a</a>
+									<a href="{{ url('historia/') }}">Tu Alcad&iacute;a</a>
 									<ul class="dropdown">
-										<li><a href="{{ url('/direccion) }}">Gobierno municipal</a></li>
-										<li><a href="{{ url('/historia) }}">Historia</a></li>
+										<li><a href="{{ url('direccion/') }}">Gobierno municipal</a></li>
+										<li><a href="{{ url('historia/') }}">Historia</a></li>
 									</ul>
 								</li>
-								<li><a href="{{ url('/galeria) }}">Galer&iacute;a</a></li>
+								<li><a href="{{ url('galeria/') }}">Galer&iacute;a</a></li>
 								<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
 								<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
 										transparencia</a></li>
