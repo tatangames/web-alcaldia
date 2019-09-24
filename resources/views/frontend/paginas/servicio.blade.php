@@ -59,10 +59,10 @@
 										<i class="icon icon-file-pdf"></i>
 									</td>
 									<td style="margin: 15px; padding: 12x;">
-										<a style="color: black;" href="/download/{{$doc->url }}"><strong>{{$doc->nombre}} </strong></a>
+										<a style="color: black;" href="{{ url('/download/'.$doc->url) }}"><strong>{{$doc->nombre}} </strong></a>
 									</td>
 									<td style="margin: 15px; padding: 12px;">
-										<a href="/download/{{$doc->url }}"><i class="icon icon-box-add" title="Descargar archivo"></i></a>
+										<a href="{{ url('/download/'.$doc->url) }}"><i class="icon icon-box-add" title="Descargar archivo"></i></a>
 									</td>
 								</tr>
 								@endforeach
