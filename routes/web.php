@@ -76,7 +76,7 @@ Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUs
 Route::post('/admin/actualizar-usuario','UserController@update');
 });
 
-
+ 
 
 Route::get('/servicios','FrontendController@getAllServicios');
 Route::get('/servicio/{nombre}','FrontendController@getServicioByname');

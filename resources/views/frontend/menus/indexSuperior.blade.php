@@ -24,10 +24,6 @@
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
 	
 
-	
-
-
-
 	@yield('header')
 	<style>
 		/* On screens that are 768px or less, set the logo bigger */
