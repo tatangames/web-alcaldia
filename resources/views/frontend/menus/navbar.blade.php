@@ -18,7 +18,7 @@
 									</ul>
 								</li>
 								<li class="has-dropdown">
-									<a href="info.html">Tu Alcad&iacute;a</a>
+									<a href="/historia">Tu Alcad&iacute;a</a>
 									<ul class="dropdown">
 										<li><a href="/direccion">Gobierno municipal</a></li>
 										<li><a href="/historia">Historia</a></li>

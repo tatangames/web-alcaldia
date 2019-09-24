@@ -97,6 +97,8 @@
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
+          <p>{{ $visitas }}</p>
+          <p>{{ $downloads }}</p>
         </div>
         <!-- /.content -->
 

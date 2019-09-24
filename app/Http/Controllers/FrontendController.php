@@ -8,19 +8,31 @@ use App\Servicio;
 use App\Slider;
 use App\Noticia;
 use App\Fotografia;
+use App\Visitors;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+  public function AddVisitor($descarga = NULL){
+    $ip =  \Request::getClientIp(true);
+    $visited_date = Date("Y-m-d");
+    $vistor = Visitors::firstOrCreate(['ip' => $ip, 'visited_date' => $visited_date]);
+    if($descarga != NULL){
+      $vistor->increment('downloads');  
+    }
+    $vistor->increment('hits');
+  }
     // Metodo para cargar informacion en pagina Index Publica
     public function index(){
+        $this->AddVisitor();
         $slider = Slider::all()->sortBy('posicion');
         $programas = Programa::all()->sortByDesc('idprograma')->take(4);
         $servicios = Servicio::all()->sortByDesc('idservicio')->take(6);
         $fotografia = Fotografia::all()->sortByDesc('idfotografia')->take(8);
         $serviciosMenu = $this->getServiciosMenu(); 
+        
         foreach($fotografia  as $secciones){  
             $noticia = Noticia::where('idnoticia', $secciones->noticia_id)->select('nombrenoticia', 'fecha')->first();        
             $secciones->nombre = $noticia->nombrenoticia; 
@@ -117,6 +129,7 @@ class FrontendController extends Controller
   //Metodo para descargar un archivo
   public function getFile($nameFile)
 {
+    $this->AddVisitor(1);
     $file="storage/servicio/".$nameFile;
     $headers = array('Content-Type: application/pdf',);
     return response()->download($file, $nameFile, $headers);

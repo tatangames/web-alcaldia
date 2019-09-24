@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Visitors;
 
 class DashboardController extends Controller
 {
@@ -29,6 +30,8 @@ class DashboardController extends Controller
         $conteoPrograma = Programa::count();
         $conteoServicio = Servicio::count();
         $conteoNoticia = Noticia::count();
-        return view('backend.paginas.inicio',compact(['conteoNoticia','conteoPrograma','conteoServicio']));
+        $visitas =  DB::table('visitors')->distinct('ip')->count();
+        $downloads =  DB::table('visitors')->sum('downloads');
+        return view('backend.paginas.inicio',compact(['conteoNoticia','conteoPrograma','conteoServicio','visitas','downloads']));
     }
 }
