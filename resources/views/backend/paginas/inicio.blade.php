@@ -97,8 +97,48 @@
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <p>{{ $visitas }}</p>
-          <p>{{ $downloads }}</p>
+          <div class="col-md-6">
+            <!-- AREA CHART -->
+            <div class="card card-gray">
+              <div class="card-header">
+                <h3 class="card-title">Visitas Mensuales</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="areaChart" style="height:250px; min-height:250px"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div><!-- /col-md-6 -->
+          <div class="col-md-6">
+            <!-- AREA CHART -->
+            <div class="card card-gray">
+              <div class="card-header">
+                <h3 class="card-title">Descargas Mensuales</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="areaChart2" style="height:250px; min-height:250px"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div><!-- /col-md-6 -->
         </div>
         <!-- /.content -->
 
@@ -114,9 +154,87 @@
   <script src="{{ asset('plugins/bootstrap/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
   <!-- libreria adminlte3 -->
   <script src="{{ asset('js/backend/adminlte3/adminlte.min.js') }}" type="text/javascript"></script>
+  <!-- ChartJS -->
+  <script src="{{ asset('js/backend/adminlte3/Chart.min.js') }}"></script>
 
   @yield('content-admin-js')
+  <script>
+  $(function () {
+    //--------------
+    //- AREA CHART -
+    //--------------
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+    var areaChartCanvas2 = $('#areaChart2').get(0).getContext('2d')
 
+    var areaChartData = {
+      labels  : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      datasets: [
+        {
+          label               : 'Visitas del mes',
+          backgroundColor     : 'rgba(0,153,0,0.5)',
+          borderWidth         : 0,
+          pointRadius         : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [{{$visene}}, {{$visfeb}}, {{$vismar}}, {{$visabr}}, {{$vismay}}, {{$visjun}}, {{$visjul}},
+                                 {{$visago}}, {{$vissep}}, {{$visoct}}, {{$visnov}}, {{$visdic}}]
+        }
+      ]
+    }
+    var areaChartData2= {
+      labels  : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      datasets: [
+        {
+          label               : 'Descargas del mes',
+          backgroundColor     : 'rgba(255,51,51,0.5)',
+          borderWidth         : 0,
+          pointRadius         : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [{{$dowene}}, {{$dowfeb}}, {{$dowmar}}, {{$dowabr}}, {{$dowmay}}, {{$dowjun}}, {{$dowjul}},
+                                 {{$dowago}}, {{$dowsep}}, {{$dowoct}}, {{$downov}}, {{$dowdic}}]
+        }
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+    // This will get the first returned node in the jQuery collection.
+    var areaChart       = new Chart(areaChartCanvas, { 
+      type: 'line',
+      data: areaChartData, 
+      options: areaChartOptions
+    })
+     // This will get the first returned node in the jQuery collection.
+     var areaChart2       = new Chart(areaChartCanvas2, { 
+      type: 'line',
+      data: areaChartData2, 
+      options: areaChartOptions
+    })
+  })
+</script>
 </body>
 
 </html>
