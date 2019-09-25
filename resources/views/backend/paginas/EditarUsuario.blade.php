@@ -1,6 +1,8 @@
 @extends('backend.menus.indexSuperior')
  
 @section('content-admin-css')
+<link href="{{ asset('css/backend/adminlte3/adminlte.min.css') }}" type="text/css" rel="stylesheet" /> 
+
   <!-- Toastr -->
 	<link href="{{ asset('plugins/toastr/toastr.min.css') }}" type="text/css" rel="stylesheet" /> 
 @stop
