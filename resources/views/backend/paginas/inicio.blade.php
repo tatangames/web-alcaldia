@@ -101,7 +101,7 @@
             <!-- AREA CHART -->
             <div class="card card-gray">
               <div class="card-header">
-                <h3 class="card-title">Visitas Mensuales</h3>
+                <h3 class="card-title">Visitas por mes</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -122,7 +122,7 @@
             <!-- AREA CHART -->
             <div class="card card-gray">
               <div class="card-header">
-                <h3 class="card-title">Descargas Mensuales</h3>
+                <h3 class="card-title">Descarga de archivos por mes</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>

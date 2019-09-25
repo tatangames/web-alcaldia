@@ -53,7 +53,7 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script> Todos los derechos reservados |
-						Alclad&iacute;a Municipal de Metap&aacute;n, Santa Ana, El Salvador.
+						Alcald&iacute;a Municipal de Metap&aacute;n, Santa Ana, El Salvador.
 					</p>
 				</div>
 			</div>
