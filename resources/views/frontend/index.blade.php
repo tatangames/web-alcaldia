@@ -52,38 +52,30 @@
 		<!--Programas Municipales-->
 		<div id="colorlib-services">
 			<div class="container">
-				<div class="row  no-gutters">
-					<div class="col-md-12 tex-center ">
-						<br><br>
-						<center>
-							<h1>Programas Municipales</h1>
-						</center>
-					</div>
-				</div>
-				
-				<div class="row no-gutters" >
-					@foreach($programas as $dato2)
-					@if ($loop->first)
+				<div class="row no-gutters">
+				@foreach($programas as $dato2)
+				@if ($loop->first)
         			<div class="col-md-3 animate-box text-center aside-stretch">	
     				@else
-					<div class="col-md-3 animate-box text-center ">
+					<div class="col-md-3 animate-box text-center">
 					@endif
 						<div class="services">
-							<a href="{{ url('programa/'.$dato2->slug) }}">
-								<span class="icon">
-								<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
-								</span>
-								<h3>{{ $dato2->nombreprograma }}</h3>
+						<a href="{{ url('programa/'.$dato2->slug) }}">
+							<span class="icon">
+							<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
+							</span>
+							<h3>{{ $dato2->nombreprograma }}</h3>
 							</a>
 							{!! $dato2->descorta  !!} 
 						</div>
 					</div>
-					@endforeach
+				@endforeach	
 				</div>
 			</div>
 		</div>
 		<!--End Programas Municipales-->
-			<!--Servicios municipales-->
+
+		<!--Servicios municipales-->
 			<div id="colorlib-blog">
 			<div class="container">
 				<div class="row">
@@ -117,12 +109,34 @@
 
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 		<!--End Servicios municipales-->
-
+		<div id="colorlib-services">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6  col-md-offset-3 text-center  animate-box">
+						<h2>Servicios</h2>
+						<p>Espacio para descripcion general de los servicios</p>
+					</div>
+				</div>
+				<div class="row no-gutters">
+				@foreach($servicios as $dato3)
+					<div class="col-md-6 animate-box text-center">
+						<div class="services">
+						<a href="{{ url('servicio/'.$dato3->slug) }}" class="blog-post">
+							<span class="icon">
+							<span class="img" style="background-image: url('storage/servicio/{{ $dato3->logo }}');"></span>
+							</span>
+							<h3>{{ $dato3->nombreservicio }}</h3>
+							<span>{!! $dato3->descorta  !!}</span>
+						</a>
+						</div>
+					</div>
+				@endforeach		
+				</div>
+			</div>
+		</div>
 		<!--Fotografías recientes-->
 		<div class="colorlib-tour colorlib-light-grey">
 			<div class="container">
@@ -165,7 +179,6 @@
 									<a href="{{ url('noticia/'.$dato5->slug) }}" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
 									<!--Espacio para la categoria de la noticia si hubiera-->
 									<!--<p class="price"><span></span><small> </small></p>-->
-									</a>
 									<div class="desc">
 										<h3><a href="{{ url('noticia/'.$dato5->slug) }}">{{ $dato5->nombrenoticia }}</a></h3>
 										<span class="place">{{ $dato5->fecha }}</span>

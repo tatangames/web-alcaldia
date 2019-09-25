@@ -12,7 +12,15 @@
 	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
-    <link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/frontend/css/animate.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend/css/bootstrap-datepicker.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend/css/flexslider.css') }}" type="text/css" rel="stylesheet" />
+	
+	<link href="{{ asset('css/frontend/css/magnific-popup.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend/css/owl.carousel.min.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend/css/owl.theme.default.min.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('css/frontend/css/style.css') }}" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{asset('fonts/icomoon/icomoon.ttf')}}">
 	
 	<link href="{{ asset('plugins/animaciones/animaciones.css') }}" type="text/css" rel="stylesheet" />
