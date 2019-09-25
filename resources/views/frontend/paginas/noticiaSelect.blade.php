@@ -68,7 +68,7 @@
 								<h3 class="sidebar-heading">Noticias recientes</h3>
 								@foreach($noticiaReciente as $item)
 								<div class="blog-entry-side">									
-									<a href="{{ url('noticia/'.$item->nombrenoticia) }}" class="blog-post">
+									<a href="{{ url('noticia/'.$item->slug) }}" class="blog-post">
 										<span class="img" style="background-image: url({{ asset('storage/noticia/'.$item->nombrefotografia)}});"></span>
 										<div class="desc">
 											<span class="date">{{ $item->fecha }}</span>
