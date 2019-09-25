@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6, figure {
         -o-transition: 0.5s;
         transition: 0.5s; }
         .colorlib-nav ul li a:hover {
-          color: #FFDD00; }
+          color: #0099ff; }
       .colorlib-nav ul li.has-dropdown {
         position: relative; }
         .colorlib-nav ul li.has-dropdown .dropdown {
@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5, h6, figure {
               .colorlib-nav ul li.has-dropdown .dropdown li a:hover {
                 color: #fff; }
         .colorlib-nav ul li.has-dropdown:hover a, .colorlib-nav ul li.has-dropdown:focus a {
-          color: #FFDD00; }
+          color: #0099ff; }
       .colorlib-nav ul li.btn-cta a {
         padding: 30px 0px !important;
         color: #fff; }
@@ -194,7 +194,7 @@ h1, h2, h3, h4, h5, h6, figure {
           -moz-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75); }
       .colorlib-nav ul li.active > a {
-        color: #FFDD00 !important;
+        color: #0099ff !important;
         position: relative; }
         .colorlib-nav ul li.active > a:after {
           opacity: 1;
@@ -306,7 +306,7 @@ h1, h2, h3, h4, h5, h6, figure {
         #colorlib-hero .flexslider .flex-control-nav li a.flex-active {
           cursor: pointer;
           background: transparent;
-          background: #FFDD00; }
+          background: #0099ff; }
     #colorlib-hero .flexslider .flex-direction-nav {
       display: none; }
     #colorlib-hero .flexslider .slider-text {
@@ -391,7 +391,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   display: block;
   float: left;
-  padding: 9em 0;
+  padding: 9em 0 1em 0;
   clear: both; }
   @media screen and (max-width: 768px) {
     #colorlib-hotel,
@@ -451,7 +451,7 @@ h1, h2, h3, h4, h5, h6, figure {
       color: #000; }
     #colorlib-reservation .nav-tabs li.active {
       color: #fff !important !important;
-      background: #2C2E3E !important; }
+      background: #0066cc !important; }
   @media screen and (max-width: 768px) {
     #colorlib-reservation .nav-tabs {
       margin-left: 10px; }
@@ -460,7 +460,7 @@ h1, h2, h3, h4, h5, h6, figure {
         #colorlib-reservation .nav-tabs li a {
           padding: 10px !important; } }
   #colorlib-reservation .tab-content {
-    background: #2C2E3E;
+    background: #0066cc;
     padding: 30px 60px; }
 
 .colorlib-form label {
@@ -547,7 +547,7 @@ h1, h2, h3, h4, h5, h6, figure {
       color: #00BBF0; }
 
 .aside-stretch {
-  background: #00BBF0; }
+  background: #FFFFFFx; }
   .aside-stretch:after {
     position: absolute;
     top: 0;
@@ -555,7 +555,7 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
     content: '';
     width: 360%;
-    background: #00BBF0; }
+    background: #0066cc; }
   @media screen and (max-width: 768px) {
     .aside-stretch {
       background: transparent; }
@@ -1462,7 +1462,7 @@ input[type="text"] {
   padding: 14px; }
 
 #colorlib-footer {
-  background: #2C2E3E;
+  background: #004080;
   color: rgba(255, 255, 255, 0.5) !important; }
   #colorlib-footer .colorlib-footer-links {
     padding: 0;
@@ -1587,7 +1587,7 @@ input[type="text"] {
     width: 50px;
     height: 50px;
     display: table;
-    background: #ffdd00;
+    background: #0099ff;
     color: #fff;
     text-align: center;
     -webkit-border-radius: 4px;
