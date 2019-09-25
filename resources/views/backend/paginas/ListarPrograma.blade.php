@@ -1,6 +1,7 @@
 @extends('backend.menus.indexSuperior')
  
 @section('content-admin-css')
+    <link href="{{ asset('css/backend/adminlte3/adminlte.min.css') }}" type="text/css" rel="stylesheet" /> 
     <!-- data table -->
     <link href="{{ asset('css/backend/adminlte3/dataTables.bootstrap4.css') }}" type="text/css" rel="stylesheet" /> 
     <!-- mensaje toast -->
