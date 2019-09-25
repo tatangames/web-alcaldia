@@ -136,7 +136,7 @@
 			<div class="tour-wrap">
 			@foreach($fotografia as $dato4)
 				<a class="tour-entry animate-box">
-					<div class="tour-img" style="background-image: url('storage/noticia/{{ $dato4->nombrefotografia }}');" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
+					<div class="tour-img" style="background-image: url('{{ asset('storage/noticia/'.$dato4->nombrefotografia ) }}');" data-toggle="modal" data-target="#modal1" onclick="getPath(this)"></div>
 					<span class="desc">
 						<h2>{{ $dato4->nombre }}</h2>
 						<span class="city">{{ $dato4->fecha }}</span>
