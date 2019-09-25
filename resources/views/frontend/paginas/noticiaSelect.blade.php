@@ -71,7 +71,7 @@
 									<a href="{{ url('noticia/'.$item->slug) }}" class="blog-post">
 										<span class="img" style="background-image: url({{ asset('storage/noticia/'.$item->nombrefotografia)}});"></span>
 										<div class="desc">
-											<span class="date">{{ $item->fecha }}</span>
+											<span class="cat">{{ $item->fecha }}</span>
 											<h4>{{ $item->nombrenoticia }}</h4>
 											<span class="cat">Ver noticia</span>
 										</div>
