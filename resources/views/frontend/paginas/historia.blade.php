@@ -46,7 +46,7 @@
 							<p>Metapán es una antiquísima población precolombina situada en el corazón del territorio habitado desde tiempos inmemoriales por tribus mayachortis, tribus que a partir del siglo decimotercero fueron fuertemente influenciadas por los yaquis o pipiles. Fue tal el grado de fusión de los elementos autóctonos, los chortis, con los elementos civilizados, los yaquis o pipiles, que a la llegada de los españoles en la temprana mitad del siglo XVI en Metapán, Angue, Ostúa y otros pueblos comprendidos entre el cerro Brujo y el lago de Güija corría el dialecto alajuilak, mezcla de los idiomas chorti y náhuat. Se desconoce el nombre chorti de esta población, más el que aun conserva, de origen francamente náhuat, proviene de met, maguey, y apan, río. De tal suerte, que Metapán significa "río del maguey". En un informe municipal de Metapán, de 4 de diciembre de 1858, se lanza la peregrina y festinada etimología de que "Metapán quiere decir, metales tapados", lo cual no pasa de ser una puerilidad o una tomadura de pelo para los incautos. En efecto, Metapán vendría meta, metales, y tapan, tapados, ocultos. En 1550 en los pueblos gemelos de San Pedro y Santiago Metapán había una población de 1,000 habitantes poco más o menos.</p>
 							<div class="row">
 								<div class="col-md-6">								
-								<img src="images/historia/metapanOld.jpg" alt="" srcset="" width="370" height="310">
+								<img src="images/historia/metapanOld.jpg" alt="" srcset="" class="img-responsive" width="370" height="310">
 								<br><br>
 								</div>
 								<div class="col-md-6">
@@ -61,7 +61,7 @@
 									En la actualidad es el municipio más grande del país, posee una extensión territorial de 668.36 km2, dividido en 29 cantones y 227 caseríos. Según el censo realizado en el 2007, su población es de 59,004 habitantes.</p>
 								</div>
 								<div class="col-md-6">								
-								<img src="images/historia/trenOld.jpg" alt="" srcset="" width="370" height="210">
+								<img src="images/historia/trenOld.jpg" alt="" srcset=""class="img-responsive" width="370" height="210">
 								
 								</div>
 																																
