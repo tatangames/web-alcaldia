@@ -1,3 +1,6 @@
+
+
+
 <!--Parte superior de las paginas -  hasta head  -->
 @include('frontend.menus.indexSuperior')
 
@@ -79,8 +82,8 @@
 							</a>
 							{!! $dato2->descorta !!}
 						</div>
-						@endforeach
 					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
@@ -148,7 +151,6 @@
 			@endforeach
 		</div>
 	</div>
-	
 	<!--End Fotografías recientes-->
 
 	<!--Noticias recientes-->

@@ -7,28 +7,28 @@
     				</div>
     				<div class="col-xs-8 text-right menu-1">
     					<ul>
-    						<li class="active"><a href="/">Inicio</a></li>
-    						<li><a href="{{ url('noticias/') }}">Noticias</a></li>
-    						<li class="has-dropdown">
-    							<a >Servicios</a>
+    						<li class="active"><strong><a href="/">Inicio</a></strong></li>
+    						<li><strong><a href="{{ url('noticias/') }}">Noticias</a></strong></li>
+    						<li class="has-dropdown"><strong>
+    							<a >Servicios</a></strong>
     							<ul class="dropdown">
     								@foreach($serviciosMenu as $dato3)
-    								<li><a href="{{ url('servicio/'.$dato3->slug) }}">{{$dato3->nombreservicio}}</a></li>
+    								<li><strong><a href="{{ url('servicio/'.$dato3->slug) }}">{{$dato3->nombreservicio}}</a></strong></li>
 									@endforeach
-									<li><a href="{{ url('servicios/') }}">Ver todos</a></li>
+									<li><strong><a href="{{ url('servicios/') }}">Ver todos</a></strong></li>
     							</ul>
     						</li>
-    						<li class="has-dropdown">
-    							<a>Tu Alcad&iacute;a</a>
+    						<li class="has-dropdown"><strong>
+    							<a>Tu Alcad&iacute;a</a></strong>
     							<ul class="dropdown">
-    								<li><a href="{{ url('direccion/') }}">Gobierno municipal</a></li>
+    								<li><strong><a href="{{ url('direccion/') }}">Gobierno municipal</a></strong></li>
     								<li><strong><a href="{{ url('historia/') }}">Historia</a></strong></li>
     							</ul>
     						</li>
-    						<li><a href="{{ url('galeria/') }}">Galer&iacute;a</a></li>
-    						<li><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></li>
-    						<li><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
-    								transparencia</a></li>
+    						<li><strong><a href="{{ url('galeria/') }}">Galer&iacute;a</a></strong></li>
+    						<li><strong><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></strong></li>
+    						<li><strong><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de
+    								transparencia</a></strong></li>
     					</ul>
     				</div>
     			</div>
