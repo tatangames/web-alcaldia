@@ -65,23 +65,24 @@
 					@foreach($programas as $dato2)
 					@if ($loop->first)
         			<div class="col-md-3 animate-box text-center aside-stretch">	
-    				@else
-					<div class="col-md-3 animate-box text-center ">
-					@endif
-						<div class="services">
-							<a href="{{ url('programa/'.$dato2->slug) }}">
-								<span class="icon">
-								<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
-								</span>
-								<h3>{{ $dato2->nombreprograma }}</h3>
-							</a>
-							{!! $dato2->descorta  !!} 
+						@else
+						<div class="col-md-3 animate-box text-center ">
+						@endif
+							<div class="services">
+								<a href="{{ url('programa/'.$dato2->slug) }}">
+									<span class="icon">
+									<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;"/>
+									</span>
+									<h3>{{ $dato2->nombreprograma }}</h3>
+								</a>
+								{!! $dato2->descorta  !!} 
+							</div>
 						</div>
+						@endforeach
 					</div>
-					@endforeach
 				</div>
 			</div>
-		</div>
+			
 		<!--End Programas Municipales-->
 			<!--Servicios municipales-->
 			<div id="colorlib-blog">
@@ -181,7 +182,13 @@
 		</div>
 		<!--End Noticias recientes-->
 
-		<br><br>
+
+	</div>
+	</div>
+
+
+
+	<br><br>
 		<!-- Mapa -->
 		<div class="container">
 			<div class="row-fluid animate-box">
@@ -195,7 +202,7 @@
 		<br><br>
 
 
-	</div>
+
 	<!--Cuadro modal fotos-->
 	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">

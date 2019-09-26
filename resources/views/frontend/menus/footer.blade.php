@@ -59,7 +59,7 @@
 			</div>
 		</div>
 	</footer>
-	</div>
+
 	<!--Icono subir-->
 	<div class="gototop js-top">
 		<a class="js-gotop"><i class="icon-arrow-up2"></i></a>
