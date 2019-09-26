@@ -57,13 +57,6 @@
 				</p>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</footer>
-	<!--Icono subir-->
-	<div class="gototop js-top">
-		<a class="js-gotop"><i class="icon-arrow-up2"></i></a>
-=======
->>>>>>> 07d306e277747faa05f163bb777a5d594cc78c66
 	</div>
 </footer>
 
