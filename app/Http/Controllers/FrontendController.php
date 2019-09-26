@@ -66,7 +66,7 @@ class FrontendController extends Controller
     }
     //Metodo para obtener los servicios del Menu para navbar
     public function getServiciosMenu(){
-        $servicios = Servicio::all()->sortByDesc('idservicio')->take(6);
+        $servicios = Servicio::all()->sortByDesc('idservicio')->take(4);
         return $servicios;
     }
     //Metodo para pagina de Servicio Individual
