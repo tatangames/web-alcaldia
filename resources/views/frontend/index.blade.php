@@ -148,6 +148,7 @@
 			@endforeach
 		</div>
 	</div>
+	
 	<!--End Fotografías recientes-->
 
 	<!--Noticias recientes-->
