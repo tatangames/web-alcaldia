@@ -180,7 +180,7 @@
 			</div>
 		</div>
 		<!--End Noticias recientes-->
-
+</div></div>
 		<br><br>
 		<!-- Mapa -->
 		<div class="container">
@@ -195,7 +195,7 @@
 		<br><br>
 
 
-	</div>
+	
 	<!--Cuadro modal fotos-->
 	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
