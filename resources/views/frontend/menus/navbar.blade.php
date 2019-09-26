@@ -9,8 +9,8 @@
 							<ul>
 								<li class="active"><a href="/">Inicio</a></li>
 								<li><a href="{{ url('noticias/') }}">Noticias</a></li>
-								<li class="has-dropdown">
-									<a href="{{ url('servicios/') }}">Servicios</a>
+								<li id="caso1" class="has-dropdown">
+								    <a href="{{ url('servicios/') }}">Servicios</a>
 									<ul class="dropdown">
 									@foreach($serviciosMenu as $dato3)
 										<li><a href="{{ url('servicio/'.$dato3->slug) }}">{{$dato3->nombreservicio}}</a></li>
@@ -18,7 +18,7 @@
 									</ul>
 								</li>
 								<li class="has-dropdown">
-									<a href="{{ url('historia/') }}">Tu Alcad&iacute;a</a>
+									<a>Tu Alcad&iacute;a</a>
 									<ul class="dropdown">
 										<li><a href="{{ url('direccion/') }}">Gobierno municipal</a></li>
 										<li><a href="{{ url('historia/') }}">Historia</a></li>
