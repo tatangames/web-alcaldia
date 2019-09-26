@@ -93,6 +93,3 @@ Route::get('/programa/{nombre}','FrontendController@getProgramaByname');
 //TU ALCALDIA
 Route::get('/historia','FrontendController@getHistoriaPage');
 Route::get('/direccion','FrontendController@getGobiernoPage');
-
-
-
