@@ -19,7 +19,7 @@
 								<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 									<div class="slider-text-inner text-center">
 										<h2></h2>
-										<h1>Gobierno Municipal</h1>
+										<h1><strong>Gobierno Municipal</strong></h1>
 									</div>
 								</div>
 							</div>
@@ -34,12 +34,12 @@
 		<div id="colorlib-about">
 			<div class="container">
 				<div class="row">
-					<div class="about-flex">
-						<div class="col-md-1 aside-stretch animate-box">
+					<div class="about-flex animated zoomIn">
+					<div class="col-md-1 aside-stretch">
 							<div class="row">
 							</div>
 						</div>
-						<div class="col-three-forth animate-box text-center">
+						<div class="col-three-forth text-center">
 							<h2>Nuestro Gobierno</h2>
 							<div class="row">
 								<div class="col-md-12">		
@@ -126,6 +126,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<!--End contenido-->
 
 		@include("frontend.menus.footer")
