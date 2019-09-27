@@ -318,6 +318,20 @@ class ServiciosController extends Controller
 
             if($datos = Servicio::where('idservicio', $request->id)->first()){
                 
+
+                // borrar documentos
+                $ruta = Documento::where('servicio_id', $request->id)->get();
+
+                foreach($ruta as $dato){
+
+                    if(Storage::disk('servicio')->exists($dato->url)){
+                        Storage::disk('servicio')->delete($dato->url);                                
+                    }
+                }
+
+                // eliminar documentos foraneas
+                Documento::where('servicio_id', $request->id)->delete();
+
                 // borrar servicio
                 Servicio::where('idservicio', $request->id)->delete();
                 // borrar imagen 
