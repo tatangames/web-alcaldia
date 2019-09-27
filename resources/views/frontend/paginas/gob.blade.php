@@ -12,7 +12,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(images/Slider/a7.jpg);">
+					<li style="background-image: url({{ asset ('images/Slider/a7.jpg') }});">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
@@ -43,7 +43,7 @@
 							<h2>Nuestro Gobierno</h2>
 							<div class="row">
 								<div class="col-md-12">		
-									<img src="{{asset('images/historia/IMG_4348.jpg')}}" alt="Alcalde y Consejo" class="img-responsive" width="900" ></p>
+									<img src="{{ asset('images/historia/IMG_4348.jpg') }}" alt="Alcalde y Consejo" class="img-responsive" width="900" ></p>
 								</div>
 							</div>
 									<br>
