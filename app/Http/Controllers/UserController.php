@@ -21,20 +21,25 @@ class UserController extends Controller
       if(!empty($request->password)) {
          // reglas
          $rules = array(
-            'nombre' => 'max:150',
-            'apellido' => 'max:150',
-            'usuario' => 'max:45',
-            'telefono' => 'max:45',
-            'dui' => 'max:45'
+            'nombre' => 'required|max:150',
+            'apellido' => 'required|max:150',
+            'usuario' => 'required|max:45',
+            'telefono' => 'required|max:45',
+            'dui' => 'required|max:45'
             ); 
          
             
          $messages = array(
-            'nombre.max' => '150 caracteres máximo para el nombre',  
-            'apellido.max' => '150 caracteres máximo para el apellido',  
-            'usuario.max' => '45 caracteres máximo para el usuario',  
+            'nombre.max' => '150 caracteres máximo para el nombre',
+            'nombre.required' => 'Nombre es requerido',  
+            'apellido.max' => '150 caracteres máximo para el apellido', 
+            'apellido.required' => 'Apellido requerido',  
+            'usuario.max' => '45 caracteres máximo para el usuario', 
+            'usuario.required' => 'Usuario requerido',  
             'telefono.max' => '45 caracteres máximo para el telefono',  
-            'dui.max' => '45 caracteres máximo para el dui'
+            'telefono.required' => 'Telefono requerido',  
+            'dui.max' => '45 caracteres máximo para el dui',
+            'dui.required' => 'Telefono Requerido'
             ); 
         
         $validator = Validator::make($request->all(), $rules, $messages );

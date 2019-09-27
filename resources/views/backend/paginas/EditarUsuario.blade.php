@@ -41,13 +41,13 @@
               <div class="col-md-6">
               <div class="form-group">
                         <label>Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="{{ $usuario->nombre }}">
+                        <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Nombre" value="{{ $usuario->nombre }}">
                         <input type="hidden" name="id" id="id" class="form-control" value="{{ $usuario->id  }}">
                       </div>
                 <!-- /.form-group -->
                 <div class="form-group">
                         <label>Usuario:</label>
-                        <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Apellido" value="{{ $usuario->usuario }}">
+                        <input type="text" name="usuario" id="usuario" required class="form-control" placeholder="Apellido" value="{{ $usuario->usuario }}">
                       </div>
                 <!-- /.form-group -->
               
@@ -66,17 +66,17 @@
               <div class="col-md-6">
               <div class="form-group">
                         <label>Apellido:</label>
-                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" value="{{ $usuario->apellido  }}">
+                        <input type="text" name="apellido" id="apellido" class="form-control" required placeholder="Apellido" value="{{ $usuario->apellido  }}">
                       </div>
                 <!-- /.form-group -->
                 <div class="form-group">
                         <label>Tel.:</label>
-                        <input type="number" name= "telefono" id="telefono" class="form-control" placeholder="Tel." value="{{ $usuario->telefono  }}">
+                        <input type="number" name= "telefono" id="telefono" class="form-control" required placeholder="Tel." value="{{ $usuario->telefono  }}">
                       </div>
                 <!-- /.form-group -->
                 <div class="form-group">
                     <label for="dui">DUI:</label>
-                    <input type="text" name="dui" id="dui" class="form-control" placeholder="Numero de DUI" value="{{ $usuario->dui }}">
+                    <input type="text" name="dui" id="dui" class="form-control" required placeholder="Numero de DUI" value="{{ $usuario->dui }}">
                 </div>
                 <!-- /.form-group --> 
               </div>
@@ -134,7 +134,7 @@
                         toastr.success(response.data.message);
                         })
                       .catch(function (error) {
-                        toastr.error(response.data.message);
+                        toastr.error("Error de Servidor!");
                       }); 
                   }
       }
