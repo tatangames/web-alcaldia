@@ -1,5 +1,5 @@
     <nav class="colorlib-nav" role="navigation">
-    	<div class="top-menu" style="background-color: rgb(0,0,0,0.6); height: 100px; ">
+    	<div class="top-menu" style="background-color: #F8F8F8; height: 100px; ">
     		<div class="container-fluid ">
     			<div class="row">
     				<div class="col-xs-4">
