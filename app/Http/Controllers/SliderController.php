@@ -238,13 +238,14 @@ class SliderController extends Controller
             $union = $cadena.$tiempo;
             // quitar espacios vacios
             $nombre = str_replace(' ', '_', $union);
-            
+           
             // guardar imagen en disco, solo podra ser accedida por aplicacion, no por navegador
             $extension = '.'.$request->imagen->getClientOriginalExtension();
             $nombreFoto = $nombre.$extension;
             $avatar = $request->file('imagen'); 
             $upload = Storage::disk('slider')->put($nombreFoto, \File::get($avatar)); 
-     
+            
+            
             if($upload){
 
                 // conocer si ya existe un slider para obtener o no, la ultima posicion

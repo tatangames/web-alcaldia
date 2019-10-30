@@ -213,6 +213,7 @@
         axios.post('/admin/agregar-slider', formData, {  
           })
           .then((response) => {	
+           // console.log(response);
             loadingOverlay().cancel(spinHandle);            
             document.getElementById("btnGuardar").disabled = false;             
            mensajeResponse(response);
