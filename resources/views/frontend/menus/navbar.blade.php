@@ -1,6 +1,6 @@
     <nav class="colorlib-nav" role="navigation">
-    	<div class="top-menu" style="background-color: background: rgb(26,62,150);
-background: linear-gradient(90deg, rgba(26,62,150,1) 16%, rgba(68,94,185,1) 28%, rgba(156,182,241,1) 40%, rgba(255,255,255,1) 60%); height: 100px; ">
+    	<div class="top-menu" style="background-color: background: rgb(26,54,96);
+background: linear-gradient(90deg, rgba(26,54,96,1) 16%, rgba(68,116,185,1) 28%, rgba(156,198,241,1) 40%, rgba(255,255,255,1) 60%); height: 100px; ">
     		<div class="container-fluid ">
     			<div class="row">
     				<div class="col-xs-4">
