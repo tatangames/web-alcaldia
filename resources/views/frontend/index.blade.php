@@ -16,8 +16,8 @@
 				<ul class="slides">
 					@foreach($slider as $dato)
 					<li style="background-image: url('storage/slider/{{ $dato->fotografia }}');">
-						<div class="overlay"></div>
-						<div class="container-fluid">
+					<div class="overlay"></div>
+					<div class="container-fluid">
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 									<div class="slider-text-inner text-center">
