@@ -3653,7 +3653,6 @@ Copyright (c) 2015 Daniel Eden
   background-color: #006dcc;
   background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
   background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
   background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
   background-image: -o-linear-gradient(top, #0088cc, #0044cc);
   background-image: linear-gradient(top, #0088cc, #0044cc);
@@ -3725,7 +3724,6 @@ Copyright (c) 2015 Daniel Eden
   background-color: #006dcc;
   background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
   background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
   background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
   background-image: -o-linear-gradient(top, #0088cc, #0044cc);
   background-image: linear-gradient(top, #0088cc, #0044cc);
@@ -14730,7 +14728,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .colorlib-nav {
   margin: 0;
-  position: absolute;
+  /**position: absolute;**/
   top: 0;
   left: 0;
   right: 0;
@@ -16264,7 +16262,7 @@ input[type="text"] {
   text-decoration: none;
   top: 2em !important; }
   .colorlib-nav-toggle.active i::before, .colorlib-nav-toggle.active i::after {
-    background: #fff; }
+    background: #13115E; }
   .colorlib-nav-toggle:hover, .colorlib-nav-toggle:focus, .colorlib-nav-toggle:active {
     outline: none;
     border-bottom: none !important; }
@@ -16277,7 +16275,7 @@ input[type="text"] {
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
     text-indent: -55px;
-    background: #fff;
+    background: #13115E;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
@@ -16285,17 +16283,17 @@ input[type="text"] {
       content: '';
       width: 25px;
       height: 2px;
-      background: #fff;
+      background: #13115E;
       position: absolute;
       left: 0;
       -webkit-transition: all .2s ease-out;
       -o-transition: all .2s ease-out;
       transition: all .2s ease-out; }
   .colorlib-nav-toggle.colorlib-nav-white > i {
-    color: #fff;
-    background: #fff; }
+    color: #13115E;
+    background: #13115E; }
     .colorlib-nav-toggle.colorlib-nav-white > i::before, .colorlib-nav-toggle.colorlib-nav-white > i::after {
-      background: #fff; }
+      background:  #13115E; }
 
 .colorlib-nav-toggle i::before {
   top: -7px; }

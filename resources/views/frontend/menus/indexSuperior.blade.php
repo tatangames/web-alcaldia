@@ -9,7 +9,7 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
-	<link href='{{ asset('images/LOGO_2_-_copia.png') }}' rel='shortcut icon' type='image/png'>
+	<link href="{{ asset('images/LOGO_2_-_copia.png') }}" rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
