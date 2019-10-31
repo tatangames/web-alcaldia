@@ -14724,7 +14724,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .colorlib-nav {
   margin: 0;
-  /**position: absolute;**/
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -14734,10 +14734,10 @@ h1, h2, h3, h4, h5, h6, figure {
     .colorlib-nav {
       margin: 0; } }
   .colorlib-nav .top-menu {
-    padding: 35px 30px; } /*40-30*/
+    padding: 30px 25px; } /*40-30*/
     @media screen and (max-width: 768px) {
       .colorlib-nav .top-menu {
-        padding: 28px 1em; } }
+        padding: 25px 1em; } }
   .colorlib-nav #colorlib-logo {
     font-size: 24px;
     margin: 0;
@@ -14752,7 +14752,7 @@ h1, h2, h3, h4, h5, h6, figure {
       display: none; } }
   .colorlib-nav ul {
     padding: 0;
-    margin: 8px 0 0 0; }
+    margin: 3px 0 0 0; } /*8px*/
     .colorlib-nav ul li {
       padding: 0;
       margin: 0;
@@ -14762,8 +14762,8 @@ h1, h2, h3, h4, h5, h6, figure {
       .colorlib-nav ul li a {
         position: relative;
         font-size: 15px;
-        padding: 30px 12px;
-        color: rgb(6, 32, 106);
+        padding: 30px 10px;
+        color: #1a3660;
         -webkit-transition: 0.5s;
         -o-transition: 0.5s;
         transition: 0.5s; }
