@@ -39,14 +39,11 @@
 			<!-- <div class="container"> -->
 			<div class="row">
 				<div class="search-wrap">
-					<div class="container">
-
-					</div>
+					
 					<div class="tab-content">
-						<div id="flight" class="tab-pane fade in active">
-							<center><img src="{{asset('images/slogan6.png')}}" alt=""></center>
-						</div>
-
+						
+						<center><img src="{{asset('images/slogan6.png')}}" alt=""></center>
+						
 					</div>
 				</div>
 			</div>
