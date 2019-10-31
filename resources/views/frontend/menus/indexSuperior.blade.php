@@ -29,9 +29,9 @@
 		/* On screens that are 768px or less, set the logo bigger */
 		@media screen and (max-width: 768px) {
   			.logoimage {
-				   width: 300px;
-				   height: 80px;
-				   margin-bottom: -20px;
+				   width: 180px;
+				   height: 40px;
+				   margin-bottom: -30px;
   					}
 				}
 			/* Para scroll */

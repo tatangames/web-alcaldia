@@ -1,14 +1,14 @@
     <nav class="colorlib-nav" role="navigation">
     	<div class="top-menu" style="background-color: background: rgb(26,54,96);
-background: linear-gradient(90deg, rgba(26,54,96,1) 16%, rgba(68,116,185,1) 28%, rgba(156,194,241,1) 40%, rgba(255,255,255,1) 60%); height: 100px; ">
+background: linear-gradient(90deg, rgba(26,54,96,1) 16%, rgba(68,116,185,1) 28%, rgba(156,194,241,1) 40%, rgba(238,238,238,1) 60%); height: 80px; ">
     		<div class="container-fluid ">
     			<div class="row">
     				<div class="col-xs-4">
-    					<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="90%" height="80%" style="margin-top: -30px"></div>
+    					<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="80%" height="70%" style="margin-top: -40px"></div>
     				</div>
     				<div class="col-xs-8 text-right menu-1">
     					<ul>
-    						<li class="active"><strong><a href="/">Inicio</a></strong></li>
+    						<li class="active"><strong><a style="color: #337ab7;" href="/">Inicio</a></strong></li>
     						<li><strong><a href="{{ url('noticias/') }}">Noticias</a></strong></li>
     						<li class="has-dropdown"><strong>
     							<a >Servicios</a></strong>
