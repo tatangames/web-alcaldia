@@ -47,7 +47,7 @@
 			.scrollbar-deep-purple::-webkit-scrollbar-thumb {
 			border-radius: 10px;
 			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-			background-color: #0066cc; }
+			background-color: #1a3660; }
 
 			.square::-webkit-scrollbar-track {
 			border-radius: 0 !important; }

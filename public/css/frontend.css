@@ -15109,7 +15109,7 @@ h1, h2, h3, h4, h5, h6, figure {
         #colorlib-reservation .nav-tabs li a {
           padding: 10px !important; } }
   #colorlib-reservation .tab-content {
-    background: #004080;
+    background: #1a3660;
     padding: 30px 60px; }
 
 .colorlib-form label {
@@ -15204,7 +15204,7 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
     content: '';
     width: 360%;
-    background: #004080; }
+    background: #1a3660; }
   @media screen and (max-width: 768px) {
     .aside-stretch {
       background: transparent; }
@@ -16111,7 +16111,7 @@ input[type="text"] {
   padding: 14px; }
 
 #colorlib-footer {
-  background: #004080;
+  background: #1a3660;
   color: rgba(255, 255, 255, 0.5) !important; }
   #colorlib-footer .colorlib-footer-links {
     padding: 0;
