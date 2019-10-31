@@ -39,11 +39,8 @@
 			<!-- <div class="container"> -->
 			<div class="row">
 				<div class="search-wrap">
-					
 					<div class="tab-content">
-						
-						<center><img src="{{asset('images/slogan6.png')}}" alt=""></center>
-						
+						<center><img src="{{asset('images/slogan6.png')}}" style="width: 40%;"></center>
 					</div>
 				</div>
 			</div>
