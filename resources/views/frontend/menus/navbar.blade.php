@@ -4,7 +4,7 @@ background: linear-gradient(90deg, rgba(26,54,96,1) 16%, rgba(68,116,185,1) 28%,
     		<div class="container-fluid ">
     			<div class="row">
     				<div class="col-xs-4">
-    					<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="80%" height="70%" style="margin-top: -40px"></div>
+    					<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="80%" height="70%" style="margin-top: -35px"></div>
     				</div>
     				<div class="col-xs-8 text-right menu-1">
     					<ul>
