@@ -57,6 +57,19 @@
 
 			.thin::-webkit-scrollbar {
 			width: 6px; }
+			#soc {
+				border-radius: 5px;
+  				border: 1px solid rgb(238,238,238);
+  				padding: 10px;  
+				  width: 125px;
+				  color:rgb(238,238,238);
+				  font-size:1.5em;
+			}
+			#soc:hover {
+				background-color:rgb(238,238,238);
+				color:#1a3660;
+			}
+
     </style>
     
 </head>

@@ -39,8 +39,21 @@
 			<!-- <div class="container"> -->
 			<div class="row">
 				<div class="search-wrap">
-					<div class="tab-content">
-						<center><img src="{{asset('images/slogan6.png')}}" style="width: 40%;"></center>
+					<div class="tab-content" style="padding:15px;">
+						<center>
+						  <a id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
+        				 Facebook
+						  </a>	&nbsp;&nbsp;
+						  <a id = "soc" target="_blank"  href="https://twitter.com/Alcaldia_Met"><span class="icon-twitter"></span>
+        				 Twitter
+						  </a>&nbsp;&nbsp;	
+						  <a id = "soc" target="_blank"  href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><span class="icon-youtube"></span>
+        				 YouTube
+						  </a>	&nbsp;&nbsp;
+						  <a id = "soc" target="_blank"  href="https://www.instagram.com/alcaldiademetapan/"><span class="icon-instagram"></span>
+        				 Instagram
+      					</a>	
+						</center>
 					</div>
 				</div>
 			</div>

@@ -14780,7 +14780,7 @@ h1, h2, h3, h4, h5, h6, figure {
           visibility: hidden;
           opacity: 0;
           position: absolute;
-          top: 40px;
+          top: 30px;
           left: 0;
           text-align: left;
           background: #000;
@@ -15075,8 +15075,8 @@ h1, h2, h3, h4, h5, h6, figure {
     display: block;
     position: relative;
     z-index: 9;
-    /**margin-top: -4em !important;**/
-    padding: 0; }
+    /**margin-top: -4em !important;**/  
+    padding: 0%; }
   #colorlib-reservation .booknow {
     margin-top: 5px;
     display: block; }
