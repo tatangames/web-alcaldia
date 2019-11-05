@@ -39,18 +39,18 @@
 			<!-- <div class="container"> -->
 			<div class="row">
 				<div class="search-wrap">
-					<div class="tab-content" style="padding:25px;">
+					<div class="tab-content" style="padding:25px;"  >
 						<center>
-						  <a id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
+						  <a style="margin-right:15px;" id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
         				 Facebook
-						  </a>	&nbsp;&nbsp;
-						  <a id = "soc" target="_blank"  href="https://twitter.com/Alcaldia_Met"><span class="icon-twitter"></span>
+						  </a>&nbsp;
+						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://twitter.com/Alcaldia_Met"><span class="icon-twitter"></span>
         				 Twitter
-						  </a>&nbsp;&nbsp;	
-						  <a id = "soc" target="_blank"  href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><span class="icon-youtube"></span>
+						  </a>&nbsp;
+						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.youtube.com/channel/UCnpOyOGoF8CNrwwuOsddcuA"><span class="icon-youtube"></span>
         				 YouTube
-						  </a>	&nbsp;&nbsp;
-						  <a id = "soc" target="_blank"  href="https://www.instagram.com/alcaldiademetapan/"><span class="icon-instagram"></span>
+						  </a>&nbsp;
+						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.instagram.com/alcaldiademetapan/"><span class="icon-instagram"></span>
         				 Instagram
       					</a>	
 						</center>

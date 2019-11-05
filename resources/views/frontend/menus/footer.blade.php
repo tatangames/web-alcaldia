@@ -31,7 +31,7 @@
 						<li><a href="https://www.facebook.com/AlcaldiadeMetapan/"><i class="icon-facebook"></i></a></li>
 						<li><a href="https://twitter.com/Alcaldia_Met"><i class="icon-twitter"></i></a></li>
 						<li><a href="https://www.instagram.com/alcaldiademetapan/"><i class="icon-instagram"></i></a></li>
-						<li><a href="https://www.youtube.com/channel/UCWSEAyHR42uZHCY3eWW-ELA"><i class="icon-youtube"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UCnpOyOGoF8CNrwwuOsddcuA"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</p>
 			</div>
