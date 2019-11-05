@@ -39,7 +39,7 @@
 			<!-- <div class="container"> -->
 			<div class="row">
 				<div class="search-wrap">
-					<div class="tab-content" style="padding:15px;">
+					<div class="tab-content" style="padding:25px;">
 						<center>
 						  <a id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
         				 Facebook

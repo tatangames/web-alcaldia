@@ -60,7 +60,7 @@
 			#soc {
 				border-radius: 5px;
   				border: 1px solid rgb(238,238,238);
-  				padding: 10px;  
+  				padding: 7px;  
 				  width: 125px;
 				  color:rgb(238,238,238);
 				  font-size:1.5em;
