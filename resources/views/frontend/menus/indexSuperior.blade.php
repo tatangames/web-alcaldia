@@ -65,10 +65,14 @@
 				  color:rgb(238,238,238);
 				  font-size:1.5em;
 			}
+			#soc .p {color:rgb(238,238,238);
+				  font-size:1.5em;}
 			#soc:hover {
 				background-color:rgb(238,238,238);
 				color:#1a3660;
 			}
+			@media screen and (max-width: 768px) {
+	  #socno { display:none; }}
 
     </style>
     

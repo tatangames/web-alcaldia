@@ -42,17 +42,17 @@
 					<div class="tab-content" style="padding:25px;"  >
 						<center>
 						  <a style="margin-right:15px;" id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
-        				 Facebook
+        				 <span id="socno">Facebook</span>
 						  </a>&nbsp;
 						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://twitter.com/Alcaldia_Met"><span class="icon-twitter"></span>
-        				 Twitter
+						  <span id="socno">Twitter</span>
 						  </a>&nbsp;
 						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.youtube.com/channel/UCnpOyOGoF8CNrwwuOsddcuA"><span class="icon-youtube"></span>
-        				 YouTube
+						  <span id="socno">YouTube</span>
 						  </a>&nbsp;
 						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.instagram.com/alcaldiademetapan/"><span class="icon-instagram"></span>
-        				 Instagram
-      					</a>	
+						  <span id="socno">Instagram</span>
+      					</a>&nbsp;	
 						</center>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 						<div class="services">
 							<a href="{{ url('programa/'.$dato2->slug) }}">
 								<span class="icon">
-									<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:100px; height:100px;" />
+									<img src="{{ asset('storage/programa/'.$dato2->logo) }}" alt="Programa Municipal" style="width:120px; height:120px;" />
 								</span>
 								<h3>{{ $dato2->nombreprograma }}</h3>
 							</a>

@@ -16197,7 +16197,6 @@ input[type="text"] {
           position: absolute;
           right: 0px;
           font-family: 'icomoon';
-          speak: none;
           font-style: normal;
           font-weight: normal;
           font-variant: normal;
@@ -16256,7 +16255,7 @@ input[type="text"] {
   height: 25px;
   cursor: pointer;
   text-decoration: none;
-  top: 2em !important; }
+  top: 1em !important; }
   .colorlib-nav-toggle.active i::before, .colorlib-nav-toggle.active i::after {
     background: #13115E; }
   .colorlib-nav-toggle:hover, .colorlib-nav-toggle:focus, .colorlib-nav-toggle:active {
@@ -16266,7 +16265,7 @@ input[type="text"] {
     position: relative;
     display: inline-block;
     width: 25px;
-    height: 2px;
+    height: 3px;
     color: #252525;
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
@@ -16278,7 +16277,7 @@ input[type="text"] {
     .colorlib-nav-toggle i::before, .colorlib-nav-toggle i::after {
       content: '';
       width: 25px;
-      height: 2px;
+      height: 4px;
       background: #13115E;
       position: absolute;
       left: 0;

@@ -35,7 +35,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h1>Informacion Programa</h1>
+						<h1>Información del Programa</h1>
 					</div>
 					<br><br><br>
 					<div class="row">
