@@ -42,7 +42,7 @@
 					<div class="tab-content" style="padding:25px;"  >
 						<center>
 						  <a style="margin-right:15px;" id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
-        				 <span id="socno">Facebook</span>
+        				  <span id="socno">Facebook</span>
 						  </a>&nbsp;
 						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://twitter.com/Alcaldia_Met"><span class="icon-twitter"></span>
 						  <span id="socno">Twitter</span>
@@ -127,11 +127,8 @@
 				<div class="row">
 					@endif
 					@endforeach
-
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 	<!--End Servicios municipales-->

@@ -23,7 +23,7 @@
 <footer id="colorlib-footer" role="contentinfo">
 	<div class="container">
 		<div class="row row-pb-md">
-			<div class="col-md-3 colorlib-widget">
+			<div class="col-md-5">
 				<h4>Siguenos en nuestras redes</h4>
 				<p></p>
 				<p>
@@ -35,7 +35,7 @@
 					</ul>
 				</p>
 			</div>
-			<div class="col-md-3 col-md-push-1">
+			<div class="col-md-5 ">
 				<h4>Contactanos!</h4>
 				<ul class="colorlib-footer-links">
 					<li>Avenida Benjam&iacute;n Estrada Valiente<br> 1ra. Calle Poniente, Barrio San

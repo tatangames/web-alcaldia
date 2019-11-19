@@ -64,6 +64,12 @@ class FrontendController extends Controller
         $serviciosMenu = $this->getServiciosMenu(); 
         return view('frontend.paginas.servicios',compact('servicios','serviciosMenu'));
     }
+     //Metodo para la pagina de servicios para listarlos todos
+     public function getAllProgramas(){
+      $programas = Programa::all();
+      $serviciosMenu = $this->getServiciosMenu(); 
+      return view('frontend.paginas.programas',compact('programas','serviciosMenu'));
+  }
     //Metodo para obtener los servicios del Menu para navbar
     public function getServiciosMenu(){
         $servicios = Servicio::all()->sortByDesc('idservicio')->take(4);

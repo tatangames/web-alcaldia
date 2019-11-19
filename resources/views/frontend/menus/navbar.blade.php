@@ -21,7 +21,8 @@
     						<li class="has-dropdown"><strong>
     							<a>Tu Alcad&iacute;a</a></strong>
     							<ul class="dropdown">
-    								<li><strong><a href="{{ url('direccion/') }}">Gobierno municipal</a></strong></li>
+								<li><strong><a href="{{ url('programas/') }}">Programas Municipales</a></strong></li>
+									<li><strong><a href="{{ url('direccion/') }}">Gobierno municipal</a></strong></li>
     								<li><strong><a href="{{ url('historia/') }}">Historia</a></strong></li>
     							</ul>
     						</li>

@@ -22,7 +22,7 @@
 	
 
 	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}" type="text/javascript"></script>
-	
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 	@yield('header')
 	<style>
@@ -72,8 +72,6 @@
 				color:#1a3660;
 			}
 			@media screen and (max-width: 768px) {
-	  #socno { display:none; }}
-
+			  #socno { display:none; }}
     </style>
-    
 </head>

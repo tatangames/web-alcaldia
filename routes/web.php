@@ -88,6 +88,7 @@ Route::get('/noticias', 'FrontendController@getNoticias');
 Route::get('/noticia/{nombre}','FrontendController@getNoticiaByName');
 Route::get('/download/{nombre}','FrontendController@getFile');
 
+Route::get('/programas','FrontendController@getAllProgramas');
 Route::get('/programa/{nombre}','FrontendController@getProgramaByname');
 
 //TU ALCALDIA

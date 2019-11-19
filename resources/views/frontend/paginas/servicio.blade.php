@@ -38,11 +38,11 @@
 						<h1>{{ $servicio->nombreservicio }}</h1>
 					</div>
 				</div>
-				<br><br><br>
+				<br><br><hr>
 				<div class="row">
 					<div class="col-md-4">
 						<center>
-							<img src="{{ asset('storage/servicio/'.$servicio->logo) }}" alt="Programa Municipal" style="width:300px; height:300px;" />
+							<img src="{{ asset('storage/servicio/'.$servicio->logo) }}" alt="Servicio Municipal" style="width:300px; height:300px;" />
 						</center>
 					</div>
 					<div class="col-md-8">
@@ -69,13 +69,9 @@
 							</table>
 						</center>
 					</div>
-					<br><br>
-
-
+					<br>
 				</div>
 				@endif
-
-
 			</div>
 		</div>
 		<!--End Contenido-->
