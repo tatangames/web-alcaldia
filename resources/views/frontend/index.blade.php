@@ -72,7 +72,6 @@
 					</center>
 				</div>
 			</div>
-
 			<div class="row no-gutters">
 				@foreach($programas as $dato2)
 				@if ($loop->first)

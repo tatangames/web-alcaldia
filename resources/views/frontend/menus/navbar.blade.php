@@ -3,7 +3,7 @@
     		<div class="container-fluid ">
     			<div class="row">
     				<div class="col-xs-4">
-    					<div id="colorlib-logo"><!--<img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="80%" height="70%" style="margin-top: -35px">--></div>
+    					<div id="colorlib-logo"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="35%" height="10%" style="margin-top: -42px"></div>
     				</div>
     				<div class="col-xs-8 text-right menu-1">
     					<ul>

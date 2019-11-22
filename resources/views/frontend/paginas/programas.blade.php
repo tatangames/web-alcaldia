@@ -27,8 +27,6 @@
 			</div>
 		</aside>
 		<!--End Imagen de cabecera-->
-		<h5>.</h5>
-
 		<!--Contenido-->
 		<div id="colorlib-services">
 			<div class="container">
@@ -63,10 +61,7 @@
 					</div>
 				</div>
 				@endforeach
-				<br><br>
-<br>
-
-
+				<br><br><br>
 			</div>
 		</div>
 		<!--End contenido-->
