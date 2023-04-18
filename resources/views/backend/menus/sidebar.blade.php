@@ -27,7 +27,7 @@
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Inicio
-                
+
               </p>
             </a>
           </li>
@@ -36,17 +36,17 @@
               <i class="nav-icon fas fa-images"></i>
               <p>
                 Slider
-                
+
               </p>
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a href="{{ url('/admin/listarprograma') }}" target="frameprincipal" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Programas Municipales
-                
+
               </p>
             </a>
           </li>
@@ -55,7 +55,7 @@
               <i class="nav-icon fas fa-university"></i>
               <p>
                 Servicios Municipales
-                
+
               </p>
             </a>
           </li>
@@ -64,12 +64,21 @@
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
                 Noticias
-                
+
               </p>
             </a>
           </li>
 
-         
+        <li class="nav-item">
+            <a href="{{ url('/admin/panelucp') }}" target="frameprincipal" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                    UCP
+                </p>
+            </a>
+        </li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

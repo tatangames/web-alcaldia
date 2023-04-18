@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Linkucp;
 use App\Programa;
 use App\Servicio;
 use Illuminate\Http\Request;
@@ -11,26 +12,26 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class ProgramasController extends Controller
 {
-    // retornar vista 
+    // retornar vista
     public function index(){
         return view('backend.paginas.ListarPrograma');
     }
 
     // retornar vista tabla con los datos
-    public function getProgramaTabla(){        
+    public function getProgramaTabla(){
         $programa = Programa::all();
 
         return view('backend.paginas.tablas.tablaPrograma',compact('programa'));
     }
 
     // agregar nuevo programa
-    public function nuevoPrograma(Request $request){ 
-        if($request->isMethod('post')){  
-           
-            $regla = array( 
-                'nombre' => 'required|max:450',                
-                'imagen' => 'required|image|mimes:png', 
-                'slide' => 'required|image|mimes:jpeg', 
+    public function nuevoPrograma(Request $request){
+        if($request->isMethod('post')){
+
+            $regla = array(
+                'nombre' => 'required|max:450',
+                'imagen' => 'required|image|mimes:png',
+                'slide' => 'required|image|mimes:jpeg',
                 'descorta' => 'required',
                 'deslarga' => 'required',
             );
@@ -49,44 +50,44 @@ class ProgramasController extends Controller
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
 
-            if ($validar->fails()) 
+            if ($validar->fails())
             {
                 return [
-                    'success' => 0, 
+                    'success' => 0,
                     'message' => $validar->errors()->all()
                ];
-            }        
+            }
 
             $slug = Str::slug($request->nombre, '-');
-        
+
             if(Programa::where('slug', $slug)->first()){
                 return [
-                    'success' => 4, 
+                    'success' => 4,
                     'message' => 'El slug del programa ya existe'
                 ];
             }
-            
+
            // generar nombre para la imagen
            $cadena = Str::random(15);
-           $tiempo = microtime(); 
+           $tiempo = microtime();
            $union = $cadena.$tiempo;
            // quitar espacios vacios
            $nombre = str_replace(' ', '_', $union);
-           
+
            // guardar imagen en disco
            $extension = '.'.$request->imagen->getClientOriginalExtension();
            $extension2 = '.'.$request->slide->getClientOriginalExtension();
            $nombreFoto = $nombre.$extension;
            $nombreSlide = $nombre.'slide'.$extension2;
-           $avatar = $request->file('imagen'); 
-           $avatar2 = $request->file('slide'); 
-           $upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar)); 
-           $upload2 = Storage::disk('programa')->put($nombreSlide, \File::get($avatar2)); 
-    
+           $avatar = $request->file('imagen');
+           $avatar2 = $request->file('slide');
+           $upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar));
+           $upload2 = Storage::disk('programa')->put($nombreSlide, \File::get($avatar2));
+
            if($upload && $upload2){
-               
+
                $programa = new Programa();
-               $programa->nombreprograma = $request->nombre;              
+               $programa->nombreprograma = $request->nombre;
                $programa->logo = $nombreFoto;
                $programa->imagen = $nombreSlide;
                $programa->descorta = $request->descorta;
@@ -113,25 +114,25 @@ class ProgramasController extends Controller
 
      // obtener informacion del programa para actualizarla
      public function infoPrograma(Request $request){
-        if($request->isMethod('post')){    
-            
-            $regla = array( 
-                'id' => 'required'               
-            );    
+        if($request->isMethod('post')){
+
+            $regla = array(
+                'id' => 'required'
+            );
 
             $mensaje = array(
-                'id.required' => 'ID es requerida',               
+                'id.required' => 'ID es requerida',
                 );
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
 
-            if ($validar->fails()) 
+            if ($validar->fails())
             {
                 return [
-                    'success' => 0, 
+                    'success' => 0,
                     'message' => $validar->errors()->all()
                 ];
-            } 
+            }
 
             if($datos = Programa::where('idprograma', $request->id)->first()){
                 return [
@@ -140,7 +141,7 @@ class ProgramasController extends Controller
                 ];
             }else{
                 return [
-                    'success' => 2 // programa no encontrado                   
+                    'success' => 2 // programa no encontrado
                 ];
             }
         }
@@ -149,95 +150,95 @@ class ProgramasController extends Controller
      // editar un programa
     public function editarPrograma(Request $request){
 
-        if($request->isMethod('post')){  
+        if($request->isMethod('post')){
 
-            $regla = array( 
+            $regla = array(
                 'idprograma' => 'required',
-                'nombre' => 'required|max:450',                
+                'nombre' => 'required|max:450',
                 'descorta' => 'required',
                 'deslarga' => 'required',
-            );    
+            );
 
             $mensaje = array(
                 'idprograma.required' => 'Id es requerido',
                 'nombre.required' => 'Nombre programa es requerio',
-                'nombre.max' => 'Maximo 450 caracteres',                
+                'nombre.max' => 'Maximo 450 caracteres',
                 'descorta.required' => 'Descripcion corta es requeria',
                 'deslarga.required' => 'Descripcion larga es requeria',
                 );
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
 
-            if ($validar->fails()) 
+            if ($validar->fails())
             {
                 return [
-                    'success' => 0, 
+                    'success' => 0,
                     'message' => $validar->errors()->all()
                 ];
-            } 
+            }
             // validar solamente si mando el slide
-            if($request->hasFile('slide')){                
+            if($request->hasFile('slide')){
 
                 // validaciones para los datos
-                $regla2 = array( 
-                    'slide' => 'required|image|mimes:jpeg', 
-                );    
-         
+                $regla2 = array(
+                    'slide' => 'required|image|mimes:jpeg',
+                );
+
                 $mensaje2 = array(
                     'slide.required' => 'La imagen es requerida',
                     'slide.image' => 'El archivo debe ser una imagen',
                     'slide.mimes' => 'Formato validos .jpg',
                     );
-    
+
                 $validar2 = Validator::make($request->all(), $regla2, $mensaje2 );
-    
-                if ( $validar2->fails()) 
+
+                if ( $validar2->fails())
                 {
                     return [
-                        'success' => 0, 
+                        'success' => 0,
                         'message' => $validar2->errors()->all()
                     ];
-                }              
+                }
             }
             // validar solamente si mando la imagen
-            if($request->hasFile('imagen')){                
+            if($request->hasFile('imagen')){
 
                 // validaciones para los datos
-                $regla3 = array( 
-                    'imagen' => 'required|image|mimes:png', 
-                );    
-         
+                $regla3 = array(
+                    'imagen' => 'required|image|mimes:png',
+                );
+
                 $mensaje3 = array(
                     'imagen.required' => 'La imagen es requerida',
                     'imagen.image' => 'El archivo debe ser una imagen',
                     'imagen.mimes' => 'Formato validos .png',
                     );
-    
+
                 $validar3 = Validator::make($request->all(), $regla3, $mensaje3 );
-    
-                if ( $validar3->fails()) 
+
+                if ( $validar3->fails())
                 {
                     return [
-                        'success' => 0, 
+                        'success' => 0,
                         'message' => $validar3->errors()->all()
                     ];
-                }              
+                }
             }
 
             $slug = Str::slug($request->nombre, '-');
-        
+
             if(Programa::where('slug', $slug)->where('idprograma', '!=', $request->idprograma)->first()){
                 return [
-                    'success' => 4, 
+                    'success' => 4,
                     'message' => 'El slug del programa ya existe'
                 ];
             }
-            
+
             // encontrar programa a modificar
-            if($programa = Programa::where('idprograma', $request->idprograma)->first()){                        
-                    
+            if($programa = Programa::where('idprograma', $request->idprograma)->first()){
+
                     $cadena = Str::random(15);
-                    $tiempo = microtime(); 
+                    $tiempo = microtime();
                     $union = $cadena.$tiempo;
                     // quitar espacios vacios
                     $nombre = str_replace(' ', '_', $union);
@@ -245,23 +246,23 @@ class ProgramasController extends Controller
                     $imagenOld = $programa->logo;
                     $slideOld = $programa->imagen;
 
-                    $array = ['nombreprograma' => $request->nombre, 
-                              'descorta' => $request->descorta, 
-                              'deslarga' => $request->deslarga, 
+                    $array = ['nombreprograma' => $request->nombre,
+                              'descorta' => $request->descorta,
+                              'deslarga' => $request->deslarga,
                               'slug' => $slug];
 
                 if($request->hasFile('imagen')){ // editara programa y su imagen
                     // guardar imagen en disco
                     $extension = '.'.$request->imagen->getClientOriginalExtension();
                     $nombreFoto = $nombre.$extension;
-                    $avatar = $request->file('imagen'); 
-                    $upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar)); 
-             
+                    $avatar = $request->file('imagen');
+                    $upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar));
+
                     if($upload){
                         if(Storage::disk('programa')->exists($imagenOld)){
-                            Storage::disk('programa')->delete($imagenOld);                                
-                        }  
-                        $array['logo'] = $nombreFoto;    
+                            Storage::disk('programa')->delete($imagenOld);
+                        }
+                        $array['logo'] = $nombreFoto;
                     }else{
                         return [
                             'success' => 2 // imagen no se subio al servidor
@@ -272,27 +273,27 @@ class ProgramasController extends Controller
                     // guardar imagen en disco
                     $extensionSlide = '.'.$request->slide->getClientOriginalExtension();
                     $nombreSlide = $nombre.'slide'.$extensionSlide;
-                    $avatarSlide = $request->file('slide'); 
-                    $uploadSlide = Storage::disk('programa')->put($nombreSlide, \File::get($avatarSlide)); 
-             
+                    $avatarSlide = $request->file('slide');
+                    $uploadSlide = Storage::disk('programa')->put($nombreSlide, \File::get($avatarSlide));
+
                     if($uploadSlide){
-                            
+
                         if(Storage::disk('programa')->exists($slideOld)){
-                            Storage::disk('programa')->delete($slideOld);                                
-                        }   
-                        $array['imagen'] = $nombreSlide;    
+                            Storage::disk('programa')->delete($slideOld);
+                        }
+                        $array['imagen'] = $nombreSlide;
                     }else{
                         return [
                             'success' => 2 // Slide no se subio al servidor
                         ];
                     }
                 }
-                
+
                     if(Programa::where('idprograma', '=', $request->idprograma)->update($array)){
                         return [
                             'success' => 1 // datos guardados correctamente
-                        ];     
-                    }                 
+                        ];
+                    }
             }else{
                 return [
                     'success' => 3 //programa no encontrado
@@ -303,43 +304,60 @@ class ProgramasController extends Controller
 
     // eliminar un programa
     public function eliminarPrograma(Request $request){
-        if($request->isMethod('post')){  
-            $regla = array( 
-                'id' => 'required'               
-            );    
+        if($request->isMethod('post')){
+            $regla = array(
+                'id' => 'required'
+            );
 
             $mensaje = array(
-                'id.required' => 'ID es requerida',               
+                'id.required' => 'ID es requerida',
                 );
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
 
-            if ($validar->fails()) 
+            if ($validar->fails())
             {
                 return [
-                    'success' => 0, 
+                    'success' => 0,
                     'message' => $validar->errors()->all()
                 ];
-            } 
+            }
 
             if($datos = Programa::where('idprograma', $request->id)->first()){
-                
+
                 // borrar programa
                 Programa::where('idprograma', $request->id)->delete();
-                // borrar imagen 
+                // borrar imagen
 
                 if(Storage::disk('programa')->exists($datos->logo)){
-                    Storage::disk('programa')->delete($datos->logo);                                
+                    Storage::disk('programa')->delete($datos->logo);
                 }
-                
+
                 return [
-                    'success' => 1 // programa eliminado              
+                    'success' => 1 // programa eliminado
                 ];
             }else{
                 return [
-                    'success' => 2 // programa no encontrado                   
+                    'success' => 2 // programa no encontrado
                 ];
             }
         }
     }
+
+
+    public function informacionUCP(Request $request){
+
+        $infoTabla = Linkucp::where('id', 1)->first();
+
+        if($infoTabla->activo == 0){
+            return ['success' => 1];
+        }
+
+       return ['success' => 2, 'titulo' => $infoTabla->titulo, 'descripcion' => $infoTabla->descripcion,
+           'urllink' => $infoTabla->linkucp];
+
+    }
+
+
+
 }

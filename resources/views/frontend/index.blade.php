@@ -21,7 +21,7 @@
 					</a>
 					<div class="container-fluid">
 							<div class="row">
-								<div class="col-md-12 col-md-offset-12 col-sm-12 col-xs-12 slider-text">	
+								<div class="col-md-12 col-md-offset-12 col-sm-12 col-xs-12 slider-text">
 								</div>
 							</div>
 						</div>
@@ -50,7 +50,7 @@
 						  </a>&nbsp;
 						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.instagram.com/alcaldiademetapan/"><span class="icon-instagram"></span>
 						  <span id="socno">Instagram</span>
-      					</a>&nbsp;	
+      					</a>&nbsp;
 						</center>
 					</div>
 				</div>
@@ -125,7 +125,7 @@
 		</div>
 	</div>
 	<!--End Noticias recientes-->
-	
+
 	<!--Servicios municipales-->
 	<div id="colorlib-blog">
 		<div class="container">
@@ -243,6 +243,10 @@
 			});
 		});
 	</script>
+
+
+
+
 </body>
 
 </html>

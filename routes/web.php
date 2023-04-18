@@ -19,11 +19,11 @@ Route::get('admin', 'Auth\LoginController@loginForm')->name('admin.login');
 Route::post('admin', 'Auth\LoginController@login');
 
 // proteger rutas con middleware AccessAdmin.php
-Route::group(['middleware' => 'auth', 'auth.admin'], function () { 
+Route::group(['middleware' => 'auth', 'auth.admin'], function () {
     Route::get('admin/dashboard', 'DashboardController@index')->name('admin.dashboard');
     Route::get('admin/inicio', 'DashboardController@getInicio')->name('admin.inicio');
-    
-    
+
+
 
 // SLIDER
 
@@ -36,7 +36,7 @@ Route::post('admin/eliminar-slider', 'SliderController@eliminarSlider');
 
 // PROGRAMA
 Route::get('admin/listarprograma', 'ProgramasController@index');
-Route::get('admin/tablas/programa', 'ProgramasController@getProgramaTabla'); 
+Route::get('admin/tablas/programa', 'ProgramasController@getProgramaTabla');
 Route::post('admin/agregar-programa', 'ProgramasController@nuevoPrograma');
 Route::post('admin/informacion-programa', 'ProgramasController@infoPrograma');
 Route::post('admin/editar-programa', 'ProgramasController@editarPrograma');
@@ -46,25 +46,29 @@ Route::post('admin/eliminar-programa', 'ProgramasController@eliminarPrograma');
 
 // NOTICIA
 Route::get('admin/listarnoticia', 'NoticiaController@index');
-Route::get('admin/tablas/noticia', 'NoticiaController@getNoticiaTabla'); 
+Route::get('admin/tablas/noticia', 'NoticiaController@getNoticiaTabla');
 Route::post('admin/agregar-noticia', 'NoticiaController@nuevaNoticia');
 Route::post('admin/informacion-noticia', 'NoticiaController@infoNoticia');
 Route::post('admin/editar-noticia', 'NoticiaController@editarNoticia');
 Route::post('admin/eliminar-noticia', 'NoticiaController@eliminarNoticia');
 
+    Route::get('admin/panelucp', 'NoticiaController@indexUCP');
+
+    Route::post('admin/actualizar-ucp', 'NoticiaController@actualizarLinkUcp');
+
 
 // FOTOGRAFIA
-Route::get('admin/fotografia/{id}', 'FotografiaController@getFotografiaVista'); 
-Route::get('admin/tabla/fotografia/{id}', 'FotografiaController@getFotografiaTabla'); 
+Route::get('admin/fotografia/{id}', 'FotografiaController@getFotografiaVista');
+Route::get('admin/tabla/fotografia/{id}', 'FotografiaController@getFotografiaTabla');
 Route::post('admin/agregar-fotografia', 'FotografiaController@nuevaFotografia');
 Route::post('admin/eliminar-fotografia', 'FotografiaController@eliminarFotografia');
 
 
- 
+
 
 // SERVICIO
 Route::get('admin/listarservicio', 'ServiciosController@index');
-Route::get('admin/tablas/servicio', 'ServiciosController@getServicioTabla'); 
+Route::get('admin/tablas/servicio', 'ServiciosController@getServicioTabla');
 Route::post('admin/agregar-servicio', 'ServiciosController@nuevoServicio');
 Route::post('admin/informacion-servicio', 'ServiciosController@infoServicio');
 Route::post('admin/editar-servicio', 'ServiciosController@editarServicio');
@@ -76,7 +80,7 @@ Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUs
 Route::post('/admin/actualizar-usuario','UserController@update');
 });
 
- 
+
 
 Route::get('/servicios','FrontendController@getAllServicios');
 Route::get('/servicio/{nombre}','FrontendController@getServicioByname');
@@ -100,3 +104,14 @@ Route::get('/direccion','FrontendController@getGobiernoPage');
 
 //REVISTA
 //Route::get('/revista','FrontendController@getRevista');
+
+
+
+// UCP
+
+Route::post('/admin/informacion-ucp','ProgramasController@informacionUCP');
+
+
+
+
+
