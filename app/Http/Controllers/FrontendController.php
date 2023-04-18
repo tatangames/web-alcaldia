@@ -95,14 +95,14 @@ class FrontendController extends Controller
   public function getAllFotografias(Request $request)
   {
 
-      $fotografias = Fotografia::paginate(6);
+      $fotografias = DB::table('fotografia')->orderBy('noticia_id', 'desc')->paginate(6);
       $serviciosMenu = $this->getServiciosMenu(); 
       return view('frontend.paginas.galeria', compact(['fotografias','serviciosMenu']));
   }
 
   //Metodo para obtener todas las noticias 
   public function getNoticias(){
-        $noticias = Noticia::paginate(3);
+          $noticias = DB::table('noticia')->orderBy('fecha', 'desc')->paginate(3);
         foreach($noticias  as $new){  
             $foto = Fotografia::where('noticia_id', $new->idnoticia)->pluck('nombrefotografia')->first();        
             $new->nombrefotografia = $foto; 
@@ -127,6 +127,13 @@ class FrontendController extends Controller
     $serviciosMenu = $this->getServiciosMenu(); 
     return view('frontend.paginas.historia',compact('serviciosMenu'));
   }
+  
+  //Metodo para obtener la pagina de la unidad contravencional -- getContravencionalPage
+    public function getContravencionalPage(){
+    $serviciosMenu = $this->getServiciosMenu(); 
+    return view('frontend.paginas.contra',compact('serviciosMenu'));
+  }
+  
 //Metodo para devolver vista de gobierno municipal de tu alcaldia
   public function getGobiernoPage(){
     $serviciosMenu = $this->getServiciosMenu(); 
@@ -139,6 +146,18 @@ class FrontendController extends Controller
     $file="storage/servicio/".$nameFile;
     $headers = array('Content-Type: application/pdf',);
     return response()->download($file, $nameFile, $headers);
+}
+ //Metodo para descargar un archivo de contravencional
+  public function getFileContra($nameFile)
+{
+    $this->AddVisitor(1);
+    $file="storage/contravencional/".$nameFile;
+    $headers = array('Content-Type: application/pdf',);
+    return response()->download($file, $nameFile, $headers);
+}
+  public function getRevista(){
+    $serviciosMenu = $this->getServiciosMenu(); 
+    return view('frontend.paginas.revista',compact('serviciosMenu'));
 }
 
 

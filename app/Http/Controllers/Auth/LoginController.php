@@ -25,7 +25,7 @@ class LoginController extends Controller
 
     // para iniciar sesion administrador
     public function login(Request $request){
-
+    // return "llego aqui";
         // reglas
         $rules = array(
             'usuario' => 'required|max:45',
@@ -39,7 +39,7 @@ class LoginController extends Controller
             'password.required' => 'Contraseña es requerida',
             'password.max' => '100 caracteres máximo para la contraseña',            
         ); 
-        
+       
         // validar
         $validator = Validator::make($request->all(), $rules, $messages );
 
@@ -50,7 +50,7 @@ class LoginController extends Controller
                 'message' => $validator->errors()->all()
             ];
         }   
-
+        
         // verificar si existe el usuario
         if(User::where('usuario', $request->usuario)->first()){
             // validacion de usuario y contrasena

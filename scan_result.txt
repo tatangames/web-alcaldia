@@ -1,0 +1,23 @@
+===DOC ROOT Folders===
+/home/alcaldiademetapa/public_html/
+########################################################
+===Links List===
+/home/alcaldiademetapa/public_html/public/storage
+########################################################
+===ALLOW List===
+/home/alcaldiademetapa/public_html/.htaccess:allow from all
+########################################################
+===ImunifyAV Check List===
+
+########################################################
+===Maldet Check List===
+########################################################
+===GREP check List===
+./node_modules/core-js/CHANGELOG.md
+./node_modules/core-js/README.md
+./vendor/fzaninotto/faker/src/Faker/Provider/nb_NO/Person.php
+./vendor/fzaninotto/faker/src/Faker/Provider/nl_NL/Person.php
+./vendor/symfony/console/Tests/Helper/ProcessHelperTest.php
+########################################################
+===Image Check List===
+########################################################

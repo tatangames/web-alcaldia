@@ -43,11 +43,11 @@
 							<h2>Nuestro Gobierno</h2>
 							<div class="row">
 								<div class="col-md-12">		
-									<img src="{{ asset('images/historia/IMG_4348.jpg') }}" alt="Alcalde y Consejo" class="img-responsive" width="900" ></p>
+									<img src="{{ asset('images/historia/IMG_3743-01.jpeg') }}" alt="Alcalde y Consejo" class="img-responsive" width="900" ></p>
 								</div>
 							</div>
 									<br>
-									<p style="text-align: center;"><strong style="font-size: 20px;">NOMINA DE CONCEJALES 2018-2021</strong></p>
+									<p style="text-align: center;"><strong style="font-size: 20px;">NOMINA DE CONCEJALES 2021-2024</strong></p>
 
 									<table class="table table-hover table-bordered">
 										<tbody>
@@ -55,69 +55,69 @@
 												<td>
 													<strong>Alcalde Municipal </strong>
 												</td>
-												<td><span>Prof. José Rigoberto Pinto Rivera</span></td>
+												<td><span>Israel Peraza Guerra</span></td>
 											</tr>
 											<tr>
 												<td>
 													<strong>Síndico</strong>
 												</td>
-												<td><span>Lic. Ramón Alberto Calderón</span></td>
+												<td><span>David Rubén Deras</span></td>
 											</tr>
 											<tr>
 												<td><strong>1° Regidor Propietario</strong></td>
-												<td><span>José Roberto Lemus Morataya</span></td>
+												<td><span>Denis Edgardo Pacheco</span></td>
 											</tr>
 											<tr>
 												<td><strong>2° Regidor Propietaria</strong></td>
-												<td><span>Sr. Pedro Antonio Sanabria</span></td>
+												<td><span>Clelia Madelin Guevara</span></td>
 											</tr>
 											<tr>
 												<td><strong>3° Regidora Propietario</strong></td>
-												<td><span>Sra. Nora Elizabeth Hernández</span></td>
+												<td><span>Neftalí Rosales Peraza</span></td>
 											</tr>
 											<tr>
 												<td><strong>4° Regidor Propietario</strong></td>
-												<td><span>Sr. Rudy Alfredo Sanabria</span></td>
+												<td><span>Adolfo Fajardo Landaverde</span></td>
 											</tr>
 											<tr>
 												<td><strong>5° Regidor Propietaria</strong></td>
-												<td><span>Sr. Alejandro Lemus M.</span></td>
+												<td><span>Mario Antonio Arriola</span></td>
 											</tr>
 											<tr>
 												<td><strong>6° Regidor Propietario</strong></td>
-												<td><span>Lic. José Atilio Granados</span></td>
+												<td><span>Juan Ramón Ochoa</span></td>
 											</tr>
 											<tr>
 												<td><strong>7° Regidor Propietario</strong></td>
-												<td><span></span>Sr. Julio Enrique Martínez</td>
+												<td><span></span>Yanira Marlene Peraza</td>
 											</tr>
 											<tr>
 												<td><strong>8° Regidor Propietaria</strong></td>
-												<td><span>Sr. José Misael Posada</span></td>
+												<td><span>Ramón Alberto Calderón</span></td>
 											</tr>
 											<tr>
 												<td><strong>9° Regidor Propietario</strong></td>
-												<td><span>Lic. Ricardo Alberto Polanco</span></td>
+												<td><span>Daniel Antonio Salazar</span></td>
 											</tr>
 											<tr>
 												<td><strong>10° Regidor Propietario</strong></td>
-												<td><span>Ing. Nelson Eduardo Figueroa</span></td>
+												<td><span>Kelvin Elias Ramos</span></td>
 											</tr>
 											<tr>
 												<td><strong>1° Regidor Suplente</strong></td>
-												<td><span>Sr. Carlos Armando Sandoval</span></td>
+												<td><span>Blas Aldana Hernández</span></td>
 											</tr>
 											<tr>
 												<td><strong>2° Regidor Suplente</strong></td>
-												<td><span>Sr. Ricardo Pacheco Pacheco</span></td>
+												<td><span>Silvia Lorena Villafuerte</span></td>
 											</tr>
 											<tr>
 												<td><strong>3° Regidor Suplente</strong></td>
-												<td><span>Sra. Nora Elizabeth Hernández</span></td>
+												<td><span>Carlos Armando Sandoval</span></td>
 											</tr>
 											<tr>
 												<td><strong>4° Regidor Suplente</strong></td>
-												<td><span>Sr. Rudy Alfredo Sanabria</span></td>
+												<td><span>Bonifacio Antonio Martínez</span></td>
 											</tr>
 										</tbody>
 									</table>

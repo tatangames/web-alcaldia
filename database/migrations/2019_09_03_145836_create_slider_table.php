@@ -18,7 +18,8 @@ class CreateSliderTable extends Migration
             $table->string('nombreslider', 100)->nullable();
             $table->boolean('estado')->default('0');
             $table->integer('posicion');
-            $table->string('fotografia', 100);            
+            $table->string('fotografia', 100);  
+            $table->string('link', 500)->nullable();            
         });
     }
 
@@ -32,3 +33,4 @@ class CreateSliderTable extends Migration
         Schema::dropIfExists('slider');
     }
 }
+

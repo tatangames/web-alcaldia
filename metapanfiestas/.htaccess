@@ -1,0 +1,5 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^metapanfiestas\.alcaldiademetapan\.gob\.sv$
+RewriteRule ^/?$ "https\:\/\/metapanfiestas\.alcaldiademetapan\.gob\.sv\/index\.html" [R=301,L]
+

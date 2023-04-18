@@ -14763,12 +14763,12 @@ h1, h2, h3, h4, h5, h6, figure {
         position: relative;
         font-size: 15px;
         padding: 30px 10px;
-        color: #1a3660;
+        color: #034a20;
         -webkit-transition: 0.5s;
         -o-transition: 0.5s;
         transition: 0.5s; }
         .colorlib-nav ul li a:hover {
-          color: #0b7ac4; }
+          color: #03a117; }
       .colorlib-nav ul li.has-dropdown {
         position: relative; }
         .colorlib-nav ul li.has-dropdown .dropdown {
@@ -14820,7 +14820,7 @@ h1, h2, h3, h4, h5, h6, figure {
               .colorlib-nav ul li.has-dropdown .dropdown li a:hover {
                 color: #fff; }
         .colorlib-nav ul li.has-dropdown:hover a, .colorlib-nav ul li.has-dropdown:focus a {
-          color: #0099ff; }
+          color: #03a117; }
       .colorlib-nav ul li.btn-cta a {
         padding: 30px 0px !important;
         color: #fff; }
@@ -14843,7 +14843,7 @@ h1, h2, h3, h4, h5, h6, figure {
           -moz-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75); }
       .colorlib-nav ul li.active > a {
-        color: #0099ff !important;
+        color: #03a117 !important;
         position: relative; }
         .colorlib-nav ul li.active > a:after {
           opacity: 1;
@@ -15109,7 +15109,8 @@ h1, h2, h3, h4, h5, h6, figure {
         #colorlib-reservation .nav-tabs li a {
           padding: 10px !important; } }
   #colorlib-reservation .tab-content {
-    background: #1a3660;
+    background: rgb(0,121,16);
+    background: linear-gradient(90deg, rgba(0,121,16,1) 0%, rgba(69,145,100,1) 51%, rgba(3,74,32,1) 100%);
     padding: 10px 10px; }
 
 .colorlib-form label {
@@ -15204,7 +15205,8 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
     content: '';
     width: 360%;
-    background: #1a3660; }
+    background: rgb(0,121,16);
+    background: linear-gradient(90deg, rgba(0,121,16,1) 0%, rgba(69,145,100,1) 51%, rgba(3,74,32,1) 100%); }
   @media screen and (max-width: 768px) {
     .aside-stretch {
       background: transparent; }
@@ -15949,7 +15951,8 @@ article {
       bottom: 0;
       content: '';
       width: 360%;
-      background: #00BBF0; }
+      background: rgb(0,121,16); 
+      background: linear-gradient(90deg, rgba(0,121,16,1) 0%, rgba(69,145,100,1) 51%, rgba(3,74,32,1) 100%); }
   .about-flex .about {
     text-align: right; }
     @media screen and (max-width: 768px) {
@@ -16059,7 +16062,7 @@ input[type="text"] {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     font-weight: 700; }
   #colorlib-subscribe .colorlib-heading {
     margin-bottom: 0; }
@@ -16111,7 +16114,8 @@ input[type="text"] {
   padding: 14px; }
 
 #colorlib-footer {
-  background: #1a3660;
+  background: rgb(0,121,16);
+  background: linear-gradient(90deg, rgba(0,121,16,1) 0%, rgba(69,145,100,1) 51%, rgba(3,74,32,1) 100%);
   color: rgba(255, 255, 255, 0.5) !important; }
   #colorlib-footer .colorlib-footer-links {
     padding: 0;
@@ -16235,7 +16239,7 @@ input[type="text"] {
     width: 50px;
     height: 50px;
     display: table;
-    background: #0099ff;
+    background: #51a272;
     color: #fff;
     text-align: center;
     -webkit-border-radius: 4px;

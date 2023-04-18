@@ -105,6 +105,11 @@
                         <!-- editor 2-->
                       <textarea id="editor2" name="editor2"></textarea>
                     </div>
+                    <div class="form-group">
+                      <label>Slide</label>
+                      <!-- imagen -->
+                      <input type="file" class="form-control" id="slide" name="slide" accept="image/x-jpg" />
+                    </div>
                   </div>
                 </div> 
               </div>
@@ -146,6 +151,11 @@
                         </div>
                         <!-- editor 3 -->
                       <textarea id="editor3" name="editor3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Slide</label>
+                      <!-- imagen -->
+                      <input type="file" class="form-control" id="slideU" name="slideU" accept="image/x-jpg" />
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -241,9 +251,10 @@ function guardarServicio(){
     var editor1 = CKEDITOR.instances.editor1.getData();  
     var editor2 = CKEDITOR.instances.editor2.getData();
     var imagen = document.getElementById('logo');
+    var slide = document.getElementById('slide');
     var documento = document.getElementById('documento');
 
-    var retorno = validaciones(nombre, editor1, editor2, imagen, documento);
+    var retorno = validaciones(nombre, editor1, editor2, imagen, documento, slide);
 
     if(retorno){ 
    
@@ -255,6 +266,7 @@ function guardarServicio(){
       formData.append('descorta', editor1);
       formData.append('deslarga', editor2);
       formData.append('imagen', imagen.files[0]);
+      formData.append('slide', slide.files[0]);
 
      
       var files = documento.files;
@@ -300,12 +312,21 @@ function mensajeResponse(valor){
 }
   
   // validar antes de agregar servicio
-function validaciones(nombre, editor1, editor2, imgFile, documento){            
-    if(imgFile.files && imgFile.files[0]){
-      if (!imgFile.files[0].type.match('image/png')){      
+function validaciones(nombre, editor1, editor2, imagen, documento, slide){            
+    if(imagen.files && imagen.files[0]){
+      if (!imagen.files[0].type.match('image/png')){      
         toastr.error('Error', 'Formato de imagen permitido: .png');
         return false;       
+      }
+    }else{
+        toastr.error('Error', 'Agregar una imagen!');
+        return false;
     }
+    if(slide.files && slide.files[0]){
+      if (!slide.files[0].type.match('image/jpeg')){      
+        toastr.error('Error', 'Formato de imagen permitido: .jpg');
+        return false;       
+      }
     }else{
         toastr.error('Error', 'Agregar una imagen!');
         return false;
@@ -376,9 +397,10 @@ function editarServicio(){
     var editor3 = CKEDITOR.instances.editor3.getData();  
     var editor4 = CKEDITOR.instances.editor4.getData();
     var imagen = document.getElementById('logoU'); 
+    var slide = document.getElementById('slideU'); 
     
     // validacion
-    var retorno = validacionesEditar(nombre, editor3, editor4, imagen);
+    var retorno = validacionesEditar(nombre, editor3, editor4, imagen, slide);
   
     if(retorno){
         var spinHandle = loadingOverlay().activate(); // activar loading
@@ -390,6 +412,7 @@ function editarServicio(){
         formData.append('descorta', editor3);
         formData.append('deslarga', editor4);
         formData.append('imagen', imagen.files[0]);
+        formData.append('slide', slide.files[0]);
 
         axios.post('/admin/editar-servicio', formData, {        
         })
@@ -427,7 +450,7 @@ function mostrarMensajeEditar(valor) {
 }
       
 // validar antes de agregar
-function validacionesEditar(nombre, editor3, editor4, imagen){           
+function validacionesEditar(nombre, editor3, editor4, imagen, slide){           
     
     if(nombre === ''){
         toastr.error('Error', 'Agregar nombre de servicio'); 
@@ -445,6 +468,12 @@ function validacionesEditar(nombre, editor3, editor4, imagen){
     if(imagen.files && imagen.files[0]){ // si trae imagen
           if (!imagen.files[0].type.match('image/png')){      
             toastr.error('Error', 'Formato de imagen permitido: .png');
+            return false;       
+          } 
+    }
+    if(slide.files && slide.files[0]){ // si trae imagen
+          if (!slide.files[0].type.match('image/jpeg')){      
+            toastr.error('Error', 'Formato de imagen permitido: .jpg');
             return false;       
           } 
     }

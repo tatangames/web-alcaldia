@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" href="{{asset('fonts/icomoon/icomoon.ttf')}}">
+	<!-- <link rel="stylesheet" href="{{asset('fonts/icomoon/icomoon.ttf')}}"> -->
 	
 	<link href="{{ asset('plugins/animaciones/animaciones.css') }}" type="text/css" rel="stylesheet" />
 
@@ -47,7 +47,7 @@
 			.scrollbar-deep-purple::-webkit-scrollbar-thumb {
 			border-radius: 10px;
 			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-			background-color: #1a3660; }
+			background-color: #04742c; }
 
 			.square::-webkit-scrollbar-track {
 			border-radius: 0 !important; }
@@ -69,7 +69,7 @@
 				  font-size:1.5em;}
 			#soc:hover {
 				background-color:rgb(238,238,238);
-				color:#1a3660;
+				color:#04742c;
 			}
 			@media screen and (max-width: 768px) {
 			  #socno { display:none; }}

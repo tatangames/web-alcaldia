@@ -16,14 +16,12 @@
 				<ul class="slides">
 					@foreach($slider as $dato)
 					<li style="background-image: url('storage/slider/{{ $dato->fotografia }}');">
-					<div class="overlay"></div>
+					<a href="{{ $dato->link }}">
+						<div class="overlay"></div>
+					</a>
 					<div class="container-fluid">
 							<div class="row">
-								<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
-									<div class="slider-text-inner text-center">
-										<h2></h2>
-										<h1></h1>
-									</div>
+								<div class="col-md-12 col-md-offset-12 col-sm-12 col-xs-12 slider-text">	
 								</div>
 							</div>
 						</div>
@@ -95,6 +93,39 @@
 		</div>
 	</div>
 	<!--End Programas Municipales-->
+
+	<!--Noticias recientes-->
+	<div id="colorlib-hotel">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+					<h2>Noticias </h2>
+					<p>Noticias publicadas recientemente </p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 animate-box">
+					<div class="owl-carousel">
+						@foreach($noticia as $dato5)
+						<div class="item">
+							<div class="hotel-entry">
+								<a href="{{ url('noticia/'.$dato5->slug) }}" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
+								</a>
+								<div class="desc">
+									<h3><a href="{{ url('noticia/'.$dato5->slug) }}">{{ $dato5->nombrenoticia }}</a></h3>
+									<span class="place">{{ $dato5->fecha }}</span>
+									<p>{!! $dato5->descorta !!}</p>
+								</div>
+							</div>
+						</div>
+						@endforeach
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--End Noticias recientes-->
+	
 	<!--Servicios municipales-->
 	<div id="colorlib-blog">
 		<div class="container">
@@ -155,38 +186,6 @@
 		</div>
 	</div>
 	<!--End Fotografías recientes-->
-
-	<!--Noticias recientes-->
-	<div id="colorlib-hotel">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-					<h2>Noticias </h2>
-					<p>Noticias publicadas recientemente </p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 animate-box">
-					<div class="owl-carousel">
-						@foreach($noticia as $dato5)
-						<div class="item">
-							<div class="hotel-entry">
-								<a href="{{ url('noticia/'.$dato5->slug) }}" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
-								</a>
-								<div class="desc">
-									<h3><a href="{{ url('noticia/'.$dato5->slug) }}">{{ $dato5->nombrenoticia }}</a></h3>
-									<span class="place">{{ $dato5->fecha }}</span>
-									<p>{!! $dato5->descorta !!}</p>
-								</div>
-							</div>
-						</div>
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--End Noticias recientes-->
 
 	<br><br>
 	<!--mapa-->

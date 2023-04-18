@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<head><meta charset="euc-jp">
 <title>Alcaldia Metapan - Panel</title>
-	<meta charset="UTF-8">
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -120,7 +120,8 @@
 			} else if (response.data.success == 3) {
 				alertify.error("Usuario no encontrado...");
 			} else {
-				alertify.error("Error");
+			    //console.log(response);
+				alertify.error("Error!!");
 			}
 		}
 

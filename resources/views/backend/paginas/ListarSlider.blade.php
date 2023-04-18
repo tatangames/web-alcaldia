@@ -75,7 +75,12 @@
                       <label style="color:#191818">Descripción</label>
                       <br>
                       <input style="color:#191818" type="text" class="form-control" maxlength="100" id="descripcion" name="descripcion" placeholder="Descripción de imagen"/>
-                  </div>                        
+                  </div>
+                  <div class="form-group">
+                      <label style="color:#191818">Link</label>
+                      <br>
+                      <input style="color:#191818" type="text" class="form-control" maxlength="500" id="link" name="link" placeholder="Link de redireccion"/>
+                  </div>                          
                   <div class="form-group">
                       <div>
                           <label>Imagen</label>
@@ -114,12 +119,17 @@
                       <br>
                       <input type="hidden" id="idU"/> <!-- guardar id del slider -->
                       <input style="color:#191818" type="text" class="form-control" maxlength="100" id="descripcionU" name="descripcionU" placeholder="Descripción de imagen"/>
-                  </div> 
+                  </div>
+                  <div class="form-group">
+                      <label style="color:#191818">Link</label>
+                      <br>
+                      <input style="color:#191818" type="text" class="form-control" maxlength="500" id="linkU" name="linkU" placeholder="Link de redireccion"/>
+                  </div>  
                   
                   <div class="form-group">
-                      <label style="color:#191818">posición</label>
+                      <label style="color:#191818">Posición</label>
                       <br>
-                      <input type="number" value="1" id="posicionU" name="posicionU" min="1">
+                      <input type="text"  class="form-control" value="1" id="posicionU" name="posicionU" min="1">
                   </div> 
 
                   <div class="form-group">
@@ -196,6 +206,7 @@
     function guardarSlider(){
 
       var descripcion = document.getElementById('descripcion').value;    
+      var link = document.getElementById('link').value;    
       var imagen = document.getElementById("imagen");
 
       var retorno = validacion(imagen);
@@ -208,6 +219,7 @@
               
         let formData = new FormData();
         formData.append('descripcion', descripcion);
+        formData.append('link', link);
         formData.append('imagen', imagen.files[0]);
 
         axios.post('/admin/agregar-slider', formData, {  
@@ -273,6 +285,8 @@
               $('#modalEditar').modal('show');
               $('#idU').val(response.data.slider.idslider);
               $('#descripcionU').val(response.data.slider.nombreslider);
+              $('#linkU').val(response.data.slider.link);
+              $('#posicionU').val(response.data.slider.posicion);
              
             }else{ // slider no encontrado
               toastr.error('Error', 'Slider no encontrado'); 
@@ -286,7 +300,8 @@
 
     // actualiza el slider, ya sea foto o solo datos
     function actualizarSlider(){
-      descripcion = document.getElementById('descripcionU').value;    
+      descripcion = document.getElementById('descripcionU').value;  
+      link = document.getElementById('linkU').value;    
       imagen = document.getElementById("imagenU");
       posicion = document.getElementById("posicionU").value;
       idslider = document.getElementById("idU").value;
@@ -299,6 +314,7 @@
 
         let formData = new FormData();
         formData.append('descripcion', descripcion);
+        formData.append('link', link);
         formData.append('posicion', posicion);
         formData.append('imagen', imagen.files[0]);
         formData.append('idslider', idslider);

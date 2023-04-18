@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
+//para ver el archivo log nada mas por el error de los saltos de linea
+use Log;
 
 class NoticiaController extends Controller
 {
@@ -21,6 +23,7 @@ class NoticiaController extends Controller
     // retornar vista tabla con los datos
     public function getNoticiaTabla(){        
         $noticia = Noticia::all();
+        
 
         return view('backend.paginas.tablas.tablaNoticia',compact('noticia'));
     }
@@ -145,9 +148,10 @@ class NoticiaController extends Controller
 
     // editar la noticia
     public function editarNoticia(Request $request){
-
+ 
         if($request->isMethod('post')){  
-
+           //para ver el archivo log nada mas por el error de los saltos de linea
+            //Log::info($request->all());
             $regla = array( 
                 'idnoticia' => 'required', 
                 'nombre' => 'required|max:450',                
@@ -176,6 +180,7 @@ class NoticiaController extends Controller
             } 
 
             $slug = Str::slug($request->nombre, '-');
+            
          
             if(Noticia::where('slug', $slug)->where('idnoticia', '!=', $request->idnoticia)->first()){
                  return [

@@ -9,6 +9,7 @@
                 <tr>
                   <th style="width: 25%">Nombre</th>
                   <th style="width: 25%">Logo</th>
+                  <th style="width: 25%">Slide</th>
                   <th style="width: 25%">Opciones</th>                           
                 </tr>
                 </thead>
@@ -17,7 +18,7 @@
                 <tr>
                   <td>{{ $dato->nombreservicio }}</td>
                   <td><center><img alt="Slider" src="{{ url('storage/servicio/'.$dato->logo) }}" width="150px" height="150px" /></center></td> 
-                              
+                  <td><center><img alt="Slider" src="{{ url('storage/servicio/'.$dato->imagen) }}" width="150px" height="150px" /></center></td> 
                   <td>
                     <button type="button" class="btn btn-info btn-xs" onclick="abrirModalEditar({{ $dato->idservicio }})">
                     <i class="fas fa-pencil-alt" title="Editar"></i>&nbsp; Editar

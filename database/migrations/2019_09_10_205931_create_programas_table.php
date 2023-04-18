@@ -20,6 +20,7 @@ class CreateProgramasTable extends Migration
             $table->string('logo', 100);
             $table->text('descorta');
             $table->text('deslarga');    
+            $table->string('imagen', 250)->nullable();
             $table->string('slug', 150)->unique();        
         });
     }

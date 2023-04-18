@@ -30,7 +30,8 @@ class ServiciosController extends Controller
            
             $regla = array( 
                 'nombre' => 'required|max:450',                
-                'imagen' => 'required|image|mimes:png', 
+                'imagen' => 'required|image|mimes:png',
+                'slide' => 'required|image|mimes:jpeg', 
                 'descorta' => 'required',
                 'deslarga' => 'required',
             );
@@ -41,6 +42,8 @@ class ServiciosController extends Controller
                 'imagen.required' => 'La imagen es requerida',
                 'imagen.image' => 'El archivo debe ser una imagen',
                 'imagen.mimes' => 'Formato validos .png',
+                'slide.image' => 'El archivo debe ser una imagen',
+                'slide.mimes' => 'Formato validos .jpeg',
                 'descorta.required' => 'Descripcion corta es requeria',
                 'deslarga.required' => 'Descripcion larga es requeria',
                 );
@@ -90,8 +93,12 @@ class ServiciosController extends Controller
            
            // guardar imagen en disco
            $extension = '.'.$request->imagen->getClientOriginalExtension();
+           $extension2 = '.'.$request->slide->getClientOriginalExtension();
            $nombreFoto = $nombre.$extension;
+           $nombreSlide = $nombre.'slide'.$extension2;
            $avatar = $request->file('imagen'); 
+           $avatar2 = $request->file('slide'); 
+           $upload2 = Storage::disk('servicio')->put($nombreSlide, \File::get($avatar2)); 
            $upload = Storage::disk('servicio')->put($nombreFoto, \File::get($avatar)); 
 
            $slug = Str::slug($request->nombre, '-');
@@ -106,6 +113,7 @@ class ServiciosController extends Controller
            $idservicio = Servicio::insertGetId([
             'nombreservicio'=>$request->nombre,
             'logo'=>$nombreFoto,
+            'imagen'=>$nombreSlide,
             'descorta'=>$request->descorta,
             'deslarga'=>$request->deslarga,
             'slug' => $slug ]); 
@@ -130,7 +138,7 @@ class ServiciosController extends Controller
                }
             }
     
-           if($upload){               
+           if($upload && $upload2){               
          
                 return [
                     'success' => 1 // servicio agregado
@@ -232,6 +240,29 @@ class ServiciosController extends Controller
                     ];
                 }              
             }
+            if($request->hasFile('slide')){                
+
+                // validaciones para los datos
+                $regla3 = array( 
+                    'slide' => 'required|image|mimes:jpeg', 
+                );    
+         
+                $mensaje3 = array(
+                    'slide.required' => 'La imagen es requerida',
+                    'slide.image' => 'El archivo debe ser una imagen',
+                    'slide.mimes' => 'Formato validos .jpg',
+                    );
+    
+                $validar3 = Validator::make($request->all(), $regla3, $mensaje3 );
+    
+                if ( $validar3->fails()) 
+                {
+                    return [
+                        'success' => 0, 
+                        'message' => $validar3->errors()->all()
+                    ];
+                }              
+            }
 
             $slug = Str::slug($request->nombre, '-');
          
@@ -244,49 +275,64 @@ class ServiciosController extends Controller
 
             // encontrar servicio a modificar
             if($servicio = Servicio::where('idservicio', $request->idservicio)->first()){                        
+                $cadena = Str::random(15);
+                $tiempo = microtime(); 
+                $union = $cadena.$tiempo;
+                // quitar espacios vacios
+                $nombre = str_replace(' ', '_', $union);
 
-                if($request->hasFile('imagen')){ // editara servicio y su imagen   
+                $imagenOld = $servicio->logo;
+                $slideOld = $servicio->imagen;
 
-                    $cadena = Str::random(15);
-                    $tiempo = microtime(); 
-                    $union = $cadena.$tiempo;
-                    // quitar espacios vacios
-                    $nombre = str_replace(' ', '_', $union);
-                    
-                    // guardar imagen en disco
-                    $extension = '.'.$request->imagen->getClientOriginalExtension();
-                    $nombreFoto = $nombre.$extension;
-                    $avatar = $request->file('imagen'); 
-                    $upload = Storage::disk('servicio')->put($nombreFoto, \File::get($avatar)); 
-             
-                    if($upload){
-                        $imagenOld = $servicio->logo; //nombre de imagen a borrar
+                $array = ['nombreservicio' => $request->nombre, 
+                          'descorta' => $request->descorta, 
+                          'deslarga' => $request->deslarga, 
+                          'slug' => $slug];
+
+            if($request->hasFile('imagen')){ // editara servicio y su imagen
+                // guardar imagen en disco
+                $extension = '.'.$request->imagen->getClientOriginalExtension();
+                $nombreFoto = $nombre.$extension;
+                $avatar = $request->file('imagen'); 
+                $upload = Storage::disk('servicio')->put($nombreFoto, \File::get($avatar)); 
+         
+                if($upload){
+                    if(Storage::disk('servicio')->exists($imagenOld)){
+                        Storage::disk('servicio')->delete($imagenOld);                                
+                    }  
+                    $array['logo'] = $nombreFoto;    
+                }else{
+                    return [
+                        'success' => 2 // imagen no se subio al servidor
+                    ];
+                }
+            }
+            if($request->hasFile('slide')){ // editara servicio y su imagen
+                // guardar imagen en disco
+                $extensionSlide = '.'.$request->slide->getClientOriginalExtension();
+                $nombreSlide = $nombre.'slide'.$extensionSlide;
+                $avatarSlide = $request->file('slide'); 
+                $uploadSlide = Storage::disk('servicio')->put($nombreSlide, \File::get($avatarSlide)); 
+         
+                if($uploadSlide){
                         
-                        Servicio::where('idservicio', '=', $request->idservicio)->update(['nombreservicio' => $request->nombre, 
-                        'logo' => $nombreFoto, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
-                            
-                        if(Storage::disk('servicio')->exists($imagenOld)){
-                            Storage::disk('servicio')->delete($imagenOld);                                
-                        }
-
-                        return [
-                        'success' => 1 // datos guardados correctamente
-                        ];
-                            
-                    }else{
-                        return [
-                            'success' => 2 // imagen no se subio
-                        ];
-                    }
-                }else{ // guardar solo datos
-                
-                    Servicio::where('idservicio', '=', $request->idservicio)->update(['nombreservicio' => $request->nombre,
-                    'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
-                    
+                    if(Storage::disk('servicio')->exists($slideOld)){
+                        Storage::disk('servicio')->delete($slideOld);                                
+                    }   
+                    $array['imagen'] = $nombreSlide;    
+                }else{
+                    return [
+                        'success' => 2 // Slide no se subio al servidor
+                    ];
+                }
+            }
+            
+                if(Servicio::where('idservicio', '=', $request->idservicio)->update($array)){
                     return [
                         'success' => 1 // datos guardados correctamente
-                    ];                    
-                }
+                    ];     
+                }                 
+        
             }else{
                 return [
                     'success' => 3 //servicio no encontrado

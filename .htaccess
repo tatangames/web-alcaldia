@@ -1,0 +1,15 @@
+DirectoryIndex index.php
+
+RewriteEngine On 
+RewriteRule ^$ public/index.php [L]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^alcaldiademetapan\.gob\.sv$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.alcaldiademetapan\.gob\.sv$
+RewriteRule ^/?$ "https\:\/\/alcaldiademetapan\.gob\.sv\/" [R=301,L]
+

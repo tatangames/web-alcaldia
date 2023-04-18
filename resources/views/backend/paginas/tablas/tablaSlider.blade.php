@@ -8,16 +8,18 @@
                 <thead>             
                 <tr>
                   <th style="width: 25%">Nombre</th>
-                  <th style="width: 25%">Posición</th>
+                  <th style="width: 10%">Posición</th>
+                  <th style="width: 25%">Link</th>
                   <th style="width: 35%">Imagen</th>   
-                  <th style="width: 15%">Opciones</th>            
+                  <th style="width: 10%">Opciones</th>            
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($slider as $dato)
                 <tr>
                   <td>{{ $dato->nombreslider }}</td>
-                  <td>{{ $dato->posicion }}</td>                
+                  <td>{{ $dato->posicion }}</td>
+                  <td>{{ $dato->link }}</td>                
                   <td><center><img alt="Slider" src="{{ url('storage/slider/'.$dato->fotografia) }}" width="150px" height="150px" /></center></td> 
                               
                   <td>
@@ -56,7 +58,6 @@
       });
     });
 </script>
-
 
 
 

@@ -8,5 +8,5 @@ class Slider extends Model
 {
     protected $table = 'slider';
     public $timestamps = false;
-    protected $fillable = ['nombreslider','estado', 'posicion', 'fotografia'];
+    protected $fillable = ['nombreslider','estado', 'posicion', 'fotografia','link'];
 }

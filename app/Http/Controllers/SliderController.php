@@ -111,12 +111,14 @@ class SliderController extends Controller
                 'idslider' => 'required',
                 'descripcion' => 'max:100',
                 'posicion' => 'required',
+                'link' => 'max:500',
             );    
 
             $mensaje = array(
                 'idslider.required' => 'ID es requerida',
                 'descripcion.max' => 'Maximo 100 caracteres',
                 'posicion.required' => 'Posicion es requerida',
+                'descripcion.max' => 'Maximo 100 caracteres',               
                 );
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
@@ -191,9 +193,11 @@ class SliderController extends Controller
                         ];
                     }
                 }else{ // guardar solo datos
-                
-                Slider::where('idslider', '=', $request->idslider)->update(['nombreslider' => $request->descripcion, 
-                                                                                   'posicion' => $request->posicion]);
+                Slider::where('idslider', '=', $request->idslider)->update([
+                    'nombreslider' => $request->descripcion,
+                    'posicion' => $request->posicion,
+                    'link' => $request->link
+                    ]);
                 return [
                    'success' => 1 // datos guardados correctamente
                 ];
@@ -213,7 +217,7 @@ class SliderController extends Controller
 
             $regla = array( 
                 'descripcion' => 'max:100',
-                'imagen' => 'required|image|mimes:jpeg,jpg', 
+                'link' => 'max:500', 
             );    
 
             $mensaje = array(
@@ -221,6 +225,7 @@ class SliderController extends Controller
                 'imagen.required' => 'La imagen es requerida',
                 'imagen.image' => 'El archivo debe ser una imagen',
                 'imagen.mimes' => 'Formato validos .jpg, .jpeg',
+                'link.max' => 'Maximo 500 caracteres',
                 );
 
             $validar = Validator::make($request->all(), $regla, $mensaje );
@@ -264,7 +269,7 @@ class SliderController extends Controller
                 $slider->estado = '1';
                 $slider->posicion = $posicion;
                 $slider->fotografia = $nombreFoto;
-
+                $slider->link = $request->link;
                 if($slider->save()){
                     return [
                         'success' => 1 // slider agregado
@@ -275,9 +280,9 @@ class SliderController extends Controller
                     ];
                 }
 
-            }else{
-                return [
-                    'success' => 3 // no subio imagen
+                }else{
+                    return [
+                        'success' => 3 // no subio imagen
                 ];
             }
         }

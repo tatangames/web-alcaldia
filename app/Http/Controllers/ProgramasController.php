@@ -30,6 +30,7 @@ class ProgramasController extends Controller
             $regla = array( 
                 'nombre' => 'required|max:450',                
                 'imagen' => 'required|image|mimes:png', 
+                'slide' => 'required|image|mimes:jpeg', 
                 'descorta' => 'required',
                 'deslarga' => 'required',
             );
@@ -40,6 +41,8 @@ class ProgramasController extends Controller
                 'imagen.required' => 'La imagen es requerida',
                 'imagen.image' => 'El archivo debe ser una imagen',
                 'imagen.mimes' => 'Formato validos .png',
+                'slide.image' => 'El archivo debe ser una imagen',
+                'slide.mimes' => 'Formato validos .jpg',
                 'descorta.required' => 'Descripcion corta es requeria',
                 'deslarga.required' => 'Descripcion larga es requeria',
                 );
@@ -51,7 +54,7 @@ class ProgramasController extends Controller
                 return [
                     'success' => 0, 
                     'message' => $validar->errors()->all()
-                ];
+               ];
             }        
 
             $slug = Str::slug($request->nombre, '-');
@@ -72,15 +75,20 @@ class ProgramasController extends Controller
            
            // guardar imagen en disco
            $extension = '.'.$request->imagen->getClientOriginalExtension();
+           $extension2 = '.'.$request->slide->getClientOriginalExtension();
            $nombreFoto = $nombre.$extension;
+           $nombreSlide = $nombre.'slide'.$extension2;
            $avatar = $request->file('imagen'); 
+           $avatar2 = $request->file('slide'); 
            $upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar)); 
+           $upload2 = Storage::disk('programa')->put($nombreSlide, \File::get($avatar2)); 
     
-           if($upload){
+           if($upload && $upload2){
                
                $programa = new Programa();
                $programa->nombreprograma = $request->nombre;              
                $programa->logo = $nombreFoto;
+               $programa->imagen = $nombreSlide;
                $programa->descorta = $request->descorta;
                $programa->deslarga = $request->deslarga;
                $programa->slug = $slug;
@@ -167,19 +175,18 @@ class ProgramasController extends Controller
                     'message' => $validar->errors()->all()
                 ];
             } 
-
-            // validar solamente si mando la imagen
-            if($request->hasFile('imagen')){                
+            // validar solamente si mando el slide
+            if($request->hasFile('slide')){                
 
                 // validaciones para los datos
                 $regla2 = array( 
-                    'imagen' => 'required|image|mimes:png', 
+                    'slide' => 'required|image|mimes:jpeg', 
                 );    
          
                 $mensaje2 = array(
-                    'imagen.required' => 'La imagen es requerida',
-                    'imagen.image' => 'El archivo debe ser una imagen',
-                    'imagen.mimes' => 'Formato validos .png',
+                    'slide.required' => 'La imagen es requerida',
+                    'slide.image' => 'El archivo debe ser una imagen',
+                    'slide.mimes' => 'Formato validos .jpg',
                     );
     
                 $validar2 = Validator::make($request->all(), $regla2, $mensaje2 );
@@ -189,6 +196,30 @@ class ProgramasController extends Controller
                     return [
                         'success' => 0, 
                         'message' => $validar2->errors()->all()
+                    ];
+                }              
+            }
+            // validar solamente si mando la imagen
+            if($request->hasFile('imagen')){                
+
+                // validaciones para los datos
+                $regla3 = array( 
+                    'imagen' => 'required|image|mimes:png', 
+                );    
+         
+                $mensaje3 = array(
+                    'imagen.required' => 'La imagen es requerida',
+                    'imagen.image' => 'El archivo debe ser una imagen',
+                    'imagen.mimes' => 'Formato validos .png',
+                    );
+    
+                $validar3 = Validator::make($request->all(), $regla3, $mensaje3 );
+    
+                if ( $validar3->fails()) 
+                {
+                    return [
+                        'success' => 0, 
+                        'message' => $validar3->errors()->all()
                     ];
                 }              
             }
@@ -204,15 +235,22 @@ class ProgramasController extends Controller
             
             // encontrar programa a modificar
             if($programa = Programa::where('idprograma', $request->idprograma)->first()){                        
-
-                if($request->hasFile('imagen')){ // editara programa y su imagen   
-
+                    
                     $cadena = Str::random(15);
                     $tiempo = microtime(); 
                     $union = $cadena.$tiempo;
                     // quitar espacios vacios
                     $nombre = str_replace(' ', '_', $union);
-                    
+
+                    $imagenOld = $programa->logo;
+                    $slideOld = $programa->imagen;
+
+                    $array = ['nombreprograma' => $request->nombre, 
+                              'descorta' => $request->descorta, 
+                              'deslarga' => $request->deslarga, 
+                              'slug' => $slug];
+
+                if($request->hasFile('imagen')){ // editara programa y su imagen
                     // guardar imagen en disco
                     $extension = '.'.$request->imagen->getClientOriginalExtension();
                     $nombreFoto = $nombre.$extension;
@@ -220,33 +258,41 @@ class ProgramasController extends Controller
                     $upload = Storage::disk('programa')->put($nombreFoto, \File::get($avatar)); 
              
                     if($upload){
-                        $imagenOld = $programa->logo; //nombre de imagen a borrar
-                        
-                        Programa::where('idprograma', '=', $request->idprograma)->update(['nombreprograma' => $request->nombre, 
-                        'logo' => $nombreFoto, 'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
-                            
                         if(Storage::disk('programa')->exists($imagenOld)){
                             Storage::disk('programa')->delete($imagenOld);                                
-                        }
-
-                        return [
-                        'success' => 1 // datos guardados correctamente
-                        ];
-                            
+                        }  
+                        $array['logo'] = $nombreFoto;    
                     }else{
                         return [
-                            'success' => 2 // imagen no se subio
+                            'success' => 2 // imagen no se subio al servidor
                         ];
                     }
-                }else{ // guardar solo datos
-                
-                    Programa::where('idprograma', '=', $request->idprograma)->update(['nombreprograma' => $request->nombre,
-                    'descorta' => $request->descorta, 'deslarga' => $request->deslarga, 'slug' => $slug]);
-                    
-                    return [
-                        'success' => 1 // datos guardados correctamente
-                    ];                    
                 }
+                if($request->hasFile('slide')){ // editara programa y su imagen
+                    // guardar imagen en disco
+                    $extensionSlide = '.'.$request->slide->getClientOriginalExtension();
+                    $nombreSlide = $nombre.'slide'.$extensionSlide;
+                    $avatarSlide = $request->file('slide'); 
+                    $uploadSlide = Storage::disk('programa')->put($nombreSlide, \File::get($avatarSlide)); 
+             
+                    if($uploadSlide){
+                            
+                        if(Storage::disk('programa')->exists($slideOld)){
+                            Storage::disk('programa')->delete($slideOld);                                
+                        }   
+                        $array['imagen'] = $nombreSlide;    
+                    }else{
+                        return [
+                            'success' => 2 // Slide no se subio al servidor
+                        ];
+                    }
+                }
+                
+                    if(Programa::where('idprograma', '=', $request->idprograma)->update($array)){
+                        return [
+                            'success' => 1 // datos guardados correctamente
+                        ];     
+                    }                 
             }else{
                 return [
                     'success' => 3 //programa no encontrado

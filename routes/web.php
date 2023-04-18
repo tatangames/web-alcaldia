@@ -81,6 +81,9 @@ Route::post('/admin/actualizar-usuario','UserController@update');
 Route::get('/servicios','FrontendController@getAllServicios');
 Route::get('/servicio/{nombre}','FrontendController@getServicioByname');
 
+Route::get('/contravencional','FrontendController@getContravencionalPage');
+Route::get('/downloadc/{nombre}','FrontendController@getFileContra');
+
 Route::get('/galeria','FrontendController@getAllFotografias');
 Route::get('/pagination/fetch_data', 'FotografiaController@fetch_data');
 
@@ -94,3 +97,6 @@ Route::get('/programa/{nombre}','FrontendController@getProgramaByname');
 //TU ALCALDIA
 Route::get('/historia','FrontendController@getHistoriaPage');
 Route::get('/direccion','FrontendController@getGobiernoPage');
+
+//REVISTA
+//Route::get('/revista','FrontendController@getRevista');

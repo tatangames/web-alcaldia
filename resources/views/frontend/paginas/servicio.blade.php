@@ -12,7 +12,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url({{ asset('images/Slider/a4.jpg')}});">
+					<li style="background-image: url({{ asset('storage/servicio/'.$servicio->imagen )}});">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">

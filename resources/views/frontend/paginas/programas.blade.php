@@ -11,7 +11,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(images/Slider/a4.jpg);">
+					<li style="background-image: url(images/Slider/Ser_Prog.jpg);">
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
@@ -32,6 +32,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
+					    <br><br>
 						<h1>Programas Municipales</h1>
 					</div>
 				</div>

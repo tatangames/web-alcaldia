@@ -128,7 +128,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form id="formularioU">
+            <form id="formularioU"  >
               <div class="card-body">
                 <div class="row">  
                   <div class="col-md-6"> 
@@ -389,8 +389,8 @@
             
       var id = document.getElementById('idU').value;
       var nombre = document.getElementById('nombreU').value;
-      var editor3 = CKEDITOR.instances.editor3.getData();  
-      var editor4 = CKEDITOR.instances.editor4.getData();
+      var editor3 = CKEDITOR.instances['editor3'].getData();  
+      var editor4 = CKEDITOR.instances['editor4'].getData();
       var fecha = document.getElementById('fechaU').value;
 
       // validacion
@@ -418,7 +418,9 @@
           .catch((error) => {
             document.getElementById("btnGuardarU").disabled = false;  
             loadingOverlay().cancel(spinHandle); // cerrar loading
-            toastr.error('Error');             
+           toastr.error('Error'); 
+            //console.log(error.message);
+            
         }); 
       }            
   }
