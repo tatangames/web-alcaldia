@@ -79,6 +79,17 @@
         </li>
 
 
+            <li class="nav-item">
+                <a href="{{ url('/admin/listar/finanzas') }}" target="frameprincipal" class="nav-link">
+                    <i class="nav-icon fas fa-newspaper"></i>
+                    <p>
+                        Finanzas
+
+                    </p>
+                </a>
+            </li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

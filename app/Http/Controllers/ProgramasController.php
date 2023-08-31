@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Finanzas;
 use App\Linkucp;
 use App\Programa;
 use App\Servicio;
@@ -355,9 +356,41 @@ class ProgramasController extends Controller
 
        return ['success' => 2, 'titulo' => $infoTabla->titulo, 'descripcion' => $infoTabla->descripcion,
            'urllink' => $infoTabla->linkucp];
-
     }
 
 
+    public function vistaFinanzas(){
+
+        $serviciosMenu = Servicio::all()->sortByDesc('idservicio')->take(4);
+
+        $finanzas = Finanzas::orderBy('fecha', 'DESC')->get();
+
+        foreach($finanzas as $dato){
+            $dato->fechaformato = date("d-m-Y", strtotime($dato->fecha));
+
+            $dato->fechaanio = date("Y", strtotime($dato->fecha));
+
+            //$pesoByte = Storage::disk('slider')->size($dato->documento);
+            //$pesoEnMB = $pesoByte / 1024 / 1024;
+
+            //$dato->peso = number_format((float)$pesoEnMB, 2, '.', ',');
+        }
+
+        return view('frontend.paginas.finanzas.vistafinanzas', compact('serviciosMenu', 'finanzas'));
+    }
+
+
+    // descarga de documento de finanzas
+    public function descargarDocumentoFinanzas($id){
+
+        $infoFinanza = Finanzas::where('id', $id)->first();
+
+        $nombre = str_replace(' ', '_', $infoFinanza->titulo);
+
+        $pathToFile = "storage/slider/" . $infoFinanza->documento;
+        $extension = pathinfo(($pathToFile), PATHINFO_EXTENSION);
+        $nombre = $nombre . "." . $extension;
+        return response()->download($pathToFile, $nombre);
+    }
 
 }

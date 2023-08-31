@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Fotografia;
 use App\Linkucp;
 use App\Noticia;
+use App\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -278,6 +279,20 @@ class NoticiaController extends Controller
 
         return ['success' => 1];
     }
+
+
+
+
+
+    // ******************************************************************************
+
+
+
+
+
+
+
+
 
 
 }

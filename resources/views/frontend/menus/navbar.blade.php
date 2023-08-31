@@ -34,7 +34,8 @@
     						</li>
     						<li><strong><a href="{{ url('galeria/') }}">Galer&iacute;a</a></strong></li>
     						<li><strong><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Contacto</a></strong></li>
-    						<li><strong><a href="{{ url('contravencional/') }}">Unidad Contravencional</a></strong></li>
+                            <li><strong><a href="{{ url('finanzas/') }}">Finanzas</a></strong></li>
+                            <li><strong><a href="{{ url('contravencional/') }}">Unidad Contravencional</a></strong></li>
 							<li><strong><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Portal de transparencia</a></strong></li>
 
     					</ul>

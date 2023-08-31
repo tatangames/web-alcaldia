@@ -110,7 +110,7 @@
 						<div class="item">
 							<div class="hotel-entry">
 								<a href="{{ url('noticia/'.$dato5->slug) }}" class="hotel-img" style="background-image: url('storage/noticia/{{ $dato5->nombrefotografia }}');"></a>
-								</a>
+
 								<div class="desc">
 									<h3><a href="{{ url('noticia/'.$dato5->slug) }}">{{ $dato5->nombrenoticia }}</a></h3>
 									<span class="place">{{ $dato5->fecha }}</span>

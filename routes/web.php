@@ -78,7 +78,17 @@ Route::get('admin/logout', 'Auth\LoginController@logout');
 //USUARIOS
 Route::get('/admin/editarusuario', 'UserController@index')->name('admin.EditarUsuario');
 Route::post('/admin/actualizar-usuario','UserController@update');
-});
+
+
+
+// CONTROL DE FINANZAS
+
+    Route::get('/admin/listar/finanzas', 'ServiciosController@indexVistaFinanzas');
+    Route::get('/admin/listar/finanzas/tabla', 'ServiciosController@tablaVistaFinanzas');
+    Route::post('/admin/listar/finanzas/nuevo','ServiciosController@nuevoRegistroFinanzas');
+    Route::post('/admin/listar/finanzas/borrar','ServiciosController@borrarRegistroFinanzas');
+
+    }); // -- FIN ACCESO SOLO RUTAS ADMIN
 
 
 
@@ -110,6 +120,17 @@ Route::get('/direccion','FrontendController@getGobiernoPage');
 // UCP
 
 Route::post('/admin/informacion-ucp','ProgramasController@informacionUCP');
+
+
+
+
+// --- NOTICIAS FRONTEND ---
+
+Route::get('/finanzas', 'ProgramasController@vistaFinanzas');
+Route::get('/descargar/finanzas/documento/{id}', 'ProgramasController@descargarDocumentoFinanzas');
+
+
+
 
 
 
