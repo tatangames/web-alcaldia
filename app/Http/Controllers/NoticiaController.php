@@ -35,6 +35,7 @@ class NoticiaController extends Controller
     public function nuevaNoticia(Request $request){
 
 
+
         $slug = Str::slug($request->nombre, '-');
 
         if(Noticia::where('slug', $slug)->first()){
@@ -53,7 +54,7 @@ class NoticiaController extends Controller
             $dato->fecha = $request->fecha;
             $dato->descorta = $request->descorta;
             $dato->deslarga = $request->deslarga;
-            $dato->slug = $request->slug;
+            $dato->slug = $slug;
             $dato->save();
 
 

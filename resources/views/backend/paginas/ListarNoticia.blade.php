@@ -270,7 +270,7 @@
             if(retorno){
 
                 var spinHandle = loadingOverlay().activate(); // activar loading
-                document.getElementById("btnGuardar").disabled = true;
+
 
                 let formData = new FormData();
                 formData.append('nombre', nombre);
@@ -294,7 +294,7 @@
                         if(response.data.success === 1){
                             toastr.error('El nombre de la noticia ya existe, por favor cambiarlo');
 
-                        }else if(valor.data.success === 2){
+                        }else if(response.data.success === 2){
 
                             toastr.success('Guardado', 'Se ha creado nueva noticia!');
                             $('#modalAgregar').modal('hide');
