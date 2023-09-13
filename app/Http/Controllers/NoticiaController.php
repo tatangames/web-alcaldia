@@ -6,6 +6,7 @@ use App\Fotografia;
 use App\Linkucp;
 use App\Noticia;
 use App\Servicio;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 //para ver el archivo log nada mas por el error de los saltos de linea
-use Log;
+use Illuminate\Support\Facades\Log;
 
 class NoticiaController extends Controller
 {
@@ -33,7 +34,7 @@ class NoticiaController extends Controller
     // agregar nueva noticia
     public function nuevaNoticia(Request $request){
 
-        if($request->isMethod('post')){
+
 
             $regla = array(
                 'nombre' => 'required|max:450',
@@ -76,12 +77,20 @@ class NoticiaController extends Controller
                  ];
             }
 
-            $idnoticia = Noticia::insertGetId([
-                  'nombrenoticia'=>$request->nombre,
-                  'fecha'=>$request->fecha,
-                  'descorta'=>$request->descorta,
-                  'deslarga'=>$request->deslarga,
-                  'slug' => $slug ]);
+
+        DB::beginTransaction();
+
+        try {
+
+            $dato = new Noticia();
+            $dato->nombrenoticia = $request->nombre;
+            $dato->fecha = $request->fecha;
+            $dato->descorta = $request->descorta;
+            $dato->deslarga = $request->deslarga;
+            $dato->slug = $request->slug;
+            $dato->save();
+
+
 
             foreach($request->file('imagen') as $img){
 
@@ -96,20 +105,28 @@ class NoticiaController extends Controller
                 $nombreFoto = $nombre.$extension;
 
                 if($img->getSize() <= 1000000 || $ancho <= 1280){
-                   Storage::disk('noticia')->put($nombreFoto, \File::get($img));
+                    Storage::disk('noticia')->put($nombreFoto, \File::get($img));
                 }else{
-                   $image = Image::make($img)->resize(1280, 900);
-                   Storage::disk('noticia')->put($nombreFoto, (string) $image->encode());
+                    $image = Image::make($img)->resize(1280, 900);
+                    Storage::disk('noticia')->put($nombreFoto, (string) $image->encode());
                 }
 
                 // insertar nombre fotografia
                 Fotografia::create(['noticia_id'=>$idnoticia,
-                                    'nombrefotografia'=>$nombreFoto]);
+                    'nombrefotografia'=>$nombreFoto]);
             }
 
-            return [
-                'success' => 1
-            ];
+
+            DB::commit();
+
+            return ['success' => 1];
+
+
+
+        }catch(\Throwable $e){
+            Log::info('error log ' . $e);
+            DB::rollback();
+            return ['success' => 99];
         }
     }
 
