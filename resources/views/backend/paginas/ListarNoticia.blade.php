@@ -290,31 +290,33 @@
                 })
                     .then((response) => {
                         loadingOverlay().cancel(spinHandle); // cerrar loading
-                        document.getElementById("btnGuardar").disabled = false; //habilitar boton
-                        mensajeResponse(response);
+
+                        if(response.data.success === 1){
+                            toastr.error('El nombre de la noticia ya existe, por favor cambiarlo');
+
+                        }else if(valor.data.success === 2){
+
+                            toastr.success('Guardado', 'Se ha creado nueva noticia!');
+                            $('#modalAgregar').modal('hide');
+                            var ruta = "{{ URL::to('admin/tablas/noticia') }}";
+                            $('#tablaDatatable').load(ruta);
+
+                        }else{
+                            // error en validacion en servidor
+                            toastr.error('Error al subir datos');
+                        }
+
                     })
                     .catch((error) => {
-                        document.getElementById("btnGuardar").disabled = false;
-                        loadingOverlay().cancel(spinHandle); // cerrar loading
-                        toastr.error('Error', 'Datos incorrectos!');
+
+                        loadingOverlay().cancel(spinHandle);
+                        toastr.error('Error de servidor');
+                        console.log(error)
                     });
             }
         }
 
-        // mensaje cuando guardamos slider
-        function mensajeResponse(valor){
-            if(valor.data.success == 1){
-                toastr.success('Guardado', 'Se ha creado nueva noticia!');
-                $('#modalAgregar').modal('hide');
-                var ruta = "{{ URL::to('admin/tablas/noticia') }}";
-                $('#tablaDatatable').load(ruta);
-            }else if(valor.data.success == 4){
-                toastr.error('El nombre de la noticia ya existe, porfavor cambiarlo');
-            }else{
-                // error en validacion en servidor
-                toastr.error('Error', 'Datos incorrectos!');
-            }
-        }
+
 
         // validar antes de agregar programa
         function validaciones(nombre, editor1, editor2, imgFile, fecha){

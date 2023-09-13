@@ -35,47 +35,13 @@ class NoticiaController extends Controller
     public function nuevaNoticia(Request $request){
 
 
+        $slug = Str::slug($request->nombre, '-');
 
-            $regla = array(
-                'nombre' => 'required|max:450',
-                'fecha' => 'required',
-                'imagen' => 'required',
-                'imagen.*' => 'image|mimes:jpg,jpeg',
-                'descorta' => 'required',
-                'deslarga' => 'required',
-            );
-
-            $mensaje = array(
-                'nombre.required' => 'Nombre programa es requerio',
-                'nombre.max' => 'Maximo 450 caracteres',
-
-                'imagen.required' => 'La imagen es requerida',
-                'imagen.image' => 'El archivo debe ser una imagen',
-                'imagen.mimes' => 'Formato validos .jpeg .jpg',
-                'imagen.*.required' => 'Array de imagenes requeridos',
-                'imagen.*.mimes' => 'Array de imagenes formato valido .jpg .jpeg',
-                'descorta.required' => 'Descripcion corta es requeria',
-                'deslarga.required' => 'Descripcion larga es requeria',
-                );
-
-            $validar = Validator::make($request->all(), $regla, $mensaje );
-
-            if ($validar->fails())
-            {
-                return [
-                    'success' => 0,
-                    'message' => $validar->errors()->all()
-                ];
-            }
-
-            $slug = Str::slug($request->nombre, '-');
-
-            if(Noticia::where('slug', $slug)->first()){
-                 return [
-                     'success' => 4,
-                     'message' => 'El slug del servicio ya existe'
-                 ];
-            }
+        if(Noticia::where('slug', $slug)->first()){
+             return [
+                 'success' => 1,
+             ];
+        }
 
 
         DB::beginTransaction();
@@ -119,7 +85,7 @@ class NoticiaController extends Controller
 
             DB::commit();
 
-            return ['success' => 1];
+            return ['success' => 2];
 
 
 
