@@ -112,8 +112,8 @@ class NoticiaController extends Controller
                 }
 
                 // insertar nombre fotografia
-                Fotografia::create(['noticia_id'=>$idnoticia,
-                    'nombrefotografia'=>$nombreFoto]);
+                Fotografia::create(['noticia_id' => $dato->id,
+                    'nombrefotografia' => $nombreFoto]);
             }
 
 
