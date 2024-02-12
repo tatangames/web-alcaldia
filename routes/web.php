@@ -88,7 +88,15 @@ Route::post('/admin/actualizar-usuario','UserController@update');
     Route::post('/admin/listar/finanzas/nuevo','ServiciosController@nuevoRegistroFinanzas');
     Route::post('/admin/listar/finanzas/borrar','ServiciosController@borrarRegistroFinanzas');
 
-    }); // -- FIN ACCESO SOLO RUTAS ADMIN
+    // CONTROL DE Compras
+
+    Route::get('/admin/listar/compras', 'ServiciosController@indexVistaCompras');
+    Route::get('/admin/listar/compras/tabla', 'ServiciosController@tablaVistaCompras');
+    Route::post('/admin/listar/compras/nuevo','ServiciosController@nuevoRegistroCompras');
+    Route::post('/admin/listar/compras/borrar','ServiciosController@borrarRegistroCompras');
+
+
+}); // -- FIN ACCESO SOLO RUTAS ADMIN
 
 
 
@@ -126,8 +134,13 @@ Route::post('/admin/informacion-ucp','ProgramasController@informacionUCP');
 
 // --- NOTICIAS FRONTEND ---
 
+// --- FINANZAS FRONTEND ---
 Route::get('/finanzas', 'ProgramasController@vistaFinanzas');
 Route::get('/descargar/finanzas/documento/{id}', 'ProgramasController@descargarDocumentoFinanzas');
+
+// --- COMPRAS FRONTEND ---
+Route::get('/compras', 'ProgramasController@vistaCompras');
+Route::get('/descargar/compras/documento/{id}', 'ProgramasController@descargarDocumentoCompras');
 
 
 
