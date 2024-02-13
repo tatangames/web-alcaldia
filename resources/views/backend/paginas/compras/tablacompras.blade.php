@@ -9,16 +9,20 @@
                         <tr>
                             <th style="width: 15%">Fecha</th>
                             <th style="width: 20%">Título</th>
-                            <th style="width: 30%">Descripción</th>
+                            <th style="width: 20%">Descripción</th>
+                            <th style="width: 20%">Imagen</th>
                             <th style="width: 10%">Opciones</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($listado as $dato)
                             <tr>
-                                <td>{{ $dato->fecha }}</td>
+                                <td>{{ $dato->fechaFormat }}</td>
                                 <td>{{ $dato->titulo }}</td>
                                 <td>{{ $dato->descripcion }}</td>
+                                <td>
+                                <center><img alt="Imagenes" src="{{ url('storage/slider/'.$dato->documento) }}" width="100px" height="100px" /></center>
+                                </td>
 
                                 <td>
 

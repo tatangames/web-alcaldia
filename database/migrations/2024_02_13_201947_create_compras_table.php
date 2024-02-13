@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFinanzasTable extends Migration
+class CreateComprasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateFinanzasTable extends Migration
      */
     public function up()
     {
-        Schema::create('finanzas', function (Blueprint $table) {
+        Schema::create('compras', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('titulo', 100);
             $table->string('descripcion', 800)->nullable();
             $table->date('fecha');
 
+            // subira imagen
             $table->string('documento', 100);
         });
     }
@@ -31,6 +32,6 @@ class CreateFinanzasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('finanzas');
+        Schema::dropIfExists('compras');
     }
 }

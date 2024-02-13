@@ -36,7 +36,7 @@
                             <li><strong><a href="{{ url('finanzas/') }}">Finanzas</a></strong></li>
                             <li><strong><a href="{{ url('contravencional/') }}">Unidad Contravencional</a></strong></li>
 							<li><strong><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Transparencia</a></strong></li>
-                            <li><strong><a href="#colorlib-footer" class="ancla" data-ancla="colorlib-footer">Compras</a></strong></li>
+                            <li><strong><a href="{{ route('compras.publicas') }}">Compras</a></strong></li>
     					</ul>
     				</div>
     			</div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Compras;
 use App\Documento;
 use App\Finanzas;
 use Illuminate\Http\Request;
@@ -513,5 +514,108 @@ class ServiciosController extends Controller
     }
 
 
+    public function indexVistaCompras(){
+
+        return view('backend.paginas.compras.vistacompras');
+    }
+
+
+    public function tablaVistaCompras(){
+        $listado = Compras::orderBy('fecha')->get();
+
+        foreach ($listado as $dato){
+            $dato->fechaFormat = date("d-m-Y", strtotime($dato->fecha));
+        }
+
+        return view('backend.paginas.compras.tablacompras', compact('listado'));
+    }
+
+
+    public function nuevoRegistroCompras(Request $request){
+
+        $regla = array(
+            'titulo' => 'required',
+            'fecha' => 'required',
+        );
+
+        $mensaje = array(
+            'titulo.required' => 'Título es requerido',
+            'fecha.required' => 'Fecha es requerida'
+        );
+
+         // descripcion
+
+        $validar = Validator::make($request->all(), $regla, $mensaje);
+
+        if ($validar->fails()){ return ['success' => 0]; }
+
+
+        $cadena = Str::random(15);
+        $tiempo = microtime();
+        $union = $cadena . $tiempo;
+        $nombre = str_replace(' ', '_', $union);
+
+        $extension = '.' . $request->documento->getClientOriginalExtension();
+        $nomDocumento = $nombre . strtolower($extension);
+        $avatar = $request->file('documento');
+        $archivo = Storage::disk('slider')->put($nomDocumento, \File::get($avatar));
+
+
+        if ($archivo) {
+
+            DB::beginTransaction();
+
+            try {
+
+                $dato = new Compras();
+                $dato->titulo = $request->titulo;
+                $dato->descripcion = $request->descripcion;
+                $dato->fecha = $request->fecha;
+                $dato->documento = $nomDocumento;
+                $dato->save();
+
+
+                DB::commit();
+                return ['success' => 1];
+
+            }catch(\Throwable $e){
+                Log::info('error: ' . $e);
+                DB::rollback();
+                return ['success' => 2];
+            }
+
+        }
+        else{
+            // error al subir documento
+            return ['success' => 2];
+        }
+    }
+
+
+    public function borrarRegistroCompras(Request $request){
+        $regla = array(
+            'id' => 'required',
+        );
+
+        $validar = Validator::make($request->all(), $regla);
+
+        if ($validar->fails()){ return ['success' => 0]; }
+
+        if($infoFi = Compras::where('id', $request->id)->first()){
+
+            $docu = $infoFi->documento;
+
+            if(Storage::disk('slider')->exists($docu)){
+                Storage::disk('slider')->delete($docu);
+            }
+
+            Compras::where('id', $request->id)->delete();
+
+
+            return ['success' => 1];
+        }
+
+        return ['success' => 1];
+    }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Compras;
 use App\Finanzas;
 use App\Linkucp;
 use App\Programa;
@@ -392,5 +393,23 @@ class ProgramasController extends Controller
         $nombre = $nombre . "." . $extension;
         return response()->download($pathToFile, $nombre);
     }
+
+
+    public function vistaCompras(){
+        $serviciosMenu = Servicio::all()->sortByDesc('idservicio')->take(4);
+
+        $arrayCompras = Compras::orderBy('fecha', 'ASC')->get();
+
+        foreach ($arrayCompras as $dato){
+
+            $dato->fechaFormat = date("d-m-Y", strtotime($dato->fecha));
+            $dato->fechaAnio = date("Y", strtotime($dato->fecha));
+
+        }
+
+        return view('frontend.paginas.compras.vistacompras', compact('arrayCompras', 'serviciosMenu'));
+    }
+
+
 
 }

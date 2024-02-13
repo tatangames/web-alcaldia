@@ -90,7 +90,7 @@ Route::post('/admin/actualizar-usuario','UserController@update');
 
     // CONTROL DE Compras
 
-    Route::get('/admin/listar/compras', 'ServiciosController@indexVistaCompras');
+    Route::get('/admin/listar/compras', 'ServiciosController@indexVistaCompras')->name('admin.compras');
     Route::get('/admin/listar/compras/tabla', 'ServiciosController@tablaVistaCompras');
     Route::post('/admin/listar/compras/nuevo','ServiciosController@nuevoRegistroCompras');
     Route::post('/admin/listar/compras/borrar','ServiciosController@borrarRegistroCompras');
@@ -139,8 +139,8 @@ Route::get('/finanzas', 'ProgramasController@vistaFinanzas');
 Route::get('/descargar/finanzas/documento/{id}', 'ProgramasController@descargarDocumentoFinanzas');
 
 // --- COMPRAS FRONTEND ---
-Route::get('/compras', 'ProgramasController@vistaCompras');
-Route::get('/descargar/compras/documento/{id}', 'ProgramasController@descargarDocumentoCompras');
+Route::get('/compras', 'ProgramasController@vistaCompras')->name('compras.publicas');
+//Route::get('/descargar/compras/documento/{id}', 'ProgramasController@descargarDocumentoCompras');
 
 
 
