@@ -71,7 +71,7 @@
                                                     @if($info->descripcion != null)
                                                         <div class="text-bold" style="font-size: 17px">
                                                             <br>
-                                                            <strong>Descripción:</strong> {{ $info->descripcion }}
+                                                            <strong>{{ $info->titulo }}</strong>
                                                         </div>
                                                     @endif
 
