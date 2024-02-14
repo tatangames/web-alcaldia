@@ -111,7 +111,7 @@
 
     <!--Cuadro modal para el Zoom de las fotos-->
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <!--Contenido-->
             <div class="modal-content">
                 <div class="modal-body mb-0 p-0">
