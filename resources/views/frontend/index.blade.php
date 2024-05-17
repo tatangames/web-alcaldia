@@ -39,16 +39,16 @@
 				<div class="search-wrap">
 					<div class="tab-content" style="padding:25px;"  >
 						<center>
-						  <a style="margin-right:15px;" id = "soc" target="_blank" href="">
+						  <a style="margin-right:15px;" id = "soc"  href="#">
         				  <span id="socno">Distrito de Metapán</span>
 						  </a>&nbsp;
-						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="">
+						  <a style="margin-right:15px;" id = "soc"  href="#">
 						  <span id="socno">Distrito de Santa Rosa</span>
 						  </a>&nbsp;
-						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="">
+						  <a style="margin-right:15px;" id = "soc"   href="#">
 						  <span id="socno">Distrito de Masahuat</span>
 						  </a>&nbsp;
-						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="">
+						  <a style="margin-right:15px;" id = "soc"   href="#">
 						  <span id="socno">Distrito de Texistepeque</span>
       					</a>&nbsp;
 						</center>
