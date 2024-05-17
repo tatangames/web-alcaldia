@@ -39,17 +39,17 @@
 				<div class="search-wrap">
 					<div class="tab-content" style="padding:25px;"  >
 						<center>
-						  <a style="margin-right:15px;" id = "soc" target="_blank" href="https://www.facebook.com/AlcaldiadeMetapan/"><span class="icon-facebook"></span>
-        				  <span id="socno">Facebook</span>
+						  <a style="margin-right:15px;" id = "soc" target="_blank" href="">
+        				  <span id="socno">Distrito de Metapán</span>
 						  </a>&nbsp;
-						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://twitter.com/Alcaldia_Met"><span class="icon-twitter"></span>
-						  <span id="socno">Twitter</span>
+						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="">
+						  <span id="socno">Distrito de Santa Rosa</span>
 						  </a>&nbsp;
-						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.youtube.com/channel/UCnpOyOGoF8CNrwwuOsddcuA"><span class="icon-youtube"></span>
-						  <span id="socno">YouTube</span>
+						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="">
+						  <span id="socno">Distrito de Masahuat</span>
 						  </a>&nbsp;
-						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="https://www.instagram.com/alcaldiademetapan/"><span class="icon-instagram"></span>
-						  <span id="socno">Instagram</span>
+						  <a style="margin-right:15px;" id = "soc" target="_blank"  href="">
+						  <span id="socno">Distrito de Texistepeque</span>
       					</a>&nbsp;
 						</center>
 					</div>
@@ -60,20 +60,20 @@
 	</div>
 
 	<!--Programas Municipales-->
-	<div id="colorlib-services">
+	<div class="colorlib-services colorlib-light-grey">
 		<div class="container">
 			<div class="row  no-gutters">
 				<div class="col-md-12 tex-center ">
 					<br><br>
 					<center>
-						<h1>Programas Municipales</h1>
+						<h2>Programas Municipales</h2>
 					</center>
 				</div>
 			</div>
 			<div class="row no-gutters">
 				@foreach($programas as $dato2)
 				@if ($loop->first)
-				<div class="col-md-3 animate-box text-center aside-stretch">
+				<div class="col-md-3 animate-box text-center ">
 					@else
 					<div class="col-md-3 animate-box text-center ">
 						@endif
@@ -127,8 +127,8 @@
 	<!--End Noticias recientes-->
 
 	<!--Servicios municipales-->
-	<div id="colorlib-blog">
-		<div class="container">
+	<div id="colorlib-blog" style="background: #fafafa;">
+		<div class="container colorlib-light-grey">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
 					<h2>Servicios</h2>
@@ -164,12 +164,12 @@
 	<!--End Servicios municipales-->
 
 	<!--Fotografías recientes-->
-	<div class="colorlib-tour colorlib-light-grey">
+	<div class="colorlib-tour">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-					<h2>Fotografías</h2>
-					<p>Fotograf&iacute;as recientes publicadas en las noticias.</p>
+					<h2>Galería</h2>
+					<p>Fotograf&iacute;as recientes publicadas.</p>
 				</div>
 			</div>
 		</div>
@@ -243,9 +243,6 @@
 			});
 		});
 	</script>
-
-
-
 
 </body>
 

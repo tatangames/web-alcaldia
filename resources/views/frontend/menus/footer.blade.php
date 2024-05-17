@@ -3,8 +3,8 @@
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-				<h2>Alcald&iacute;a Municipal de Metapán</h2>
+			<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+				<h2>Alcald&iacute;a Municipal de Santa Ana Norte</h2>
 
 				<form class="form-inline qbstp-header-subscribe">
 					<div class="row">
@@ -53,7 +53,7 @@
 					<script>
 						document.write(new Date().getFullYear());
 					</script> Todos los derechos reservados |
-					Alcald&iacute;a Municipal de Metap&aacute;n, Santa Ana, El Salvador.
+					Alcald&iacute;a Municipal de Santa Ana Norte, El Salvador.
 				</p>
 			</div>
 		</div>

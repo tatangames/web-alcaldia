@@ -11,6 +11,7 @@
 
 	<link href="{{ asset('images/LOGO_2_-_copia.png') }}" rel='shortcut icon' type='image/png'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 	<link href="{{ asset('flaticon/font/flaticon.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('css/frontend.css') }}" type="text/css" rel="stylesheet" />
 	<!-- <link rel="stylesheet" href="{{asset('fonts/icomoon/icomoon.ttf')}}"> -->
@@ -37,17 +38,17 @@
 			/* Para scroll */
 			.scrollbar-deep-purple::-webkit-scrollbar-track {
 			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-			background-color: #F5F5F5;
+			background-color: #F2F2F2;
 			border-radius: 10px; }
 
 			.scrollbar-deep-purple::-webkit-scrollbar {
 			width: 12px;
-			background-color: #F5F5F5; }
+			background-color: #F2F2F2; }
 
 			.scrollbar-deep-purple::-webkit-scrollbar-thumb {
 			border-radius: 10px;
 			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-			background-color: #04742c; }
+			background-color: #213F59; }
 
 			.square::-webkit-scrollbar-track {
 			border-radius: 0 !important; }
@@ -69,7 +70,7 @@
 				  font-size:1.5em;}
 			#soc:hover {
 				background-color:rgb(238,238,238);
-				color:#04742c;
+				color:#10ACFA;
 			}
 			@media screen and (max-width: 768px) {
 			  #socno { display:none; }}

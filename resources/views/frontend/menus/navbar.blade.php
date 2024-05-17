@@ -1,16 +1,16 @@
-    <nav class="colorlib-nav" role="navigation">
-    	<div class="top-menu" style="background-color: rgb(238,238,238); height: 60px;">
+<nav class="colorlib-nav" role="navigation">
+    	<div class="top-menu" style="background-color: #F2F2F2; height: 60px;">
     		<div class="container-fluid ">
     			<div class="row">
     				<div class="col-xs-3">
-    					<div id="colorlib-logo"><a href="/"><img class="logoimage" src="{{ asset('images/LogoWeb.png') }}" alt="Alcaldia Municipal de Metapan" width="35%" height="10%" style="margin-top: -42px"></div>
+    					<div id="colorlib-logo"><a href="/"><img class="logoimage" src="{{ asset('images/HPNG.png') }}" alt="Alcaldia Municipal de Metapan" width="35%" height="10%" style="margin-top: -42px"></div>
     				</div>
-    				<div class="col-xs-9 text-right menu-1">
-    					<ul>
+    				<div class="col-xs-9 text-left menu-1">
+    					<ul style="width: 100%; margin-bottom: 5%;">
     						<li class="active"><strong><a href="/">Inicio</a></strong></li>
-							<!-- Pestaña para revista -->
+							<!-- Pestaña para revista
 							<li><strong><a href="{{ url('https://metapanfiestas.alcaldiademetapan.gob.sv/index.html') }}" target="_blank">Revista</a></strong></li>
-							<!-- fin pesta;a revista -->
+							fin pesta;a revista -->
     						<li><strong><a href="{{ url('noticias/') }}">Noticias</a></strong></li>
     						<li class="has-dropdown"><strong>
     							<a >Servicios</a></strong>
@@ -34,7 +34,7 @@
     						</li>
     						<li><strong><a href="{{ url('galeria/') }}">Galer&iacute;a</a></strong></li>
                             <li><strong><a href="{{ url('finanzas/') }}">Finanzas</a></strong></li>
-                            <li><strong><a href="{{ url('contravencional/') }}">Unidad Contravencional</a></strong></li>
+                            <li><strong><a href="{{ url('contravencional/') }}">Contravencional</a></strong></li>
 							<li><strong><a href="https://www.transparencia.gob.sv/institutions/alc-metapan">Transparencia</a></strong></li>
                             <li><strong><a href="{{ route('compras.publicas') }}">Compras</a></strong></li>
     					</ul>
@@ -58,22 +58,18 @@
                 <div class="modal-body">
                     <form id="formulario-ucp">
                         <div class="card-body">
-
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-
                                         <div class="form-group" style="margin-top: 15px">
                                             <label id="descripcionlink" style="font-size: 17px"></label>
                                         </div>
-
                                         <div class="form-group" style="text-align: center">
                                             <a style="color: blue; font-size: 18px" href="#" target="_blank" id="myLink"><strong>LINK UCP</strong></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </form>
                 </div>
@@ -91,15 +87,11 @@
     <script>
 
         function verReunion(){
-
             openLoading();
-
             axios.post('/admin/informacion-ucp', {
             })
                 .then((response) => {
-
                     closeLoading();
-
                     if(response.data.success === 1){
 
                         Swal.fire({
@@ -113,7 +105,6 @@
                             confirmButtonText: 'Aceptar'
                         }).then((result) => {
                             if (result.isConfirmed) {
-
                             }
                         })
                     }
@@ -131,12 +122,9 @@
         }
 
         function abrirPanel(response){
-
             document.getElementById('tituloucp').innerHTML = response.data.titulo;
             document.getElementById('descripcionlink').innerHTML = response.data.descripcion;
-
             document.getElementById("myLink").href= response.data.urllink;
-
             $('#modalUCP').modal('show');
         }
 
@@ -151,6 +139,4 @@
         function closeLoading(){
             Swal.close();
         }
-
-
     </script>
