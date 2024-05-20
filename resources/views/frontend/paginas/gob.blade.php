@@ -43,7 +43,7 @@
 							<h2>Nuestro Gobierno</h2>
 							<div class="row">
 								<div class="col-md-12">		
-									<img src="{{ asset('images/historia/IMG_3743-01.jpeg') }}" alt="Alcalde y Consejo" class="img-responsive" width="900" ></p>
+									<!-- <img src="{{ asset('images/historia/IMG_3743-01.jpeg') }}" alt="Alcalde y Consejo" class="img-responsive" width="900" ></p>-->
 								</div>
 							</div>
 									<br>
@@ -55,69 +55,45 @@
 												<td>
 													<strong>Alcalde Municipal </strong>
 												</td>
-												<td><span>Israel Peraza Guerra</span></td>
+												<td><span>Carlos Adelso Landaverde Carpio</span></td>
 											</tr>
 											<tr>
 												<td>
 													<strong>Síndico</strong>
 												</td>
-												<td><span>David Rubén Deras</span></td>
+												<td><span>Roberto Emilio Quijano Jimenez</span></td>
 											</tr>
 											<tr>
 												<td><strong>1° Regidor Propietario</strong></td>
-												<td><span>Denis Edgardo Pacheco</span></td>
+												<td><span>Rene Edgardo Argueta Figueroa</span></td>
 											</tr>
 											<tr>
-												<td><strong>2° Regidor Propietaria</strong></td>
-												<td><span>Clelia Madelin Guevara</span></td>
+												<td><strong>2° Regidor Propietario</strong></td>
+												<td><span>José Misael Posadas Mejia</span></td>
 											</tr>
 											<tr>
-												<td><strong>3° Regidora Propietario</strong></td>
-												<td><span>Neftalí Rosales Peraza</span></td>
+												<td><strong>3° Regidor Propietario</strong></td>
+												<td><span>Mario Antonio Arriola Figueroa</span></td>
 											</tr>
 											<tr>
 												<td><strong>4° Regidor Propietario</strong></td>
-												<td><span>Adolfo Fajardo Landaverde</span></td>
-											</tr>
-											<tr>
-												<td><strong>5° Regidor Propietaria</strong></td>
-												<td><span>Mario Antonio Arriola</span></td>
-											</tr>
-											<tr>
-												<td><strong>6° Regidor Propietario</strong></td>
-												<td><span>Juan Ramón Ochoa</span></td>
-											</tr>
-											<tr>
-												<td><strong>7° Regidor Propietario</strong></td>
-												<td><span></span>Yanira Marlene Peraza</td>
-											</tr>
-											<tr>
-												<td><strong>8° Regidor Propietaria</strong></td>
-												<td><span>Ramón Alberto Calderón</span></td>
-											</tr>
-											<tr>
-												<td><strong>9° Regidor Propietario</strong></td>
-												<td><span>Daniel Antonio Salazar</span></td>
-											</tr>
-											<tr>
-												<td><strong>10° Regidor Propietario</strong></td>
-												<td><span>Kelvin Elias Ramos</span></td>
+												<td><span>Carlos Humberto Villanueva Osorio</span></td>
 											</tr>
 											<tr>
 												<td><strong>1° Regidor Suplente</strong></td>
-												<td><span>Blas Aldana Hernández</span></td>
+												<td><span>Adelaido Aguirre Acevedo</span></td>
 											</tr>
 											<tr>
 												<td><strong>2° Regidor Suplente</strong></td>
-												<td><span>Silvia Lorena Villafuerte</span></td>
+												<td><span>Noe Antonio Montejo Orellana</span></td>
 											</tr>
 											<tr>
 												<td><strong>3° Regidor Suplente</strong></td>
-												<td><span>Carlos Armando Sandoval</span></td>
+												<td><span>Clelia Madelin Guevara de Galdamez</span></td>
 											</tr>
 											<tr>
-												<td><strong>4° Regidor Suplente</strong></td>
-												<td><span>Bonifacio Antonio Martínez</span></td>
+												<td><strong>4° Regidora Suplente</strong></td>
+												<td><span>Bessy Magaly Marroquin de Rosales</span></td>
 											</tr>
 										</tbody>
 									</table>
