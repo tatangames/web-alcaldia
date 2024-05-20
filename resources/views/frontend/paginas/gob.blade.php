@@ -47,7 +47,7 @@
 								</div>
 							</div>
 									<br>
-									<p style="text-align: center;"><strong style="font-size: 20px;">NOMINA DE CONCEJALES 2021-2024</strong></p>
+									<p style="text-align: center;"><strong style="font-size: 20px;">NOMINA DE CONCEJALES 2024-2027</strong></p>
 
 									<table class="table table-hover table-bordered">
 										<tbody>
