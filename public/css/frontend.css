@@ -15952,8 +15952,8 @@ article {
       bottom: 0;
       content: '';
       width: 360%;
-      background: rgb(0,121,16); 
-      background: linear-gradient(90deg, rgba(0,121,16,1) 0%, rgba(69,145,100,1) 51%, rgba(3,74,32,1) 100%); }
+      background: #213F59; 
+    }
   .about-flex .about {
     text-align: right; }
     @media screen and (max-width: 768px) {
