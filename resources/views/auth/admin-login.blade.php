@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head><meta charset="euc-jp">
-<title>Alcaldia Metapan - Panel</title>
+<title>Santa Ana Norte - Panel</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -30,7 +30,7 @@
 							<img src="{{ asset('images/LOGO_2_-_copia.png') }}" width="100" height="130px" srcset="">
 						</div>
 					</div>
-					<h3 style="position: relative; top: -10px;">Alcald&iacute;a Municipal</h3>
+					<h3 style="position: relative; top: -10px;">Municipio de Santa Ana Norte</h3>
 				</div>
 				<div class="card-body" >
 				<form class=" validate-form">
