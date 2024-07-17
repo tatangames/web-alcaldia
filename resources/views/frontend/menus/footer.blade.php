@@ -53,7 +53,7 @@
 					<script>
 						document.write(new Date().getFullYear());
 					</script> Todos los derechos reservados |
-					Alcald&iacute;a Municipal de Santa Ana Norte, El Salvador.
+					Municipio de Santa Ana Norte, El Salvador.
 				</p>
 			</div>
 		</div>
